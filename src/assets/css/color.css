@@ -1,0 +1,35 @@
+:root {
+    --info: #17b3f1;
+    --info-dark-light: #105da5;
+    --info-icon-text: #24bae1;
+    --info-dark: #334680;
+    --info-light: #e4f9fd;
+    --info-x-light: #e7f6fc;
+    --black: #202124;
+    --danger: #fd3b32;
+    --danger-dark: #f91c4d;
+    --danger-light: #ffdbd9;
+    --success-light: #e5faf5;
+    --success: #2da562;
+    --success-dark: #2da562;
+    --muted: #65676B;
+    --muted-light-dark-text: #B5B5C3;
+    --muted-light: #d2dae6;
+    --warning: #ffa515;
+    --warning-dark: #ffb60d;
+    --warning-light: #fff2b1;
+    --white: #FFFFFF;
+    --white-x-dark: #b2bfcc;
+    --white-dark: #fafcfe;
+    --muted-extra-light: #eaeaec;
+    --dashboard-menu: #edf2f9;
+    --indigo: #563d7c;
+    --info-badge-bg: #e4f7fd;
+    --info-badge-text: #36b5f3;
+    --bg: rgb(0, 69, 91);
+    --logo-color-danger: rgb(252,51,56,255);
+    --logo-color-warning: rgb(255,173,17,255);
+    --logo-color-blue: rgb(20,105,170,255);
+    --background-color: #f0f2f5;
+    --top-header-bg: rgb(46, 63, 80);
+}

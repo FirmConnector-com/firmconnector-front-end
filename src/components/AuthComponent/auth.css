@@ -1,0 +1,9 @@
+.auth-wrapper{
+    display: flex;
+    background-color: var(--info-x-light);
+}
+
+.login-page-lg-image{
+    width: 80%;
+    height: 20rem;
+}

@@ -1,0 +1,64 @@
+{
+  "name": "firmconnector",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@dabeng/react-orgchart": "^1.0.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.22.0",
+    "bootstrap": "5.0.2",
+    "chart.js": "^3.5.0",
+    "jquery": "^3.6.0",
+    "moment": "^2.29.1",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.6.1",
+    "react-chartjs-2": "^3.0.4",
+    "react-d3-tree": "^3.3.2",
+    "react-datepicker": "^4.6.0",
+    "react-dom": "^17.0.2",
+    "react-feather": "^2.0.9",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.2.0",
+    "react-minimal-pie-chart": "^8.2.0",
+    "react-player": "^2.10.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-tooltip": "^4.2.21",
+    "sweetalert2": "^11.1.7",
+    "sweetalert2-react-content": "^4.1.1",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts --max_old_space_size=4096 start",
+    "build": "react-scripts --max_old_space_size=4096 build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "prod": "npm run-script build && serve build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^4.1.0"
+  }
+}

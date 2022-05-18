@@ -1,0 +1,6 @@
+.static-page-header{
+    position: relative;
+    background-image: url('./../../assets/images/home_banner_bd.svg');
+    background-position: center;
+    background-size: cover;
+}

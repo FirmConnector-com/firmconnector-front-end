@@ -1,0 +1,12 @@
+.badge-custom{
+    border-radius: 1rem;
+    padding: 0.16rem 1.3rem;
+}
+
+.badge-success{
+    background-color: var(--success-dark);
+}
+
+.badge-success > span {
+    color: var(--white);
+}

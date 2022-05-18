@@ -1,0 +1,10 @@
+import color.css
+
+body {
+    margin: 0px;
+    color: var(--black);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: rgb(244, 245, 247);
+}

@@ -1,0 +1,13 @@
+.top-banner{
+    position: relative;
+    background-image: url('./../../assets/images/home_banner_bd.svg');
+    background-position: left;
+    background-size: cover;
+}
+
+.third-block{
+    position: relative;
+    background-image: url('./../../assets/images/home_banner_bd.svg');
+    background-position: center;
+    background-size: cover;
+}

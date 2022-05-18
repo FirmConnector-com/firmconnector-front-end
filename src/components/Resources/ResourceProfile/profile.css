@@ -1,0 +1,163 @@
+.profile-img-lg-holder{
+    display: flex;
+    height: 7rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img-lg{
+    width: 6rem;
+    height: 6rem;
+    background-color: var(--muted-light);
+    border-radius: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-name-lg-holder{
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.role-lg-holder{
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.address-lg-holder{
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-bio-lg-holder{
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-info-block-holder{
+    display: block
+}
+
+.general-info-block{
+    display: flex;
+    height: 1.5rem;
+}
+
+.info-icon-holder{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 1rem;
+}
+
+.profile-bio-holder-card{
+    width: 100%;
+    height: 13rem;
+    overflow-y: auto;
+    background-color: var(--muted-light);
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.document-box-sm{
+    background-color: var(--white);
+    border: 0.02rem solid var(--black);
+    border-radius: 0.3rem;
+}
+
+.skill-holder{
+    height: 13.8rem;
+    overflow-y:hidden;
+    display: flex;
+}
+
+.skill-wrapper{
+    padding: 0.15rem 1.2rem;
+    background-color: var(--success-dark);
+    align-self: flex-start;
+    border-radius: 1rem;
+    width: auto;
+}
+
+.skill-wrapper > span{
+    color: var(--white);
+}
+
+.skill-wrapper-muted{
+    padding: 0.15rem 1.2rem;
+    background-color: var(--muted-extra-light);
+    align-self: flex-start;
+    border-radius: 0.2rem;
+    width: auto;
+}
+
+.skill-wrapper-muted > span{
+    color: var(--black);
+}
+
+.profile-tab-container{
+    background-color: var(--white);
+    border-radius: 0.2rem;
+    display: flex;
+    overflow-x:auto;
+}
+
+.profile-tab{
+    background-color: var(--background-color);
+    padding: 0.5rem 1rem;
+    border-radius: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.profile-tab-selected{
+    background-color: var(--info);
+    padding: 0.5rem 1rem;
+    border-radius: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.profile-tab-selected > span {
+    color: var(--white);
+}
+
+.top-card-section{
+    height: 21.2rem;
+}
+
+.docuament-box-holder{
+    height: 20rem;
+}
+
+.document-holder-inner{
+    height: 12.8rem;
+    overflow-y: hidden;
+}
+
+.firm-logo-lg{
+    width: 10rem;
+    height: 5rem;
+}
+
+.firm-logo-lg img{
+    width: 10rem;
+    height: auto !important;
+}
+
+.profile-tab-section{
+    min-height: 20rem;
+}
