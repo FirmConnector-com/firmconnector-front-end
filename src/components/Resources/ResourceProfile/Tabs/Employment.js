@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import EmploymentContent from "../../CommonComponents/EmploymentContent";
 
 const Employment = (props) => {
-  const { employmentDetails } = props;
+  const { employmentDetails, displayView } = props;
   const [employmentArray, setEmploymentArray] = useState(false);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const Employment = (props) => {
       <div key={key} className="col-12 mb-3">
         <div className="card-custom">
           <div className="card-body">
-            <EmploymentContent employmentDetails={employment} />
+            <EmploymentContent employmentDetails={employment} displayView={displayView}/>
           </div>
         </div>
       </div>

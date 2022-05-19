@@ -3,7 +3,7 @@ import { BadgeSuccess } from "../../Badge/Badge";
 import IconContainer from "../../Iconcontainer/IconContainerSm";
 
 const EmploymentContent = (props) => {
-  const { employmentDetails } = props;
+  const { employmentDetails, displayView } = props;
 
   const jobTitle = (job_title) => {
     if (job_title !== null) {
@@ -83,15 +83,17 @@ const EmploymentContent = (props) => {
   const displayEmployementContent = (employment) => {
     return (
       <div className="d-block">
-        <div className="d-block">{employerName(employment.employer_name)}</div>
+          {displayView !== 'client' && <div className="d-block">{employerName(employment.employer_name)}</div>}
         <div className="d-block">{jobTitle(employment.job_title)}</div>
-        <div className="d-block">
-          {displayLocation(
-            employment.city,
-            employment.province,
-            employment.country_code
-          )}
-        </div>
+         { displayView !== 'client' &&
+              <div className="d-block">
+                  {displayLocation(
+                    employment.city,
+                    employment.province,
+                    employment.country_code
+                  )}
+             </div>
+         }
       </div>
     );
   };
