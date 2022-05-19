@@ -22,7 +22,7 @@ const LeftMenuComponent = () => {
 
   const checkResourceTextDisplay = () => {
     if (firm_details) {
-      if (firm_details.firm_type === 1) {
+      if (firm_details?.firm_type === 1) {
         return (
           <Link to="/resources">
             <div className="my-3 d-flex align-items-center">
@@ -134,7 +134,7 @@ const LeftMenuComponent = () => {
             </Link>
 
             {
-              firm_details.firm_type !== 1 &&
+              firm_details?.firm_type !== 1 &&
                 <Link to="/organization-structure">
                   <div className="my-3 d-flex align-items-center">
                     <div className="sm-block animated-hover bg-muted-custom">
