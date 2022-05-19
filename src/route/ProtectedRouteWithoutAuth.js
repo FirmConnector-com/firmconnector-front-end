@@ -9,7 +9,7 @@ function ProtectedRouteWithoutAuth({ component: Component, ...rest }) {
     <Route
       {...rest}
       render={(props) =>
-        !isLoggedIn ? <Component {...props} /> : <Redirect to="/dashboard" />
+        !isLoggedIn ? <Component {...props} /> : <Redirect to="/search" />
       }
     />
   );

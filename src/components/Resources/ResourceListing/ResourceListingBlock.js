@@ -24,7 +24,7 @@ const ResourceListingBlock = () => {
         return (
           <Link to="/resources">
             <Button variant="warning" size="sm">
-              My Team
+              My Candidates
             </Button>
           </Link>
         );
@@ -69,9 +69,9 @@ const ResourceListingBlock = () => {
       <div className="d-block mb-3">
         <BlockHeader
           title={"Access Control"}
-          subText={
+          /*subText={
             "The resource listing showing results on which you have access"
-          }
+          }*/
         />
 
         <div className="row">

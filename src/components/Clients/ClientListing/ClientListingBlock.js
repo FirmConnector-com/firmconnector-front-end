@@ -23,7 +23,7 @@ const ClientListingBlock = () => {
         return (
           <Link to="/resources">
             <Button variant="light" size="sm">
-              My Team
+              My Candidates
             </Button>
           </Link>
         );
@@ -35,10 +35,10 @@ const ClientListingBlock = () => {
     <>
       <div className="d-block mb-3">
         <BlockHeader
-          title={"My Clients"}
-          subText={
+          title={"Access Control"}
+          /*subText={
             "The client listing showing results on which you have access"
-          }
+          }*/
         />
         <div className="row">
           <div className="col-6">

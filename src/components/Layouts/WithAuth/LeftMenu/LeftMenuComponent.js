@@ -58,7 +58,7 @@ const LeftMenuComponent = () => {
                       : "text-white-custom"
                   }
                 >
-                  My Team
+                  My Candidates
                 </span>
               </div>
             </div>
@@ -89,7 +89,7 @@ const LeftMenuComponent = () => {
         </div>
         <div className="offcanvas-body">
           <div className="left-menu-nav-wrapper">
-            <Link to="/dashboard">
+            {/*<Link to="/dashboard">
               <div className="my-3 d-flex align-items-center">
                 <div className="sm-block animated-hover bg-muted-custom">
                   <IconContainer
@@ -109,7 +109,7 @@ const LeftMenuComponent = () => {
                   </span>
                 </div>
               </div>
-            </Link>
+            </Link>*/}
 
             <Link to="/search">
               <div className="my-3 d-flex align-items-center">
@@ -133,27 +133,30 @@ const LeftMenuComponent = () => {
               </div>
             </Link>
 
-            <Link to="/organization-structure">
-              <div className="my-3 d-flex align-items-center">
-                <div className="sm-block animated-hover bg-muted-custom">
-                  <IconContainer
-                    iconName={"FiGitPullRequest"}
-                    color={"var(--warning)"}
-                  />
-                </div>
-                <div className="ms-3">
+            {
+              firm_details.firm_type !== 1 &&
+                <Link to="/organization-structure">
+                  <div className="my-3 d-flex align-items-center">
+                    <div className="sm-block animated-hover bg-muted-custom">
+                      <IconContainer
+                          iconName={"FiGitPullRequest"}
+                          color={"var(--warning)"}
+                      />
+                    </div>
+                    <div className="ms-3">
                   <span
-                    className={
-                      activeRoute === "/organization-structure"
-                        ? "text-white-custom fw-bold"
-                        : "text-white-custom"
-                    }
+                      className={
+                        activeRoute === "/organization-structure"
+                            ? "text-white-custom fw-bold"
+                            : "text-white-custom"
+                      }
                   >
                     Org Chart
                   </span>
-                </div>
-              </div>
-            </Link>
+                    </div>
+                  </div>
+                </Link>
+            }
 
             {checkResourceTextDisplay()}
 
