@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 const ResourceProfile = (props) => {
   const { resourceSlug } = props;
+
   const { userDetails } = useAuthContext();
   const user_slug = JSON.parse(userDetails).user_slug;
 

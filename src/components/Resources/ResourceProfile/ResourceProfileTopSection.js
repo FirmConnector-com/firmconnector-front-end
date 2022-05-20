@@ -9,6 +9,8 @@ import "./profile.css";
 const ResourceProfileTopSection = (props) => {
   const { displayView, resourceDetails } = props;
 
+
+
   useEffect(() => {}, [resourceDetails]);
 
   return (

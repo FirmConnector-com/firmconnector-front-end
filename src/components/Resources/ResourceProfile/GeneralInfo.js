@@ -12,6 +12,8 @@ import { FIRM_IMAGE_BASE } from "../../../config/env";
 const GeneralInfo = (props) => {
   const { displayView, contactDetails, resourceDetails } = props;
   const [isProfileLoading, setIsProfileLoading] = useState(true);
+  const[inquiry, setInquiry] = useState("")
+  console.log(resourceDetails, contactDetails)
 
   useEffect(() => {
     setIsProfileLoading(false);
@@ -124,23 +126,33 @@ const GeneralInfo = (props) => {
       }
     }
   };
+  const changehandler = (e) => {
+    setInquiry(e.target.value)
+
+  }
+
+  const handleData = (e) => {
+    e.preventDefault()
+    console.log(inquiry)
+  }
 
   const inquireView = () => {
     return (
       <div className="profile-info-block-holder">
-        <form className="g-3">
+        <form className="g-3" onSubmit={handleData}>
           <div className="mb-2">
             <textarea
               className="form-control"
               id="inquire-text"
               rows="3"
               placeholder="Ask a question to their recruiter"
+              onChange={changehandler}
             ></textarea>
           </div>
 
           <div>
             <div className="d-flex justify-content-end">
-              <button type="button" className="btn-custom btn-primary-custom">
+              <button type="submit" className="btn-custom btn-primary-custom">
                 Submit
               </button>
             </div>

@@ -32,6 +32,7 @@ const ResourceListingResultBlock = () => {
   const getResourceListing = () => {
     Promise.all([getMyResourceListing(user_slug)])
       .then(async ([data]) => {
+        console.log(data?.data?.resourceList)
         if (data?.data?.status === 1) {
           if (data?.data?.resourceList) {
             setResourceListing(data?.data?.resourceList);

@@ -10,6 +10,7 @@ const SelectOrganizationComponent = () => {
   const [displayBlock, setDisplayBlock] = useState(1);
 
   const changeBlockView = (val) => {
+
     setDisplayBlock(val);
   };
 
