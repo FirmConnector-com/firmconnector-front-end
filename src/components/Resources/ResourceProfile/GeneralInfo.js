@@ -9,10 +9,16 @@ import user from "../../../assets/images/user.svg";
 
 import { FIRM_IMAGE_BASE } from "../../../config/env";
 
+import emailjs, { init } from "@emailjs/browser";
+
 const GeneralInfo = (props) => {
   const { displayView, contactDetails, resourceDetails } = props;
   const [isProfileLoading, setIsProfileLoading] = useState(true);
-  const[inquiry, setInquiry] = useState("")
+  const[inquiry, setInquiry] = useState("");
+
+  useEffect(() => {
+    init("RJeAhiPxk5_q0SXcN");
+  }, []);
 
   useEffect(() => {
     setIsProfileLoading(false);
@@ -131,8 +137,30 @@ const GeneralInfo = (props) => {
   }
 
   const handleData = (e) => {
-    e.preventDefault()
 
+
+    e.preventDefault()
+    try {
+      const client = localStorage.getItem("loggedinUserDetails")
+      let clientData = JSON.parse(client)
+      let templateParams = {
+        client_Name: clientData?.first_name+ " " +clientData?.last_name,
+        client_firstName: clientData?.first_name,
+        client_lastName: clientData?.last_name,
+        candidate_role_title: resourceDetails?.user_profile_role,
+        client_email: clientData?.user_email,
+        from_to : resourceDetails?.user_email,
+        message: inquiry
+      }
+
+      emailjs.send("service_c1h7u0k", "template_kpcw2xg", templateParams , "RJeAhiPxk5_q0SXcN")
+          .then((result) => {
+            alert("Message Sent Successfully");
+          }, (error) => console.log(error.text)
+      );
+    } catch (e) {
+      console.log("oops!.Error during mail sending", e)
+    }
   }
 
   const inquireView = () => {
