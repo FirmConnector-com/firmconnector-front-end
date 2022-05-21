@@ -36,6 +36,16 @@ const ProfileInfoTabSection = (props) => {
           >
             <span className="fw-medium-custom">Summary</span>
           </div>
+          {displayView === "client" ? <div
+              className={`cursor-pointer my-2 mx-2 ${
+                  selectedTab === "employment"
+                      ? "profile-tab-selected"
+                      : "profile-tab"
+              }`}
+              onClick={() => handleTabChange("employment")}
+          >
+            <span className="fw-medium-custom">Experience</span>
+          </div> : null }
           {displayView === "default" ? (
             <>
               <div

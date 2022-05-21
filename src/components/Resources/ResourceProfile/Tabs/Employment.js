@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import EmploymentContent from "../../CommonComponents/EmploymentContent";
 
 const Employment = (props) => {
+
   const { employmentDetails, displayView } = props;
   const [employmentArray, setEmploymentArray] = useState(false);
 
