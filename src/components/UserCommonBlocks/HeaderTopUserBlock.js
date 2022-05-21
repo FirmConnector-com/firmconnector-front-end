@@ -16,7 +16,7 @@ const HeaderTopUserBlock = (props) => {
   };
 
   return (
-    <Link to={"dashboard"}>
+    <Link to={"search"}>
       <div className="d-flex align-items-center">
         <div className="d-block me-2">
           <span className="text-white">{displayProfileName()}</span>

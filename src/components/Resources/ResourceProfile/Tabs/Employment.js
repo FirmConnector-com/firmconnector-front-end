@@ -8,7 +8,8 @@ const Employment = (props) => {
 
   useEffect(() => {
     if (employmentDetails) {
-      console.log(employmentDetails);
+
+
       setEmploymentArray(employmentDetails);
     }
   }, [employmentDetails]);

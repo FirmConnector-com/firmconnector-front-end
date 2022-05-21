@@ -13,7 +13,6 @@ const GeneralInfo = (props) => {
   const { displayView, contactDetails, resourceDetails } = props;
   const [isProfileLoading, setIsProfileLoading] = useState(true);
   const[inquiry, setInquiry] = useState("")
-  console.log(resourceDetails, contactDetails)
 
   useEffect(() => {
     setIsProfileLoading(false);
@@ -133,7 +132,7 @@ const GeneralInfo = (props) => {
 
   const handleData = (e) => {
     e.preventDefault()
-    console.log(inquiry)
+
   }
 
   const inquireView = () => {
