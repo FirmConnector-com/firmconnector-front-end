@@ -153,7 +153,7 @@ const GeneralInfo = (props) => {
         message: inquiry
       }
 
-      emailjs.send("service_c1h7u0k", "template_kpcw2xg", templateParams , "RJeAhiPxk5_q0SXcN")
+      emailjs.send("service_ipdiryl", "template_wclg2sf", templateParams , "5jIvmb8qNtHaO73Nm")
           .then((result) => {
             alert("Message Sent Successfully");
           }, (error) => console.log(error.text)
