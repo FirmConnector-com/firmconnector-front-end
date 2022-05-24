@@ -108,7 +108,7 @@ const SelectOrganizationComponent = () => {
                 width="100%"
                 stopOnUnmount={true}
                 controls={false}
-                playing={displayBlock === 1}
+
               />
             </div>
             <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">
@@ -146,7 +146,8 @@ const SelectOrganizationComponent = () => {
                 url="https://youtu.be/ROfdeyQ3AFg"
                 width="100%"
                 stopOnUnmount={true}
-                playing={displayBlock === 2}
+                control={false}
+
                 autoPlay={false}
               />
             </div>
@@ -182,8 +183,9 @@ const SelectOrganizationComponent = () => {
               <ReactPlayer
                 url="https://youtu.be/X-yGkmDWY8Y"
                 width="100%"
+                control={false}
                 stopOnUnmount={true}
-                playing={displayBlock === 3}
+                // playing={displayBlock === 3}
               />
             </div>
             <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">
