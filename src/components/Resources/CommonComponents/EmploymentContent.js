@@ -119,7 +119,7 @@ const EmploymentContent = (props) => {
         </div>
       </div>
       <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center my-4">
-        {displayDiscription(employmentDetails.description)}
+        <span className="p-wrap">{displayDiscription(employmentDetails.description)}</span>
       </div>
     </>
   );
