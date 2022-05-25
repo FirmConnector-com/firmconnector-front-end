@@ -1,18 +1,59 @@
-import React, { useState } from "react";
+import React, {useState, useRef, useEffect} from "react";
 
 import enterprise_companies from "../../assets/images/enterprise_companies.svg";
 import professional_services_firms from "../../assets/images/professional_services_firms.svg";
 import staffing_firms from "../../assets/images/staffing_firms.svg";
 import ReactPlayer from "react-player/youtube";
 import Button from "react-bootstrap/Button";
+import { useScrollBy } from "react-use-window-scroll";
+
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
 
 const SelectOrganizationComponent = () => {
-  const [displayBlock, setDisplayBlock] = useState(1);
+  const [displayBlock, setDisplayBlock] = useState(0);
+  const scrollBy = useScrollBy();
+  const myRefToProffesional = useRef()
+  const myRefToEnterprise = useRef()
+  const myRefToStaff = useRef()
+
+
 
   const changeBlockView = (val) => {
-
     setDisplayBlock(val);
   };
+
+  useEffect(()=> {
+    if(displayBlock == 1){
+      myRefToEnterprise.current.scrollIntoView()
+    }else if(displayBlock == 2){
+      myRefToProffesional.current.scrollIntoView()
+    } else if( displayBlock == 3){
+      myRefToStaff.current.scrollIntoView()
+    }
+  }, [displayBlock])
+
+  const handleScrollProff = (e) => {
+    e.preventDefault();
+    console.log(displayBlock)
+    if(myRefToEnterprise.current){
+      myRefToEnterprise.current.scrollIntoView()
+    };
+  }
+
+  const handleScrollToEnterprise = (e) => {
+    e.preventDefault();
+    if(myRefToProffesional.current){
+      myRefToProffesional.current.scrollIntoView()
+    }
+  }
+
+  const handleScrollToStaff = (e) => {
+    e.preventDefault();
+    if(myRefToStaff.current){
+      // scrollToRef(myRefToStaff);
+      myRefToStaff.current.scrollIntoView()
+    }
+  }
 
   return (
     <div className="album py-5">
@@ -43,7 +84,10 @@ const SelectOrganizationComponent = () => {
                   <Button
                     variant="light"
                     size="sm"
-                    onClick={() => changeBlockView(1)}
+                    onClick={(e) => {
+                      changeBlockView(1);
+                      handleScrollToEnterprise(e);
+                    }}
                   >
                     Learn more
                   </Button>
@@ -68,7 +112,10 @@ const SelectOrganizationComponent = () => {
                   <Button
                     variant="light"
                     size="sm"
-                    onClick={() => changeBlockView(2)}
+                    onClick={(e) => {
+                      changeBlockView(2)
+                      handleScrollProff(e);
+                    }}
                   >
                     Learn more
                   </Button>
@@ -87,7 +134,10 @@ const SelectOrganizationComponent = () => {
                   <Button
                     variant="light"
                     size="sm"
-                    onClick={() => changeBlockView(3)}
+                    onClick={(e) => {
+                      changeBlockView(3);
+                      handleScrollToStaff(e);
+                    }}
                   >
                     Learn more
                   </Button>
@@ -99,7 +149,8 @@ const SelectOrganizationComponent = () => {
       </div>
       <div className="d-block my-5">
         <div
-          className={`container ${displayBlock === 1 ? "d-block" : "d-none"}`}
+          className={`container ${displayBlock === 1 || displayBlock === 0 ? "d-block" : "d-none"}`}
+          ref={myRefToEnterprise}
         >
           <div className="row">
             <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">
@@ -139,9 +190,10 @@ const SelectOrganizationComponent = () => {
         </div>
         <div
           className={`container ${displayBlock === 2 ? "d-block" : "d-none"}`}
+          ref={myRefToProffesional}
         >
           <div className="row">
-            <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">
+            <div  className="col-12 col-lg-6 col-xl-6 col-xxl-6">
               <ReactPlayer
                 url="https://youtu.be/ROfdeyQ3AFg"
                 width="100%"
@@ -177,6 +229,7 @@ const SelectOrganizationComponent = () => {
         </div>
         <div
           className={`container ${displayBlock === 3 ? "d-block" : "d-none"}`}
+          ref={myRefToStaff}
         >
           <div className="row">
             <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">

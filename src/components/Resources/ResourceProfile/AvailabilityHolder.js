@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 import { PieChart } from "react-minimal-pie-chart";
+import useWindowSize from "./WindowSize";
 
 const AvailabilityHolder = (props) => {
   const { availabilityDetails } = props;
   const [isLoading, setIsLoading] = useState(true);
+  const windowSize = useWindowSize();
 
   useEffect(() => {
     setIsLoading(false);
@@ -17,6 +19,7 @@ const AvailabilityHolder = (props) => {
       return renderAvailability();
     }
   };
+
 
   const renderAvailability = () => {
     if (availabilityDetails !== null && availabilityDetails) {
@@ -34,6 +37,7 @@ const AvailabilityHolder = (props) => {
       }
       return (
         <>
+            {windowSize.width < 767 ? (
           <PieChart
             animate={true}
             animationDuration={500}
@@ -50,11 +54,32 @@ const AvailabilityHolder = (props) => {
             lengthAngle={360}
             lineWidth={30}
             paddingAngle={0}
-            radius={50}
+            radius={25}
             startAngle={90}
             viewBoxSize={[100, 100]}
             background={"#ccc"}
-          />
+          />) :  (
+                <PieChart
+                    animate={true}
+                    animationDuration={500}
+                    animationEasing="ease-out"
+                    center={[50, 50]}
+                    totalValue={40}
+                    data={[
+                      {
+                        color: chartColor,
+                        value: parseInt(availabilityDetails.availability),
+                      },
+                    ]}
+                    labelPosition={50}
+                    lengthAngle={360}
+                    lineWidth={30}
+                    paddingAngle={0}
+                    radius={50}
+                    startAngle={90}
+                    viewBoxSize={[100, 100]}
+                    background={"#ccc"}
+                />)}
         </>
       );
     } else {

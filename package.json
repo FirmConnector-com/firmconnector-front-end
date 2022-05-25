@@ -31,8 +31,10 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-tooltip": "^4.2.21",
+    "react-use-window-scroll": "^1.0.14",
     "sweetalert2": "^11.1.7",
     "sweetalert2-react-content": "^4.1.1",
+    "use-ssr": "^1.0.24",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
