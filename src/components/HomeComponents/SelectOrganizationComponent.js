@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import enterprise_companies from "../../assets/images/enterprise_companies.svg";
 import professional_services_firms from "../../assets/images/professional_services_firms.svg";
@@ -7,12 +7,21 @@ import ReactPlayer from "react-player/youtube";
 import Button from "react-bootstrap/Button";
 
 const SelectOrganizationComponent = () => {
-  const [displayBlock, setDisplayBlock] = useState(1);
+  const [displayBlock, setDisplayBlock] = useState(0);
+  const scrollRef = useRef(null);
 
   const changeBlockView = (val) => {
-
     setDisplayBlock(val);
   };
+
+  useEffect(() => {
+    if (displayBlock > 0) {
+      window.scrollTo({
+        top: scrollRef.current.offsetTop - 80,
+        behavior: "smooth",
+      });
+    }
+  }, [displayBlock]);
 
   return (
     <div className="album py-5">
@@ -97,9 +106,11 @@ const SelectOrganizationComponent = () => {
           </div>
         </div>
       </div>
-      <div className="d-block my-5">
+      <div className="d-block my-5" ref={scrollRef}>
         <div
-          className={`container ${displayBlock === 1 ? "d-block" : "d-none"}`}
+          className={`container ${
+            displayBlock === 1 || displayBlock === 0 ? "d-block" : "d-none"
+          }`}
         >
           <div className="row">
             <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">
@@ -108,7 +119,6 @@ const SelectOrganizationComponent = () => {
                 width="100%"
                 stopOnUnmount={true}
                 controls={false}
-
               />
             </div>
             <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">
@@ -147,7 +157,6 @@ const SelectOrganizationComponent = () => {
                 width="100%"
                 stopOnUnmount={true}
                 control={false}
-
                 autoPlay={false}
               />
             </div>
