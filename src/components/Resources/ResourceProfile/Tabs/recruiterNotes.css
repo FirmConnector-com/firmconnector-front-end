@@ -1,0 +1,31 @@
+.notes-header {
+    display: inline-block;
+}
+
+.notes-title {
+    marginTop: 0px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.notes-btn-add {
+    display: flex;
+    justify-content: right;
+    margin-bottom: 1rem;
+}
+
+.notes-message {
+    margin: 0px;
+    font-size: 12px;
+}
+
+.notes-name {
+    margin: 0px;
+    font-size: 12px;
+    justify-content: right;
+    display: flex;
+}
+
+.notes-btn-edit {
+    margin-right: 8px;
+}

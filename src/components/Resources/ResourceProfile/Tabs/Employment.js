@@ -2,15 +2,17 @@ import React, { useState, useEffect } from "react";
 import EmploymentContent from "../../CommonComponents/EmploymentContent";
 
 const Employment = (props) => {
-
   const { employmentDetails, displayView } = props;
   const [employmentArray, setEmploymentArray] = useState(false);
 
   useEffect(() => {
     if (employmentDetails) {
-
-
-      setEmploymentArray(employmentDetails);
+      const sortedDetails = employmentDetails.sort((a, b) => {
+        const date1 = new Date(a?.start_date);
+        const date2 = new Date(b?.start_date);
+        return date2 - date1;
+      });
+      setEmploymentArray(sortedDetails);
     }
   }, [employmentDetails]);
 
@@ -35,7 +37,10 @@ const Employment = (props) => {
       <div key={key} className="col-12 mb-3">
         <div className="card-custom">
           <div className="card-body">
-            <EmploymentContent employmentDetails={employment} displayView={displayView}/>
+            <EmploymentContent
+              employmentDetails={employment}
+              displayView={displayView}
+            />
           </div>
         </div>
       </div>

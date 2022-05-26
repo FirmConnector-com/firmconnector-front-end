@@ -106,10 +106,7 @@ const EmploymentContent = (props) => {
         </div>
         {displayEmployementContent(employmentDetails)}
       </div>
-      <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center my-4">
-        {displayDiscription(employmentDetails.description)}
-      </div>
-      <div className="d-flex justify-content-start">
+      <div className="d-flex justify-content-start mt-2">
         <div className="d-flex bg-light rounded-pill p-2 align-items-center">
           <div className="d-block me-2">
             <IconContainer iconName={"FiCalendar"} color="var(--warning)" />
@@ -120,6 +117,9 @@ const EmploymentContent = (props) => {
             employmentDetails.is_current
           )}
         </div>
+      </div>
+      <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center my-4">
+        <span className="p-wrap">{displayDiscription(employmentDetails.description)}</span>
       </div>
     </>
   );

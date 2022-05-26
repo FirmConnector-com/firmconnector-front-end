@@ -20,7 +20,6 @@ const AvailabilityHolder = (props) => {
     }
   };
 
-
   const renderAvailability = () => {
     if (availabilityDetails !== null && availabilityDetails) {
       var chartColor = "#DC143C";
@@ -36,51 +35,31 @@ const AvailabilityHolder = (props) => {
         chartColor = "#32CD32";
       }
       return (
-        <>
-            {windowSize.width < 767 ? (
-          <PieChart
-            animate={true}
-            animationDuration={500}
-            animationEasing="ease-out"
-            center={[50, 50]}
-            totalValue={40}
-            data={[
-              {
-                color: chartColor,
-                value: parseInt(availabilityDetails.availability),
-              },
-            ]}
-            labelPosition={50}
-            lengthAngle={360}
-            lineWidth={30}
-            paddingAngle={0}
-            radius={25}
-            startAngle={90}
-            viewBoxSize={[100, 100]}
-            background={"#ccc"}
-          />) :  (
-                <PieChart
-                    animate={true}
-                    animationDuration={500}
-                    animationEasing="ease-out"
-                    center={[50, 50]}
-                    totalValue={40}
-                    data={[
-                      {
-                        color: chartColor,
-                        value: parseInt(availabilityDetails.availability),
-                      },
-                    ]}
-                    labelPosition={50}
-                    lengthAngle={360}
-                    lineWidth={30}
-                    paddingAngle={0}
-                    radius={50}
-                    startAngle={90}
-                    viewBoxSize={[100, 100]}
-                    background={"#ccc"}
-                />)}
-        </>
+        <PieChart
+          animate={true}
+          animationDuration={500}
+          animationEasing="ease-out"
+          center={windowSize.width < 767 ? [25, 25] : [50, 50]}
+          totalValue={40}
+          data={[
+            {
+              color: chartColor,
+              value: parseInt(availabilityDetails.availability),
+            },
+          ]}
+          labelPosition={50}
+          lengthAngle={360}
+          lineWidth={30}
+          paddingAngle={0}
+          radius={windowSize.width < 767 ? 24 : 50}
+          startAngle={90}
+          viewBoxSize={windowSize.width < 767 ? [50, 50] : [100, 100]}
+          background={"#ccc"}
+          style={{
+            alignSelf: "center",
+            width: windowSize.width < 767 ? "60%" : "100%",
+          }}
+        />
       );
     } else {
       return <span className="text-muted">Nothing to display here!</span>;

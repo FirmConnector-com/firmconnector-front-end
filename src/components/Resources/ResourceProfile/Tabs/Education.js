@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from "react";
 
+
 const Education = (props) => {
   const { educationDetails } = props;
   const [educationArray, setEducationArray] = useState(false);
 
   useEffect(() => {
     if (educationDetails) {
-      setEducationArray(educationDetails);
+      const sortedDetails = educationDetails.sort((a, b) => {
+        const date1 = new Date(a?.passed_on);
+        const date2 = new Date(b?.passed_on);
+        return date2 - date1;
+      });
+      console.log(sortedDetails)
+      
+      setEducationArray(sortedDetails);
     }
   }, [educationDetails]);
 
