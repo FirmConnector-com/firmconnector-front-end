@@ -118,7 +118,7 @@ const SearchResultBlock = (props) => {
       if (ownFirm.firm_id === item.firm_id) {
         return (
           <div className="d-block">
-            <span className="h6 fw-bold-custom text-warning-custom">
+            <span className="h6 fw-bold-custom text-info-custom">
               {item.resource_name}
             </span>
           </div>
@@ -126,8 +126,8 @@ const SearchResultBlock = (props) => {
       } else {
         return (
           <div className="d-block">
-            <span className="h6 fw-bold-custom text-muted-light-custom">
-              Name not available
+            <span className="h6 fw-bold-custom text-info-custom">
+              Name Withheld
             </span>
           </div>
         );
@@ -135,8 +135,8 @@ const SearchResultBlock = (props) => {
     } else {
       return (
         <div className="d-block">
-          <span className="h6 fw-bold-custom text-muted-light-custom">
-            Name not available
+          <span className="h6 fw-bold-custom text-info-custom">
+            Name Withheld
           </span>
         </div>
       );
@@ -311,7 +311,7 @@ const SearchResultBlock = (props) => {
         <>
           {searchResult.map((item, index) => {
             return (
-              <Link target="_blank" to={"resources/details/" + item.user_slug}>
+              <Link to={"resources/details/" + item.user_slug}>
                 <div key={index.toString()} className="card-custom p-3 mb-3">
                   <div className="card-body-custom">
                     <div className="d-flex row mb-4">
