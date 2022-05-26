@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+
 const Education = (props) => {
   const { educationDetails } = props;
   const [educationArray, setEducationArray] = useState(false);
