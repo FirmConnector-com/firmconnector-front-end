@@ -106,10 +106,7 @@ const ResourceEmploymentBlock = (props) => {
       errMessage.push("Enter job title");
     }
 
-    if (jobType !== 1 && jobType !== 2) {
-      isInvalid = 1;
-      errMessage.push("Select your job type");
-    }
+
 
     if (!moment(startDate, "YYYY-MM-DD").isValid()) {
       isInvalid = 1;
@@ -133,20 +130,7 @@ const ResourceEmploymentBlock = (props) => {
       errMessage.push("Enter job description");
     }
 
-    if (countryCode.trim().length === 0) {
-      isInvalid = 1;
-      errMessage.push("Select country");
-    }
 
-    if (province.trim().length === 0) {
-      isInvalid = 1;
-      errMessage.push("Select province");
-    }
-
-    if (city.trim().length === 0) {
-      isInvalid = 1;
-      errMessage.push("Select city");
-    }
 
     if (isInvalid === 1) {
       executeScroll();
@@ -268,15 +252,7 @@ const ResourceEmploymentBlock = (props) => {
       errMessage.push("Enter job title");
     }
 
-    if (jobType !== null) {
-      if (jobType !== 1 && jobType !== 2) {
-        isInvalid = 1;
-        errMessage.push("Select your job type");
-      }
-    } else {
-      isInvalid = 1;
-      errMessage.push("Select your job type");
-    }
+
 
     if (startDate !== null) {
       if (!moment(startDate, "YYYY-MM-DD").isValid()) {
@@ -315,35 +291,6 @@ const ResourceEmploymentBlock = (props) => {
       errMessage.push("Enter job description");
     }
 
-    if (countryCode !== null) {
-      if (countryCode.trim().length === 0) {
-        isInvalid = 1;
-        errMessage.push("Select country");
-      }
-    } else {
-      isInvalid = 1;
-      errMessage.push("Select country");
-    }
-
-    if (province !== null) {
-      if (province.trim().length === 0) {
-        isInvalid = 1;
-        errMessage.push("Select province");
-      }
-    } else {
-      isInvalid = 1;
-      errMessage.push("Select province");
-    }
-
-    if (city !== null) {
-      if (city.trim().length === 0) {
-        isInvalid = 1;
-        errMessage.push("Select city");
-      }
-    } else {
-      isInvalid = 1;
-      errMessage.push("Select city");
-    }
 
     if (isInvalid === 1) {
       executeScroll();
