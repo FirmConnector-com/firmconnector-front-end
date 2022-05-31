@@ -59,7 +59,7 @@ const EmploymentContent = (props) => {
         <span className="text-muted-custom">
           From{" "}
           <span className="text-dark-custom fw-medium-custom">
-            {start !== null ? start : "-"}
+            {displayView !== 'client'? start !== null ? start : "-" : start !== null ? new Date(start).getFullYear() : "-"}
           </span>{" "}
           to <BadgeSuccess title={"Present"} />
         </span>
@@ -69,11 +69,11 @@ const EmploymentContent = (props) => {
         <span className="text-muted-custom">
           From{" "}
           <span className="text-dark-custom fw-medium-custom">
-            {start !== null ? start : "-"}
+          {displayView !== 'client'? start !== null ? start : "-" : start !== null ? new Date(start).getFullYear() : "-"}
           </span>{" "}
           to{" "}
           <span className="text-dark-custom fw-medium-custom">
-            {end !== null ? end : "-"}
+          {displayView !== 'client'? end !== null ? end : "-" : end !== null ? new Date(end).getFullYear() : "-"}
           </span>
         </span>
       );
