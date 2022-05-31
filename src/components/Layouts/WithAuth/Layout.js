@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import {Helmet} from "react-helmet";
 
 import Header from "./Header/Header";
 import LeftMenuComponent from "./LeftMenu/LeftMenuComponent";
@@ -9,24 +9,37 @@ import "../../../assets/css/main.css";
 import "../../../assets/css/color.css";
 import "../../../assets/css/button.css";
 import "./layout.css";
+import Sidebar from "./LeftMenu/leftmenu";
 
 const Layout = (props) => {
-  return (
-    <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{props.pageTitle}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Helmet>
-      <div className="d-block">
-        <LeftMenuComponent />
-        <Header />
-        <div className="d-flex py-2 py-lg-5 py-xl-5 py-xxl-5">
-          <Content>{props.children}</Content>
-        </div>
-      </div>
-    </>
-  );
+    return (
+        <>
+            {/*<Helmet>*/}
+            {/*    <meta charSet="utf-8"/>*/}
+            {/*    <title>{props.pageTitle}</title>*/}
+            {/*    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>*/}
+            {/*</Helmet>*/}
+            {/*<Header/>*/}
+            {/*<div style={{display: "flex"}}>*/}
+            {/*    <Sidebar/>*/}
+            {/*    <div className="" style={{width: "100%"}}>*/}
+            {/*        <Content>{props.children}</Content>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+            <Helmet>
+                <meta charSet="utf-8"/>
+                <title>{props.pageTitle}</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            </Helmet>
+            <div className="d-block">
+                <LeftMenuComponent/>
+                <Header/>
+                <div className="d-flex py-2 py-lg-5 py-xl-5 py-xxl-5">
+                    <Content>{props.children}</Content>
+                </div>
+            </div>
+        </>
+    );
 };
 
 export default Layout;
