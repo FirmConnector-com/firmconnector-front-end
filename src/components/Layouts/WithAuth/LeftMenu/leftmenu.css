@@ -15,18 +15,18 @@
 /* .left-menu-wrapper::-webkit-scrollbar {
     display: none;
   } */
-  
-  /* Hide scrollbar for IE, Edge and Firefox */
-  /* .left-menu-wrapper {
-    -ms-overflow-style: none; 
-    scrollbar-width: none; 
-  } */
 
-.left-menu-nav-wrapper{
+/* Hide scrollbar for IE, Edge and Firefox */
+/* .left-menu-wrapper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+} */
+
+.left-menu-nav-wrapper {
     display: block;
 }
 
-.left-menu-nav-link{
+.left-menu-nav-link {
     width: 2.3rem;
     height: 2.3rem;
     justify-content: center;
@@ -40,9 +40,17 @@
     background-color: var(--muted-extra-light);
 }
 
-.left-menu-nav-link:hover{
+.left-menu-nav-link:hover {
     background-color: var(--muted-light);
     transform: scale(1.1);
+}
+
+.sidebarNew {
+    display: inline-flex;
+    height: calc(100vh - 45px);
+    position: sticky;
+    top: 45px;
+    left: 0;
 }
 
  
