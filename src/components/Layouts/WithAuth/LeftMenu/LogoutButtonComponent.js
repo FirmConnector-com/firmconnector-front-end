@@ -4,7 +4,7 @@ import IconContainer from "../../../Iconcontainer/IconContainer";
 import Swal from "sweetalert2";
 import swalWithBootstrapButtons from "sweetalert2-react-content";
 
-import "./leftmenu.css";
+import "./LeftMenuCss.css";
 
 const LogoutButtonComponent = () => {
   const { signOut } = useAuthContext();
@@ -33,10 +33,7 @@ const LogoutButtonComponent = () => {
       className="my-3 d-flex align-items-center cursor-pointer"
       onClick={() => displayLogoutAlert()}
     >
-      <div className="sm-block animated-hover bg-muted-custom">
-        <IconContainer iconName={"FiLogOut"} color="var(--danger)" />
-      </div>
-      <div className="ms-3">
+      <div>
         <span className="text-white-custom">Logout</span>
       </div>
     </div>
