@@ -1,0 +1,15 @@
+.sidebarNew {
+    display: inline-flex;
+    height: calc(100vh - 45px);
+    position: sticky;
+    top: 45px;
+    left: 0;
+}
+
+.sidebarStyle {
+    display: none;
+}
+
+
+ 
+    
