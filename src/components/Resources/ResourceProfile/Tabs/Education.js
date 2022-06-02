@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import moment from "moment";
 
 
 const Education = (props) => {
@@ -8,8 +9,8 @@ const Education = (props) => {
     useEffect(() => {
         if (educationDetails) {
             const sortedDetails = educationDetails.sort((a, b) => {
-                const date1 = new Date(a?.passed_on);
-                const date2 = new Date(b?.passed_on);
+                const date1 = moment(a?.passed_on, "MM-DD-YYYY");
+                const date2 = moment(b?.passed_on, "MM-DD-YYYY");
                 return date2 - date1;
             });
             setEducationArray(sortedDetails);

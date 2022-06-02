@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EmploymentContent from "../../CommonComponents/EmploymentContent";
+import moment from "moment";
 
 const Employment = (props) => {
   const { employmentDetails, displayView } = props;
@@ -8,8 +9,8 @@ const Employment = (props) => {
   useEffect(() => {
     if (employmentDetails) {
       const sortedDetails = employmentDetails.sort((a, b) => {
-        const date1 = new Date(a?.start_date);
-        const date2 = new Date(b?.start_date);
+        const date1 = moment(a?.start_date, "MM-DD-YYYY");
+        const date2 = moment(b?.start_date, "MM-DD-YYYY");
         return date2 - date1;
       });
       setEmploymentArray(sortedDetails);

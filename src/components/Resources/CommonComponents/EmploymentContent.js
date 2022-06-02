@@ -1,6 +1,7 @@
 import React from "react";
 import { BadgeSuccess } from "../../Badge/Badge";
 import IconContainer from "../../Iconcontainer/IconContainerSm";
+import moment from "moment";
 
 const EmploymentContent = (props) => {
   const { employmentDetails, displayView } = props;
@@ -59,7 +60,7 @@ const EmploymentContent = (props) => {
         <span className="text-muted-custom">
           From{" "}
           <span className="text-dark-custom fw-medium-custom">
-            {displayView !== 'client'? start !== null ? start : "-" : start !== null ? new Date(start).getFullYear() : "-"}
+            {displayView !== 'client'? start !== null ? start : "-" : start !== null ? moment(start, "MM-DD-YYYY").year() : "-"}
           </span>{" "}
           to <BadgeSuccess title={"Present"} />
         </span>
@@ -69,11 +70,11 @@ const EmploymentContent = (props) => {
         <span className="text-muted-custom">
           From{" "}
           <span className="text-dark-custom fw-medium-custom">
-          {displayView !== 'client'? start !== null ? start : "-" : start !== null ? new Date(start).getFullYear() : "-"}
+          {displayView !== 'client'? start !== null ? start : "-" : start !== null ? moment(start, "MM-DD-YYYY").year() : "-"}
           </span>{" "}
           to{" "}
           <span className="text-dark-custom fw-medium-custom">
-          {displayView !== 'client'? end !== null ? end : "-" : end !== null ? new Date(end).getFullYear() : "-"}
+          {displayView !== 'client'? end !== null ? end : "-" : end !== null ? moment(end, "MM-DD-YYYY").year() : "-"}
           </span>
         </span>
       );

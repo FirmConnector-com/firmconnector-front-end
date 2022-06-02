@@ -47,8 +47,8 @@ const ResourceEmploymentBlock = (props) => {
     useEffect(() => {
         if (employment_details) {
             const sortedDetails = employment_details.sort((a, b) => {
-                const date1 = new Date(a?.start_date);
-                const date2 = new Date(b?.start_date);
+                const date1 = moment(a?.start_date, "MM-DD-YYYY");
+                const date2 = moment(b?.start_date, "MM-DD-YYYY");
                 return date2 - date1;
             });
             setEmploymentArray(sortedDetails);
