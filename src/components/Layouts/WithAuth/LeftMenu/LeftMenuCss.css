@@ -1,15 +1,29 @@
 .sidebarNew {
-    display: inline-flex;
-    height: calc(100vh - 45px);
+    height: calc(100vh - 46px);
     position: sticky;
-    top: 45px;
+    top: 46px;
     left: 0;
+    background: #334680;
 }
 
 .sidebarStyle {
     display: none;
 }
 
+.iconSetting {
+    margin: auto;
+    margin-top: 9px;
+}
 
- 
-    
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T .sidenav---navicon---3gCRo {
+    opacity: 1;
+
+}
+
+.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T .sidenav---navicon---3gCRo > *, .sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T .sidenav---navtext---1AE_f > * {
+    color: #FFFFFF;
+}
+
+.bg-muted-custom {
+    background-color: #FFFFFF !important;
+}

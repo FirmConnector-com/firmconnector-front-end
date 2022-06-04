@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import useLocationBlocker from "./LocationBlocker";
 
 //Component for auth checking
@@ -49,106 +49,122 @@ import Search from "../screens/Search/SearchScreen";
 //Error screen with type
 import PageNotFound from "../screens/error/400/PageNotFound";
 
+//Job Posting
+import JobListingScreen from "../screens/JobPosting/JobListingScreen";
+import CreateJob from "../screens/JobPosting/CreateJob";
+
 //Define main route to access on App.js
 const MainRoute = () => {
-  useLocationBlocker();
+    useLocationBlocker();
 
-  return (
-    <>
-      <Switch>
-        {/* Route for Static Pages */}
-        <Route exact path="/" component={HomeScreen} />
-        <Route exact path="/about-us" component={AboutScreen} />
-        <Route exact path="/privacy-policy" component={PrivacyPolicyScreen} />
-        <Route exact path="/pricing" component={PricingScreen} />
-        <Route exact path="/contact-us" component={ContactUsScreen} />
+    return (
+        <>
+            <Switch>
+                {/* Route for Static Pages */}
+                <Route exact path="/" component={HomeScreen}/>
+                <Route exact path="/about-us" component={AboutScreen}/>
+                <Route exact path="/privacy-policy" component={PrivacyPolicyScreen}/>
+                <Route exact path="/pricing" component={PricingScreen}/>
+                <Route exact path="/contact-us" component={ContactUsScreen}/>
 
-        {/* Route for Login */}
-        <ProtectedRouteWithoutAuth
-          exact
-          path={`/sign-in`}
-          component={LoginScreen}
-        />
-        <ProtectedRouteWithoutAuth
-          exact
-          path={`/sign-up`}
-          component={SignUpScreen}
-        />
+                {/* Route for Login */}
+                <ProtectedRouteWithoutAuth
+                    exact
+                    path={`/sign-in`}
+                    component={LoginScreen}
+                />
+                <ProtectedRouteWithoutAuth
+                    exact
+                    path={`/sign-up`}
+                    component={SignUpScreen}
+                />
 
-        {/* Route for Resource */}
-        <ProtectedRoute
-          exact
-          path={`/resources`}
-          component={ResourceListingScreen}
-        />
+                {/* Job Listing */}
+                <ProtectedRoute
+                    exact
+                    path={`/job-posting`}
+                    component={JobListingScreen}
+                />
+                <ProtectedRoute
+                    exact
+                    path={`/add-job-posting`}
+                    component={CreateJob}
+                />
 
-        {/* Route for Dashboard */}
-        <ProtectedRoute exact path="/dashboard" component={DashboardScreen} />
+                {/* Route for Resource */}
+                <ProtectedRoute
+                    exact
+                    path={`/resources`}
+                    component={ResourceListingScreen}
+                />
 
-        <ProtectedRoute
-          exact
-          path={`/profile-settings`}
-          component={MyProfileScreen}
-        />
+                {/* Route for Dashboard */}
+                <ProtectedRoute exact path="/dashboard" component={DashboardScreen}/>
 
-        <ProtectedRoute
-          exact
-          path={`/organization-structure`}
-          component={DisolayOrgChart}
-        />
+                <ProtectedRoute
+                    exact
+                    path={`/profile-settings`}
+                    component={MyProfileScreen}
+                />
 
-        <ProtectedRoute
-          exact
-          path={`/add-resource-manager`}
-          component={AddResourceManager}
-        />
+                <ProtectedRoute
+                    exact
+                    path={`/organization-structure`}
+                    component={DisolayOrgChart}
+                />
 
-        <ProtectedRoute
-          exact
-          path={`/resource-managers`}
-          component={Managers}
-        />
+                <ProtectedRoute
+                    exact
+                    path={`/add-resource-manager`}
+                    component={AddResourceManager}
+                />
 
-        <ProtectedRoute exact path={`/edit-profile`} component={EditProfile} />
+                <ProtectedRoute
+                    exact
+                    path={`/resource-managers`}
+                    component={Managers}
+                />
 
-        <ProtectedRoute exact path={`/add-resource`} component={AddResource} />
+                <ProtectedRoute exact path={`/edit-profile`} component={EditProfile}/>
 
-        <ProtectedRoute
-          exact
-          path={`/resources/edit-resource/:resourceSlug`}
-          component={ResourceEditScreen}
-        />
+                <ProtectedRoute exact path={`/add-resource`} component={AddResource}/>
 
-        {/* Route for Resource Details */}
-        <ProtectedRoute
-          exact
-          path={`/resources/details/:resourceSlug`}
-          component={ResourceDetailsScreen}
-        />
+                <ProtectedRoute
+                    exact
+                    path={`/resources/edit-resource/:resourceSlug`}
+                    component={ResourceEditScreen}
+                />
 
-        {/* FIRM routes */}
-        {/* Route for Firm edit */}
-        <ProtectedRoute
-          exact
-          path={`/edit-firm-owner-profile`}
-          component={FirmOwnerEdit}
-        />
-        <ProtectedRoute exact path={`/edit-firm`} component={EditFirm} />
+                {/* Route for Resource Details */}
+                <ProtectedRoute
+                    exact
+                    path={`/resources/details/:resourceSlug`}
+                    component={ResourceDetailsScreen}
+                />
 
-        <ProtectedRoute
-          exact
-          path={`/access-control`}
-          component={ClientsList}
-        />
-        <ProtectedRoute exact path={`/add-client`} component={AddClient} />
+                {/* FIRM routes */}
+                {/* Route for Firm edit */}
+                <ProtectedRoute
+                    exact
+                    path={`/edit-firm-owner-profile`}
+                    component={FirmOwnerEdit}
+                />
+                <ProtectedRoute exact path={`/edit-firm`} component={EditFirm}/>
 
-        <ProtectedRoute exact path={`/search`} component={Search} />
+                <ProtectedRoute
+                    exact
+                    path={`/access-control`}
+                    component={ClientsList}
+                />
+                <ProtectedRoute exact path={`/add-client`} component={AddClient}/>
 
-        {/* Route for 404 */}
-        <Route component={PageNotFound} />
-      </Switch>
-    </>
-  );
+                <ProtectedRoute exact path={`/search`} component={Search}/>
+
+                {/* Route for 404 */}
+                <Route component={PageNotFound}/>
+            </Switch>
+        </>
+    );
 };
 
 export default MainRoute;
