@@ -17,6 +17,7 @@
     "cdbreact": "^1.5.1",
     "chart.js": "^3.5.0",
     "font-awesome": "^4.7.0",
+    "generate-password": "^1.7.0",
     "jquery": "^3.6.0",
     "moment": "^2.29.1",
     "react": "^17.0.2",
