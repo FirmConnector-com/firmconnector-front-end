@@ -16,7 +16,7 @@ import {useAuthContext} from "../../../context/AuthContext";
 const GeneralInfo = (props) => {
     const {userDetails} = useAuthContext();
     const first_name = JSON.parse(userDetails).first_name;
-    const firm_name = JSON.parse(userDetails).firm_details.firm_name;
+    const user_email = JSON.parse(userDetails).user_email;
     const {displayView, contactDetails, resourceDetails} = props;
     const [isProfileLoading, setIsProfileLoading] = useState(true);
     const [inquiry, setInquiry] = useState("");
@@ -140,12 +140,11 @@ const GeneralInfo = (props) => {
             const client = localStorage.getItem("loggedinUserDetails")
             let clientData = JSON.parse(client)
             let templateParams = {
-                client_Name: clientData?.first_name + " " + clientData?.last_name,
                 client_firstName: clientData?.first_name,
-                client_lastName: clientData?.last_name,
-                candidate_role_title: resourceDetails?.user_profile_role,
-                client_email: clientData?.user_email,
-                from_to: resourceDetails?.user_email,
+                user_slug: resourceDetails?.user_slug,
+                resourceManager_first_name: first_name,
+                firm_name: resourceDetails?.firm_name,
+                from_to: user_email,
                 message: inquiry
             }
 
@@ -167,7 +166,7 @@ const GeneralInfo = (props) => {
                             className="form-control"
                             id="inquire-text"
                             rows="3"
-                            placeholder={`Ask a question about this candidate to ${first_name} at ${firm_name}.`}
+                            placeholder={`Ask a question about this candidate to ${first_name} at ${resourceDetails?.firm_name}.`}
                             onChange={changehandler}
                         ></textarea>
                     </div>
