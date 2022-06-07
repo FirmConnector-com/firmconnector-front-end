@@ -5,15 +5,19 @@ import InputLebelComponent from "../InputLebel/InputLebelComponent";
 import {Button} from "react-bootstrap";
 import {AlertDanger, AlertInfo, AlertSuccess} from "../Alerts/Alert";
 import emailjs, {init} from "@emailjs/browser";
-import generator from "generate-password";
+import {generator} from "generate-password";
 
 //import API
 import createClient from "../../apis/createClient";
+import getMyClientListing from "../../apis/getMyClientListing";
 
 const AddClientForm = () => {
     const {userDetails} = useAuthContext();
     const user_slug = JSON.parse(userDetails).user_slug;
     const user_primary_role = JSON.parse(userDetails).user_primary_role;
+    const first_name = JSON.parse(userDetails).first_name;
+    const last_name = JSON.parse(userDetails).last_name;
+    const firm_name = JSON.parse(userDetails).firm_details?.firm_name;
 
     const [email, setEmail] = useState("");
     const [buttonText, setButtonText] = useState("Create Account");
@@ -23,9 +27,31 @@ const AddClientForm = () => {
     const [errorMessage, setErrorMessage] = useState(false);
     const [successMessage, setSuccessMessage] = useState(false);
 
+    const [clientListing, setClientListing] = useState(false);
+
+    useEffect(() => {
+        if (user_slug !== undefined) {
+            getClientListing();
+        }
+    }, [user_slug]);
+
     useEffect(() => {
         init("RJeAhiPxk5_q0SXcN");
     }, []);
+
+    const getClientListing = () => {
+        Promise.all([getMyClientListing(user_slug)])
+            .then(async ([data]) => {
+                if (data?.data?.status === 1) {
+                    if (data?.data?.clientList) {
+                        setClientListing(data?.data?.clientList);
+                    }
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -71,8 +97,11 @@ const AddClientForm = () => {
             setIsButtonDisabled(false);
             setButtonText("Create Account");
         } else {
-            submitForm();
-            handleData();
+            const isFound = clientListing?.find((client) => email === client.client_email)
+            if (!isFound) {
+                submitForm();
+            }
+            handleData(isFound ? true : false)
         }
     };
 
@@ -129,26 +158,37 @@ const AddClientForm = () => {
         }
     };
 
-    const handleData = () => {
+    const handleData = (status) => {
         try {
             const pwd = generator.generate({
-                length: 20,
-                lowercase: true,
-                uppercase: true,
+                length: 8,
                 numbers: true,
-                symbols: true
+                lowercase: false,
+                uppercase: false,
+                symbols: false
             });
 
             let templateParams = {
                 email: email,
                 password: pwd,
+                first_name: first_name,
+                last_name: last_name,
+                firm_name: firm_name,
+                user_slug: user_slug,
                 from_to: email
             }
+            if (status === true) {
+                emailjs.send("service_ipdiryl", "template_k39cdfa", templateParams, "5jIvmb8qNtHaO73Nm")
+                    .then((result) => {
+                        alert("Message Sent Successfully");
+                    }, (error) => console.log(error.text));
+            } else {
+                emailjs.send("service_ipdiryl", "template_k39cdfa", templateParams, "5jIvmb8qNtHaO73Nm")
+                    .then((result) => {
+                        alert("Message Sent Successfully");
+                    }, (error) => console.log(error.text));
+            }
 
-            emailjs.send("service_ipdiryl", "template_k39cdfa", templateParams, "5jIvmb8qNtHaO73Nm")
-                .then((result) => {
-                    alert("Message Sent Successfully");
-                }, (error) => console.log(error.text));
         } catch (e) {
             console.log("oops!.Error during mail sending", e)
         }

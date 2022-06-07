@@ -137,7 +137,7 @@ const LoginScreenRightComponent = () => {
   return (
     <div className="col-sm-12 col-md-5 col-lg-5">
       <div className="card bg-white-custom p-1">
-        <form>
+        <form onSubmit={checkLogin}>
           <HeaderSm
             title={"Login to Your Account!"}
             subText={"Use your Firmconnector account credentials"}
@@ -177,6 +177,7 @@ const LoginScreenRightComponent = () => {
 
           <div className="form-button-holder justify-content-end mt-4">
             <Button
+              type="submit"
               variant="primary"
               onClick={checkLogin}
               disabled={isLoginButtonDisabled}
