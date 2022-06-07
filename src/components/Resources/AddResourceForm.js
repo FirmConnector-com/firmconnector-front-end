@@ -39,6 +39,7 @@ const AddResourceForm = () => {
     useState(false);
   const [successResumeUploadMessage, setSuccessResumeUploadMessage] =
     useState(false);
+  const [isViaResumeParsing, setViaResumeParsing] = useState(true);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -208,12 +209,28 @@ const AddResourceForm = () => {
     return (
       <div className="d-block">
         <div className="d-flex flex-column">
-          <span className="display-6">Create Resource Profile</span>
+          <span className="display-6">Create Candidate Profile</span>
         </div>
-        <div className="d-block">
+        {/* <div className="d-block">
           <p className="text-muted-custom">
             Create a resource profile within your firm
           </p>
+        </div> */}
+        <div className="my-4">
+          <Button
+            variant="primary"
+            className="me-2"
+            onClick={() => setViaResumeParsing(true)}
+          >
+            Via Resume Parsing
+          </Button>
+          <Button
+            variant="primary"
+            className="me-2"
+            onClick={() => setViaResumeParsing(false)}
+          >
+            Manual Entry
+          </Button>
         </div>
       </div>
     );
@@ -353,11 +370,7 @@ const AddResourceForm = () => {
     return (
       <div className="d-block mb-4">
         <div className="d-block">
-          <HeaderSm
-            title={"Add login informations"}
-            subText={"These informations will be used while login"}
-            borderBottom={true}
-          />
+          <HeaderSm title={"Add login information"} borderBottom={true} />
         </div>
 
         <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
@@ -386,11 +399,7 @@ const AddResourceForm = () => {
     return (
       <div className="d-block mb-4">
         <div className="d-block">
-          <HeaderSm
-            title={"Add profile informations"}
-            subText={"These informations will be used in profile view"}
-            borderBottom={true}
-          />
+          <HeaderSm title={"Add profile information"} borderBottom={true} />
         </div>
 
         <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
@@ -469,7 +478,7 @@ const AddResourceForm = () => {
       <div className="d-block">
         <div className="d-block">
           <HeaderSm
-            title={"Add contact informations"}
+            title={"Add contact information"}
             subText={"These informations will be used in profile"}
             borderBottom={true}
           />
@@ -591,8 +600,7 @@ const AddResourceForm = () => {
       return (
         <>
           {displayTopBlock()}
-          {displayResumeUpload()}
-          {displayForm()}
+          {isViaResumeParsing ? displayResumeUpload() : displayForm()}
         </>
       );
     } else {

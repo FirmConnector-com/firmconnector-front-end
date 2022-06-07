@@ -4,11 +4,11 @@ import DashboardComponent from "../../components/DashboardComponent/DashboardCom
 import Layout from "../../components/Layouts/WithAuth/Layout";
 
 const DashboardScreen = () => {
-  return (
-    <Layout>
-      <DashboardComponent />
-    </Layout>
-  );
+    return (
+        <Layout pageTitle={"Firmconnector"}>
+            <DashboardComponent/>
+        </Layout>
+    );
 };
 
 export default DashboardScreen;

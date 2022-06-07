@@ -4,7 +4,7 @@ import JobListingBlock from "../../components/JobPosting/JobListing/JobListingBl
 
 const JobListingScreen = () => {
     return (
-        <Layout>
+        <Layout pageTitle={"FirmConnector :: Job Posting"}>
             <JobListingBlock/>
         </Layout>
     );

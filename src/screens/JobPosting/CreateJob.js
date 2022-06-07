@@ -3,7 +3,7 @@ import AddJobPosting from "../../components/JobPosting/AddJobPosting";
 
 const CreateJob = () => {
     return (
-        <Layout>
+        <Layout pageTitle={"FirmConnector :: New Job"}>
             <AddJobPosting/>
         </Layout>
     );
