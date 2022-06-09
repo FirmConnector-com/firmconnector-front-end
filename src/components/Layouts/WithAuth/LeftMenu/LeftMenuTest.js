@@ -85,15 +85,16 @@ const LeftMenuTest = () => {
                     <NavItems active={pages[2] === location.pathname ? true : false} name="Managers"
                               eventKey="managers"
                               path="/resource-managers"
-                              iconName="FiUsers"
-                              iconColor="var(--warning)"
+                              iconName="FiUser"
+                              iconColor="var(--success-dark)"
                               onClick={() => history.push("/resource-managers")}
                     />
                 )}
                 {user_primary_role === "2" && (
                     <NavItems active={pages[3] === location.pathname ? true : false} name="Access Control"
                               eventKey="access-control"
-                              path="/access-control" iconName="FiZap"
+                              path="/access-control"
+                              iconName="FiZap"
                               iconColor="var(--success-dark)"
                               onClick={() => history.push("/access-control")}
                     />
