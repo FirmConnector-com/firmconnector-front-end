@@ -5,11 +5,11 @@ import LoginComponent from "../../components/AuthComponent/LoginComponent";
 import Layout from "../../components/Layouts/WithoutAuth/Layout";
 
 const LoginScreen = () => {
-  return (
-    <Layout pageTitle={"Firmconnector :: Login to your account"}>
-      <LoginComponent />
-    </Layout>
-  );
+    return (
+        <Layout pageTitle={"Firmconnector :: Login"}>
+            <LoginComponent/>
+        </Layout>
+    );
 };
 
 export default LoginScreen;
