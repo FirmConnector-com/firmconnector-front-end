@@ -32,7 +32,7 @@ const ResourceListingBlock = () => {
                         <div className="d-flex justify-content-end">
                             <Link to="/add-resource">
                                 <Button variant="primary" size="sm">
-                                    {firmType === "1" ? "Add Teammate" : " Add Team Member"}
+                                    {firmType === "1" ? "Add Team Member" : "Add Candidate"}
                                 </Button>
                             </Link>
                         </div>
