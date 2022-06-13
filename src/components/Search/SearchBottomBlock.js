@@ -13,7 +13,6 @@ const SearchBottomBlock = (props) => {
   const [suggestionList, setSuggestionList] = useState(false);
   const [selectedFirmList, setSelectedFirmList] = useState([]);
   const [selectedAvailability, setSelectedAvailability] = useState(false);
-  const [isSearchButtonDisabled, setIsSearchButtonDisabled] = useState(true);
   const [isSearchResultAvailable, setIsSearchResultAvailable] = useState(false);
 
   const [searchResult, setSearchResult] = useState(false);
@@ -21,14 +20,6 @@ const SearchBottomBlock = (props) => {
 
   const [ownFirm, setOwnFirm] = useState(false);
   const [accessFirm, setAccessFirm] = useState(false);
-
-  useEffect(() => {
-    if (searchText.trim().length > 2) {
-      setIsSearchButtonDisabled(false);
-    } else {
-      setIsSearchButtonDisabled(true);
-    }
-  }, [searchText, isKeywordChanging, isAutoCompleteVisible]);
 
   useEffect(() => {}, [isSearching, searchResult]);
 
@@ -94,27 +85,6 @@ const SearchBottomBlock = (props) => {
   };
 
   const getSearchByFirmChange = () => {
-    // if (searchText.trim().length > 2) {
-    //   setSearchResult(false);
-    //   setIsSearching(true);
-    //   setIsAutoCompleteVisible(false);
-
-    //   Promise.all([getSearchResult(searchText, selectedFirmList, user_slug)])
-    //     .then(async ([data]) => {
-    //       if (data?.data?.searchResult) {
-    //         setIsSearching(false);
-    //         setSearchResult(data?.data?.searchResult);
-    //       } else {
-    //         setIsSearching(false);
-    //         setSearchResult(false);
-    //       }
-    //     })
-    //     .catch((err) => {
-    //       setIsSearching(false);
-    //       setSearchResult(false);
-    //       console.log(err);
-    //     });
-    // }
     setSearchResult(false);
     setIsSearching(true);
     setIsAutoCompleteVisible(false);

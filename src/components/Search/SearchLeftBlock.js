@@ -63,6 +63,8 @@ const SearchLeftBlock = (props) => {
 
     const index = selectedFirmList.indexOf(id);
 
+    console.log(ids);
+
     if (index > -1) {
       ids.pop(index);
     } else {
@@ -86,16 +88,14 @@ const SearchLeftBlock = (props) => {
         <>
           {firmList.map(function (item, index) {
             return (
-              <div key={item.firm_id} className="my-2 d-block">
+              <div key={index.toString()} className="my-2 d-block">
                 <div className="form-check mt-1 d-flex align-items-center">
                   <input
                     className="form-check-input"
                     type="checkbox"
                     value={item.firm_id}
                     checked={
-                      selectedFirmList.indexOf(item.firm_id) !== -1
-                        ? true
-                        : false
+                      selectedFirmList.includes(item.firm_id) ? true : false
                     }
                     onChange={() => updateSelectedFirmIds(item.firm_id)}
                     id={"firm-id-" + item.firm_id}
@@ -111,9 +111,7 @@ const SearchLeftBlock = (props) => {
                       backgroundPosition: "center",
                       backgroundRepeat: "no-repeat",
                     }}
-                  >
-                    {/* <img src={FIRM_IMAGE_BASE + item.firm_logo} alt="..." /> */}
-                  </div>
+                  />
                 </div>
               </div>
             );
