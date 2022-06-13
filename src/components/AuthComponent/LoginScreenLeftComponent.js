@@ -10,7 +10,9 @@ const LoginScreenLeftComponent = () => {
           <span className="fst-normal">If you don't have an account</span>
         </div>
         <div>
-          <span>Please contact Firmconnector Admin</span>
+          <Link to="/sign-up">
+            <span className="fst-normal">{"Create Account"}</span>
+          </Link>
         </div>
       </div>
       <div className="d-block mt-4 login-page-lg-image">
