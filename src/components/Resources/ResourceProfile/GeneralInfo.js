@@ -158,7 +158,7 @@ const GeneralInfo = (props) => {
                             rows="3"
                             // placeholder={`Ask a question about this candidate to ${clientData?.first_name} at ${resourceDetails?.firm_name}.
                             // Email sent to: ${clientData?.user_email}`}
-                            placeholder={`Ask a question about this candidate to your representative at ${resourceDetails?.firm_name}. Email sent to: aaron@firmconnector.com`}
+                            placeholder={`Ask a question about this candidate to your representative at ${resourceDetails?.firm_name}.`}
                             onChange={changehandler}
                         ></textarea>
                     </div>
