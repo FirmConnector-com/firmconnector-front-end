@@ -81,10 +81,8 @@ const ResourceListingResultBlock = () => {
   };
 
   const getResourceSearch = async () => {
-    if (filterText.length > 0) {
-      await setIsLoading(true);
-      getResourceListing();
-    }
+    await setIsLoading(true);
+    getResourceListing();
   };
 
   const onKeyworkChange = (e) => {
