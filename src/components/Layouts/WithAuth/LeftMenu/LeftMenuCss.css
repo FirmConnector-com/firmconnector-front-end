@@ -4,6 +4,7 @@
     top: 46px;
     left: 0;
     background: #334680;
+    overflow: hidden;
 }
 
 .sidebarStyle {
