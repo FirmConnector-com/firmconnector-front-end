@@ -88,11 +88,7 @@ const ResourceListingResultBlock = () => {
   };
 
   const onKeyworkChange = (e) => {
-    let keyword = e.target.value;
-
-    if (keyword.trim().length > 0) {
-      setFilterText(e.target.value);
-    }
+    setFilterText(e.target.value);
   };
 
   const displaySearchResourceBlock = () => {
