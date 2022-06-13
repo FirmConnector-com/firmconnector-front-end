@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.7d5a5b1e.chunk.css",
-    "main.js": "/static/js/main.f11511b0.chunk.js",
-    "main.js.map": "/static/js/main.f11511b0.chunk.js.map",
+    "main.css": "/static/css/main.00f430bd.chunk.css",
+    "main.js": "/static/js/main.cb26bc5e.chunk.js",
+    "main.js.map": "/static/js/main.cb26bc5e.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.be6c5a1e.js",
     "runtime-main.js.map": "/static/js/runtime-main.be6c5a1e.js.map",
     "static/css/2.9d37e62c.chunk.css": "/static/css/2.9d37e62c.chunk.css",
-    "static/js/2.4d5b2208.chunk.js": "/static/js/2.4d5b2208.chunk.js",
-    "static/js/2.4d5b2208.chunk.js.map": "/static/js/2.4d5b2208.chunk.js.map",
+    "static/js/2.57a0c77a.chunk.js": "/static/js/2.57a0c77a.chunk.js",
+    "static/js/2.57a0c77a.chunk.js.map": "/static/js/2.57a0c77a.chunk.js.map",
     "static/js/3.962ed7eb.chunk.js": "/static/js/3.962ed7eb.chunk.js",
     "static/js/3.962ed7eb.chunk.js.map": "/static/js/3.962ed7eb.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.9d37e62c.chunk.css.map": "/static/css/2.9d37e62c.chunk.css.map",
-    "static/css/main.7d5a5b1e.chunk.css.map": "/static/css/main.7d5a5b1e.chunk.css.map",
-    "static/js/2.4d5b2208.chunk.js.LICENSE.txt": "/static/js/2.4d5b2208.chunk.js.LICENSE.txt",
+    "static/css/main.00f430bd.chunk.css.map": "/static/css/main.00f430bd.chunk.css.map",
+    "static/js/2.57a0c77a.chunk.js.LICENSE.txt": "/static/js/2.57a0c77a.chunk.js.LICENSE.txt",
     "static/media/Company_logo.0c02e289.png": "/static/media/Company_logo.0c02e289.png",
     "static/media/banner_left.7f5d03c3.svg": "/static/media/banner_left.7f5d03c3.svg",
     "static/media/contact_us.35f73801.svg": "/static/media/contact_us.35f73801.svg",
@@ -29,7 +29,6 @@
     "static/media/sign_up.95496be4.svg": "/static/media/sign_up.95496be4.svg",
     "static/media/staffing_firms.f2fa7eb1.svg": "/static/media/staffing_firms.f2fa7eb1.svg",
     "static/media/tell_company.0239a64b.svg": "/static/media/tell_company.0239a64b.svg",
-    "static/media/user.780a52a3.svg": "/static/media/user.780a52a3.svg",
     "static/media/user1.9464d05c.jpg": "/static/media/user1.9464d05c.jpg",
     "static/media/user2.eeee1ab4.jpg": "/static/media/user2.eeee1ab4.jpg",
     "static/media/user3.9628f129.jpg": "/static/media/user3.9628f129.jpg",
@@ -39,8 +38,8 @@
   "entrypoints": [
     "static/js/runtime-main.be6c5a1e.js",
     "static/css/2.9d37e62c.chunk.css",
-    "static/js/2.4d5b2208.chunk.js",
-    "static/css/main.7d5a5b1e.chunk.css",
-    "static/js/main.f11511b0.chunk.js"
+    "static/js/2.57a0c77a.chunk.js",
+    "static/css/main.00f430bd.chunk.css",
+    "static/js/main.cb26bc5e.chunk.js"
   ]
 }
