@@ -5,26 +5,34 @@ import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 import envelope from "../../../assets/images/email.svg";
 import mobile from "../../../assets/images/mobile.svg";
 import phone from "../../../assets/images/phone.svg";
-import user from "../../../assets/images/user.svg";
 
 import {FIRM_IMAGE_BASE} from "../../../config/env";
 
 import emailjs, {init} from "@emailjs/browser";
 import {useAuthContext} from "../../../context/AuthContext";
+import getUserProfileDetails from "../../../apis/getUserProfileDetails";
 
 
 const GeneralInfo = (props) => {
     const {userDetails} = useAuthContext();
-    const firmType = JSON.parse(userDetails).firm_details?.firm_type;
+    const user_slug = JSON.parse(userDetails).user_slug;
     const clientData = JSON.parse(userDetails);
     const {displayView, contactDetails, resourceDetails} = props;
     const [isProfileLoading, setIsProfileLoading] = useState(true);
     const [inquiry, setInquiry] = useState("");
+    const [resourceDetailsData, setResourceDetails] = useState(true);
 
-    console.log(userDetails, "userDetails")
-    console.log(contactDetails, "contactDetails")
-    console.log(resourceDetails, "resourceDetails")
-    console.log(clientData, "clientData")
+    useEffect(() => {
+        Promise.all([getUserProfileDetails(resourceDetails.rm_id)])
+            .then(async ([data]) => {
+                if (data?.data?.profileDetails) {
+                    setResourceDetails(data?.data?.profileDetails);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, [user_slug]);
 
     useEffect(() => {
         init("RJeAhiPxk5_q0SXcN");
@@ -92,47 +100,26 @@ const GeneralInfo = (props) => {
 
     const displayReportTo = () => {
         if (resourceDetails.firm_type === "1") {
-            if (resourceDetails.report_to_user_email) {
-                return (
-                    <div className="d-flex align-items-center">
-                        <div className="info-icon-holder">
-                            <ImageIconSmHolder imageUrl={envelope}/>
+            return (
+                <div className="d-flex align-items-center">
+                    <div className="info-icon-holder">
+                        <ImageIconSmHolder imageUrl={envelope}/>
+                    </div>
+                    <div className="d-block">
+                        <div className="">
+                            <span className="fw-medium-custom text-x-x-custom">
+                                Reports to
+                            </span>
                         </div>
-                        <div className="d-block">
-                            <div className="">
-                                <span className="fw-medium-custom text-x-x-custom">
-                                    {firmType === "1" ? "Reports to" : "Report to"}
-                                </span>
-                            </div>
-                            <div className="">
-                                <span className="text-dark text-sm-custom">
-                                    {resourceDetails.report_to_user_email}
-                                </span>
-                            </div>
+                        <div className="">
+                            <span className="text-dark text-sm-custom">
+                                {resourceDetails.report_to_user_email ? resourceDetails.report_to_user_email
+                                    : "Nothing found!"}
+                            </span>
                         </div>
                     </div>
-                );
-            } else {
-                return (
-                    <div className="d-flex align-items-center">
-                        <div className="info-icon-holder">
-                            <ImageIconSmHolder imageUrl={user}/>
-                        </div>
-                        <div className="d-block">
-                            <div className="">
-                                <span className="fw-medium-custom text-x-x-custom">
-                                    {firmType === "1" ? "Reports to" : "Report to"}
-                                </span>
-                            </div>
-                            <div className="">
-                                <span className="text-secondary text-x-sm-custom">
-                                    Nothing found!
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                );
-            }
+                </div>
+            );
         }
     };
     const changehandler = (e) => {
@@ -142,14 +129,12 @@ const GeneralInfo = (props) => {
     const handleData = (e) => {
         e.preventDefault()
         try {
-
-            let templateParams = {
-                client_firstName: clientData?.first_name,
-                user_slug: clientData?.user_slug,
-                // resourceManager_first_name: clientData?.first_name,
+            const templateParams = {
+                user_slug: resourceDetails?.user_slug,
+                resourceManager_first_name: resourceDetailsData.first_name,
                 firm_name: resourceDetails?.firm_name,
-                client_email: clientData?.user_email,
-                // from_to: clientData?.user_email,
+                client_firstName: clientData?.first_name,
+                from_to: resourceDetailsData.user_email,
                 message: inquiry
             }
 
