@@ -98,6 +98,12 @@ const MainRoute = () => {
                     component={ResourceListingScreen}
                 />
 
+                <ProtectedRoute
+                    exact
+                    path={`/my-team`}
+                    component={ResourceListingScreen}
+                />
+
                 {/* Route for Dashboard */}
                 <ProtectedRoute exact path="/dashboard" component={DashboardScreen}/>
 
@@ -134,11 +140,21 @@ const MainRoute = () => {
                     path={`/resources/edit-resource/:resourceSlug`}
                     component={ResourceEditScreen}
                 />
+                <ProtectedRoute
+                    exact
+                    path={`/my-team/edit-resource/:resourceSlug`}
+                    component={ResourceEditScreen}
+                />
 
                 {/* Route for Resource Details */}
                 <ProtectedRoute
                     exact
                     path={`/resources/details/:resourceSlug`}
+                    component={ResourceDetailsScreen}
+                />
+                <ProtectedRoute
+                    exact
+                    path={`/my-team/details/:resourceSlug`}
                     component={ResourceDetailsScreen}
                 />
 

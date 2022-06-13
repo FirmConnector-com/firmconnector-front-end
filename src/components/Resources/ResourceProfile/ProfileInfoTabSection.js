@@ -1,16 +1,21 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import About from "./Tabs/About";
 import Education from "./Tabs/Education";
 import Employment from "./Tabs/Employment";
 import RecruiterNotes from "./Tabs/RecruiterNotes";
+import {useAuthContext} from "../../../context/AuthContext";
 
 const ProfileInfoTabSection = (props) => {
     const {displayView, profileDetails, educationDetails, employmentDetails} =
         props;
     const [selectedTab, setSelectedTab] = useState("about");
+    const {userDetails} = useAuthContext();
+    const firmType = JSON.parse(userDetails).firm_details?.firm_type;
 
     useEffect(() => {
     }, [selectedTab]);
+    console.log(userDetails, "userDetails")
+    console.log(firmType, "firmType")
 
     const displayTabContent = () => {
         if (selectedTab === "about") {
@@ -72,7 +77,9 @@ const ProfileInfoTabSection = (props) => {
                             >
                                 <span className="fw-medium-custom">Education</span>
                             </div>
-                            <div
+                            {firmType === "1" ? (
+                                <></>
+                            ) : (<div
                                 className={`cursor-pointer my-2 mx-2 ${
                                     selectedTab === "recruiterNotes"
                                         ? "profile-tab-selected"
@@ -81,7 +88,7 @@ const ProfileInfoTabSection = (props) => {
                                 onClick={() => handleTabChange("recruiterNotes")}
                             >
                                 <span className="fw-medium-custom">Recruiter Notes</span>
-                            </div>
+                            </div>)}
                         </>
                     ) : null}
                 </div>

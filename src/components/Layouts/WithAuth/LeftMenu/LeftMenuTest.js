@@ -13,21 +13,18 @@ import Swal from "sweetalert2";
 const LeftMenuTest = () => {
     const location = useLocation();
     const history = useHistory();
-    const pages = ["/search", "/resources", "/resource-managers", "/access-control",
+    const pages = ["/search", ["/resources", "/my-team"], "/resource-managers", "/access-control",
         "/job-posting", "/profile-settings"]
     const {userDetails} = useAuthContext();
     const [openSideBar, setOpenSideBar] = useState({toggleIcon: false, navLink: false})
     const firm_details = JSON.parse(userDetails).firm_details;
+    const firmType = firm_details?.firm_type;
     const user_primary_role = JSON.parse(userDetails).user_primary_role;
     const checkResourceTextDisplay = () => {
         if (firm_details) {
-            if (firm_details?.firm_type === 1) {
-                return <div className="d-flex align-items-center">Candidates</div>;
-            } else {
-                return (
-                    <div className="d-flex align-items-center">My Candidates</div>
-                );
-            }
+            return (
+                <div className="d-flex align-items-center">{firmType === "1" ? "My Team" : "My Candidates"}</div>
+            );
         }
     };
     const {signOut} = useAuthContext();
@@ -74,12 +71,17 @@ const LeftMenuTest = () => {
                           iconColor="var(--success)"
                           onClick={() => history.push("/search")}
                 />
-                <NavItems active={pages[1] === location.pathname ? true : false}
+                <NavItems active={pages[1][0] === location.pathname ? true :
+                    pages[1][1] === location.pathname ? true : false}
                           name={checkResourceTextDisplay()}
                           eventKey="resources"
-                          path="/resources" iconName="FiUsers"
+                          path={firmType === "1" ? "/my-team" : "/resources"}
+                          iconName="FiUsers"
                           iconColor="var(--warning)"
-                          onClick={() => history.push("/resources")}
+                          onClick={() =>
+                              firmType === "1" ? history.push("/my-team") :
+                                  history.push("/resources")
+                          }
                 />
                 {user_primary_role === "1" && (
                     <NavItems active={pages[2] === location.pathname ? true : false} name="Managers"

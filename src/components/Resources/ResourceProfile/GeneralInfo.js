@@ -15,11 +15,16 @@ import {useAuthContext} from "../../../context/AuthContext";
 
 const GeneralInfo = (props) => {
     const {userDetails} = useAuthContext();
-    const first_name = JSON.parse(userDetails).first_name;
-    const user_email = JSON.parse(userDetails).user_email;
+    const firmType = JSON.parse(userDetails).firm_details?.firm_type;
+    const clientData = JSON.parse(userDetails);
     const {displayView, contactDetails, resourceDetails} = props;
     const [isProfileLoading, setIsProfileLoading] = useState(true);
     const [inquiry, setInquiry] = useState("");
+
+    console.log(userDetails, "userDetails")
+    console.log(contactDetails, "contactDetails")
+    console.log(resourceDetails, "resourceDetails")
+    console.log(clientData, "clientData")
 
     useEffect(() => {
         init("RJeAhiPxk5_q0SXcN");
@@ -96,7 +101,7 @@ const GeneralInfo = (props) => {
                         <div className="d-block">
                             <div className="">
                                 <span className="fw-medium-custom text-x-x-custom">
-                                    Report to
+                                    {firmType === "1" ? "Reports to" : "Report to"}
                                 </span>
                             </div>
                             <div className="">
@@ -116,7 +121,7 @@ const GeneralInfo = (props) => {
                         <div className="d-block">
                             <div className="">
                                 <span className="fw-medium-custom text-x-x-custom">
-                                    Report to
+                                    {firmType === "1" ? "Reports to" : "Report to"}
                                 </span>
                             </div>
                             <div className="">
@@ -137,14 +142,14 @@ const GeneralInfo = (props) => {
     const handleData = (e) => {
         e.preventDefault()
         try {
-            const client = localStorage.getItem("loggedinUserDetails")
-            let clientData = JSON.parse(client)
+
             let templateParams = {
                 client_firstName: clientData?.first_name,
-                user_slug: resourceDetails?.user_slug,
-                resourceManager_first_name: first_name,
+                user_slug: clientData?.user_slug,
+                // resourceManager_first_name: clientData?.first_name,
                 firm_name: resourceDetails?.firm_name,
-                from_to: user_email,
+                client_email: clientData?.user_email,
+                // from_to: clientData?.user_email,
                 message: inquiry
             }
 
@@ -166,7 +171,8 @@ const GeneralInfo = (props) => {
                             className="form-control"
                             id="inquire-text"
                             rows="3"
-                            placeholder={`Ask a question about this candidate to ${first_name} at ${resourceDetails?.firm_name}.`}
+                            placeholder={`Ask a question about this candidate to ${clientData?.first_name} at ${resourceDetails?.firm_name}.
+                            Email sent to: ${clientData?.user_email}`}
                             onChange={changehandler}
                         ></textarea>
                     </div>
