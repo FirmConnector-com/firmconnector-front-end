@@ -26,9 +26,13 @@ const ResourceListingResultBlock = () => {
 
   useEffect(() => {
     if (user_slug !== undefined) {
-      getResourceListing();
+      const timeoutId = setTimeout(
+        () => [setIsLoading(true), getResourceListing()],
+        500
+      );
+      return () => clearTimeout(timeoutId);
     }
-  }, [user_slug]);
+  }, [filterText, user_slug]);
 
   const getResourceListing = () => {
     Promise.all([getMyResourceListing(user_slug, filterText)])
@@ -59,12 +63,7 @@ const ResourceListingResultBlock = () => {
     if (isLoading === true) {
       return displayLoadingBlock();
     } else {
-      return (
-        <>
-          <div className="d-flex row my-3">{displaySearchResourceBlock()}</div>
-          {displayResourceListing()}
-        </>
-      );
+      return displayResourceListing();
     }
   };
 
@@ -80,11 +79,6 @@ const ResourceListingResultBlock = () => {
     }
   };
 
-  const getResourceSearch = async () => {
-    await setIsLoading(true);
-    getResourceListing();
-  };
-
   const onKeyworkChange = (e) => {
     setFilterText(e.target.value);
   };
@@ -93,7 +87,7 @@ const ResourceListingResultBlock = () => {
     return (
       <div className="col-12">
         <div className="d-flex">
-          <div className="col-9 col-lg-5 col-xl-5 col-xxl-5">
+          <div className="col-4 col-lg-5 col-xl-5 col-xxl-5">
             <input
               type="text"
               placeholder="Search for name/location/role"
@@ -101,15 +95,6 @@ const ResourceListingResultBlock = () => {
               onChange={onKeyworkChange}
               value={filterText}
             />
-          </div>
-          <div className="col-2 col-lg-7 col-xl-7 col-xxl-7 ps-3">
-            <Button
-              variant="primary"
-              size="md"
-              onClick={() => getResourceSearch()}
-            >
-              Search
-            </Button>
           </div>
         </div>
       </div>
@@ -376,7 +361,12 @@ const ResourceListingResultBlock = () => {
     }
   };
 
-  return <div className="d-block">{displayMainContent()}</div>;
+  return (
+    <div className="d-block">
+      <div className="d-flex row my-3">{displaySearchResourceBlock()}</div>
+      {displayMainContent()}
+    </div>
+  );
 };
 
 export default ResourceListingResultBlock;

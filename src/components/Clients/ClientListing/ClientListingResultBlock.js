@@ -13,15 +13,20 @@ const ClientListingResultBlock = () => {
   const [clientListing, setClientListing] = useState(false);
   const [hasResult, setHasResult] = useState(false);
   const [emptyResult, setEmptyResult] = useState("");
+  const [filterText, setFilterText] = useState("");
 
   useEffect(() => {
     if (user_slug !== undefined) {
-      getClientListing();
+      const timeoutId = setTimeout(
+        () => [setIsLoading(true), getClientListing()],
+        500
+      );
+      return () => clearTimeout(timeoutId);
     }
-  }, [user_slug]);
+  }, [filterText, user_slug]);
 
   const getClientListing = () => {
-    Promise.all([getMyClientListing(user_slug)])
+    Promise.all([getMyClientListing(user_slug, filterText)])
       .then(async ([data]) => {
         if (data?.data?.status === 1) {
           if (data?.data?.clientList) {
@@ -63,6 +68,29 @@ const ClientListingResultBlock = () => {
     } else {
       return displayList();
     }
+  };
+
+  const onKeyworkChange = (e) => {
+    setFilterText(e.target.value);
+  };
+
+  const displaySearchResourceBlock = () => {
+    return (
+      <div className="col-12">
+        <div className="d-flex">
+          <div className="col-4 col-lg-5 col-xl-5 col-xxl-5">
+            <input
+              type="email"
+              placeholder="Search for email"
+              class="form-control"
+              onChange={onKeyworkChange}
+              value={filterText}
+              autoComplete="off"
+            />
+          </div>
+        </div>
+      </div>
+    );
   };
 
   const displayList = () => {
@@ -131,7 +159,12 @@ const ClientListingResultBlock = () => {
     );
   };
 
-  return <div className="d-block">{displayMainContent()}</div>;
+  return (
+    <div className="d-block">
+      <div className="d-flex row my-3">{displaySearchResourceBlock()}</div>
+      {displayMainContent()}
+    </div>
+  );
 };
 
 export default ClientListingResultBlock;

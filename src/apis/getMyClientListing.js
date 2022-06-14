@@ -3,10 +3,11 @@ import axios from "axios";
 //IMPORT API ROUTE URL
 import { CLIENT_LISTING_ROUTE } from "./apiRoutes";
 
-const getMyClientListing = (user_slug) => {
+const getMyClientListing = (user_slug, filterText) => {
   var postData = new FormData();
 
   postData.append("user_slug", user_slug);
+  postData.append("filter_text", filterText);
 
   return axios
     .post(CLIENT_LISTING_ROUTE, postData, {

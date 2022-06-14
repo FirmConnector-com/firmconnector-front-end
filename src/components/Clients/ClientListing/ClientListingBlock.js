@@ -41,10 +41,6 @@ const ClientListingBlock = () => {
           </div>
 
           <div className="col-9 d-flex justify-content-end">
-            <Col className="d-flex search-setting" xs={7}>
-              <Form.Control id="search-box" placeholder="Search" />
-            </Col>
-
             {user_primary_role === "2" ? (
               <div className="d-flex justify-content-end">
                 <Link to="/add-client">

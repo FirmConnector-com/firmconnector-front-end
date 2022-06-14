@@ -253,9 +253,9 @@ a{
    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-   input[type=text]:hover,input[type=password]:hover,input[type=number] :hover {
+   /* input[type=text]:hover,input[type=password]:hover,input[type=number] :hover {
       background-color: var(--muted-extra-light) !important;
-   }
+   } */
 
 .form-control-custom-sm-border-none{
    display: block;

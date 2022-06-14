@@ -23,12 +23,12 @@ const TopNav = () => {
               {"Account Login"}
             </Button>
           </Link>
-
+          {/* 
           <Link to="/sign-up">
             <Button variant="primary" size="sm" className="ms-3">
               {"Create Account"}
             </Button>
-          </Link>
+          </Link> */}
         </div>
       );
     }
