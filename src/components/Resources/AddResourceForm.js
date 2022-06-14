@@ -15,6 +15,7 @@ const AddResourceForm = () => {
     const {userDetails} = useAuthContext();
     const user_slug = JSON.parse(userDetails).user_slug;
     const user_primary_role = JSON.parse(userDetails).user_primary_role;
+    const firmType = JSON.parse(userDetails).firm_details?.firm_type;
     const hiddenFileInput = React.useRef(null);
 
     const [email, setEmail] = useState("");
@@ -137,6 +138,8 @@ const AddResourceForm = () => {
         } else {
             submitForm();
         }
+
+
     };
 
     const submitForm = () => {
@@ -209,7 +212,9 @@ const AddResourceForm = () => {
         return (
             <div className="d-block">
                 <div className="d-flex flex-column">
-                    <span className="display-6">Create Candidate Profile</span>
+                    <span
+                        className="display-6">{firmType === "1" ? "Create Team Member Profile"
+                        : "Create Candidate Profile"}</span>
                 </div>
                 {/* <div className="d-block">
           <p className="text-muted-custom">
