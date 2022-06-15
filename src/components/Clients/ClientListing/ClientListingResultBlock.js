@@ -117,7 +117,7 @@ const ClientListingResultBlock = () => {
                       </div>
                       <div className="d-block">
                         <span className="text-info-custom">
-                          {item.client_email}
+                          {item.user_email}
                         </span>
                       </div>
                     </div>
@@ -133,7 +133,7 @@ const ClientListingResultBlock = () => {
                         </span>
                       </div>
                     </div>
-                    <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex justify-content-start justify-content-lg-end justify-content-xl-end justify-content-xxl-end">
+                    {/* <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex justify-content-start justify-content-lg-end justify-content-xl-end justify-content-xxl-end">
                       {user_primary_role === "2" ? (
                         <Button variant="danger" size="sm" className="ms-2">
                           Remove Access
@@ -148,7 +148,7 @@ const ClientListingResultBlock = () => {
                           Remove Access
                         </Button>
                       )}
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
