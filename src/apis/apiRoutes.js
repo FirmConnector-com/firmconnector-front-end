@@ -45,6 +45,12 @@ const GET_SEARCH_AUTO_COMPLETE = `${API_BASE}get-search-auto-complete`;
 const GET_SEARCH_RESULT = `${API_BASE}get-search-result`;
 const GET_ORGANIZATION_CHART = `${API_BASE}get-organization-chart`;
 
+const CREATE_JOB_ROUTE = `${API_BASE}create-job`;
+const GET_MY_JOB_POSTING_ROUTE = `${API_BASE}get-my-job-postings`;
+const GET_JOB_EDIT_DETAILS_ROUTE = `${API_BASE}get-job-edit-details`;
+const UPDATE_JOB_ROUTE = `${API_BASE}update-job`;
+const GET_JOB_DETAILS_ROUTE = `${API_BASE}get-job-details`;
+
 export {
   LOGIN_ROUTE,
   SIGNUP_ROUTE,
@@ -87,4 +93,9 @@ export {
   GET_EDUCATION_DETAILS,
   UPDATE_EDUCATION_DETAILS,
   GET_ORGANIZATION_CHART,
+  CREATE_JOB_ROUTE,
+  GET_MY_JOB_POSTING_ROUTE,
+  GET_JOB_EDIT_DETAILS_ROUTE,
+  UPDATE_JOB_ROUTE,
+  GET_JOB_DETAILS_ROUTE,
 };

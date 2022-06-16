@@ -5,9 +5,9 @@ const HeaderLg = (props) => {
 
   return (
     <div className="header-holder">
-      <div className="h1">{title}</div>
+      <div className="display-6 fw-bold">{title}</div>
       <div className="d-block">
-        <span className="text-muted-custom fw-medium-custom">{subText}</span>
+        <span className="text-muted-custom">{subText}</span>
       </div>
     </div>
   );

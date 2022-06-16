@@ -52,6 +52,9 @@ import PageNotFound from "../screens/error/400/PageNotFound";
 //Job Posting
 import JobListingScreen from "../screens/JobPosting/JobListingScreen";
 import CreateJob from "../screens/JobPosting/CreateJob";
+import MyJobListingScreen from "../screens/JobPosting/MyJobListingScreen";
+import JobEditScreen from "../screens/JobPosting/JobEditScreen";
+import JobDetailsScreen from "../screens/JobPosting/JobDetailsScreen";
 
 //Define main route to access on App.js
 const MainRoute = () => {
@@ -80,12 +83,24 @@ const MainRoute = () => {
         />
 
         {/* Job Listing */}
+        <ProtectedRoute exact path={`/jobs`} component={JobListingScreen} />
         <ProtectedRoute
           exact
-          path={`/job-posting`}
-          component={JobListingScreen}
+          path={`/job/my-jobs`}
+          component={MyJobListingScreen}
         />
-        <ProtectedRoute exact path={`/add-job-posting`} component={CreateJob} />
+        <ProtectedRoute exact path={`/create-job`} component={CreateJob} />
+        <ProtectedRoute
+          exact
+          path={`/job/edit/:jobSlug`}
+          component={JobEditScreen}
+        />
+
+        <ProtectedRoute
+          exact
+          path={`/job/details/:jobSlug`}
+          component={JobDetailsScreen}
+        />
 
         {/* Route for Resource */}
         <ProtectedRoute

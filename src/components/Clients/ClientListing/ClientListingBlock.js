@@ -3,8 +3,6 @@ import ClientListingResultBlock from "./ClientListingResultBlock";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../../context/AuthContext";
-import Form from "react-bootstrap/Form";
-import Col from "react-bootstrap/Col";
 import "./ClientListingBlockCss.css";
 
 const ClientListingBlock = () => {

@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useAuthContext } from "../../../context/AuthContext";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 import { AlertInfo } from "../../Alerts/Alert";
-import { Button } from "react-bootstrap";
 import getMyClientListing from "../../../apis/getMyClientListing";
 
 const ClientListingResultBlock = () => {
   const { userDetails } = useAuthContext();
   const user_slug = JSON.parse(userDetails).user_slug;
-  const user_primary_role = JSON.parse(userDetails).user_primary_role;
   const [isLoading, setIsLoading] = useState(true);
   const [clientListing, setClientListing] = useState(false);
   const [hasResult, setHasResult] = useState(false);
