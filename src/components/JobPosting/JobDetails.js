@@ -3,11 +3,14 @@ import React, { useEffect, useState } from "react";
 import { FIRM_IMAGE_BASE } from "../../config/env";
 import getJobDetails from "../../apis/getJobDetails";
 import LoadingPageSm from "../CommonComponent/LoadingPageSm";
-
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import BlockHeader from "../Headers/BlockHeader";
 import moment from "moment";
+import { useHistory } from "react-router-dom";
 
 const JobDetails = (props) => {
+  const history = useHistory();
   const { jobSlug } = props;
   const [isJobDetailsLoading, setIsJobDetailsLoading] = useState(true);
   const [jobArray, setJobArray] = useState(true);
@@ -89,6 +92,18 @@ const JobDetails = (props) => {
           <p className="text-black" style={{ whiteSpace: "pre-line" }}>
             {jobArray.job_description}
           </p>
+        </div>
+
+        <div className="d-flex justify-content-center mt-5 ">
+          <Link to="/create-job">
+            <Button
+              variant="success"
+              size="md"
+              onClick={() => history.goBack()}
+            >
+              Back to job listing
+            </Button>
+          </Link>
         </div>
       </div>
     );

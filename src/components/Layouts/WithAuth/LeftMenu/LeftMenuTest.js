@@ -132,10 +132,10 @@ const LeftMenuTest = () => {
           active={pages[4] === location.pathname ? true : false}
           name="Job Posting"
           eventKey="jobs"
-          path="/job/my-jobs"
+          path="/job/latest-jobs"
           iconName="FiFilePlus"
           iconColor="#2A7BFF"
-          onClick={() => history.push("/job/my-jobs")}
+          onClick={() => history.push("/job/latest-jobs")}
         />
         <NavItems
           active={pages[5] === location.pathname ? true : false}

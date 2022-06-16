@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { FIRM_IMAGE_BASE } from "../../../config/env";
 
 const JobListingResultBlock = (props) => {
-  const { jobList } = props;
+  const { jobList, handleRemoveJob } = props;
 
   const displayDiscription = (discription) => {
     if (discription.length > 400) {
@@ -16,7 +16,7 @@ const JobListingResultBlock = (props) => {
   };
 
   const removeJob = (jobSlug) => {
-    alert(jobSlug);
+    handleRemoveJob(jobSlug);
   };
 
   const jobItem = (item) => {

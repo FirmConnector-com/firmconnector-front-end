@@ -50,6 +50,8 @@ const GET_MY_JOB_POSTING_ROUTE = `${API_BASE}get-my-job-postings`;
 const GET_JOB_EDIT_DETAILS_ROUTE = `${API_BASE}get-job-edit-details`;
 const UPDATE_JOB_ROUTE = `${API_BASE}update-job`;
 const GET_JOB_DETAILS_ROUTE = `${API_BASE}get-job-details`;
+const REMOVE_JOB_ROUTE = `${API_BASE}remove-job`;
+const GET_LATEST_JOB_POSTING_ROUTE = `${API_BASE}get-latest-job-postings`;
 
 export {
   LOGIN_ROUTE,
@@ -98,4 +100,6 @@ export {
   GET_JOB_EDIT_DETAILS_ROUTE,
   UPDATE_JOB_ROUTE,
   GET_JOB_DETAILS_ROUTE,
+  REMOVE_JOB_ROUTE,
+  GET_LATEST_JOB_POSTING_ROUTE,
 };

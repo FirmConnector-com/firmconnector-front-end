@@ -55,6 +55,7 @@ import CreateJob from "../screens/JobPosting/CreateJob";
 import MyJobListingScreen from "../screens/JobPosting/MyJobListingScreen";
 import JobEditScreen from "../screens/JobPosting/JobEditScreen";
 import JobDetailsScreen from "../screens/JobPosting/JobDetailsScreen";
+import LatestJobListingScreen from "../screens/JobPosting/LatestJobListingScreen";
 
 //Define main route to access on App.js
 const MainRoute = () => {
@@ -88,6 +89,11 @@ const MainRoute = () => {
           exact
           path={`/job/my-jobs`}
           component={MyJobListingScreen}
+        />
+        <ProtectedRoute
+          exact
+          path={`/job/latest-jobs`}
+          component={LatestJobListingScreen}
         />
         <ProtectedRoute exact path={`/create-job`} component={CreateJob} />
         <ProtectedRoute
