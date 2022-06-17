@@ -95,15 +95,9 @@ const JobDetails = (props) => {
         </div>
 
         <div className="d-flex justify-content-center mt-5 ">
-          <Link to="/create-job">
-            <Button
-              variant="success"
-              size="md"
-              onClick={() => history.goBack()}
-            >
-              Back to job listing
-            </Button>
-          </Link>
+          <Button variant="success" size="md" onClick={() => history.goBack()}>
+            Back to job listing
+          </Button>
         </div>
       </div>
     );

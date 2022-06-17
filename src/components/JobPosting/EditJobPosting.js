@@ -252,7 +252,7 @@ const EditJobPosting = (props) => {
                       backgroundPosition: "center",
                       backgroundRepeat: "no-repeat",
                     }}
-                  ></div>
+                  />
                 </div>
               </div>
             );

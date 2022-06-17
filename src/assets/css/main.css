@@ -257,6 +257,17 @@ a{
       background-color: var(--muted-extra-light) !important;
    } */
 
+   .input-without-outline{
+      background-color: var(--white) !important;
+      outline: none;
+      border: none;
+      padding: 1%;
+   }
+
+   .modal{
+      padding: 0 !important;
+   }
+
 .form-control-custom-sm-border-none{
    display: block;
    width: 100%;
@@ -554,13 +565,47 @@ a{
 
 .search-auto-complete-block{
    padding: 0.5rem;
-   background-color: var(--white);
+   background-color: var(--muted-light);
    position: absolute;
    border-radius: 0.2rem;
    z-index: 99;
    overflow-y: scroll;
    max-height: 18.5rem;
+   top: 7.5rem;
+   width: 24.35% !important
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+   .search-auto-complete-block{
+      top: 8.8rem;
+      width: 90% !important
+   }
+}
+
+@media (min-width: 540px) and (max-width: 768px) {
+   .search-auto-complete-block{
+      top: 7.2rem;
+      width: 80% !important
+   }
+}
+
+@media (min-width: 901px) and (max-width: 1300px) {
+   .search-auto-complete-block{
+      top: 7.2rem;
+      width: 60% !important
+   }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+   .search-auto-complete-block{
+      top: 7.5rem;
+      width: 50% !important
+   }
+}
+
+.search-auto-complete-block::-webkit-scrollbar {
+   display: none;
+ }
 
 .offcanvas-start{
    width: 18rem !important;
