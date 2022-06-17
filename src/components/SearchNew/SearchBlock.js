@@ -473,7 +473,7 @@ const SearchBlock = () => {
           </span>
         </div>
       );
-    } else if (type === "provience") {
+    } else if (type === "province") {
       return (
         <div className="badge rounded-pill bg-secondary d-flex justify-content-center align-items-center">
           <span className="text-x-x-sm-custom text-white fw-bold">
