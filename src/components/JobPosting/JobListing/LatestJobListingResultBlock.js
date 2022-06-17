@@ -22,16 +22,16 @@ const LatestJobListingResultBlock = (props) => {
             <div className="d-block">
               <h5>
                 <Link to={`/job/details/${item.job_slug}`}>
-                  <span className="text-dark">{item.job_title}</span>
+                  <span className="text-info-custom">{item.job_title}</span>
                 </Link>
               </h5>
             </div>
             <div className="d-block my-3">
-              <span className="text-secondary">
+              <span className="text-dark">
                 {displayDiscription(item.job_description)}
               </span>
             </div>
-            <div className="row d-flex align-items-center">
+            <div className="row d-flex align-items-center border-top py-2 bg-light m-0">
               <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
                 <div className="d-block">
                   <span className="text-dark text-x-sm-custom">Posted By</span>

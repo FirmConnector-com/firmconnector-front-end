@@ -159,7 +159,7 @@ const EditJobPosting = (props) => {
       setErrorMessage(errMessage);
       setHasSubmitError(true);
       setIsButtonDisabled(false);
-      setButtonText("Create Post");
+      setButtonText("Save Changes");
     } else {
       submitForm();
     }
@@ -201,14 +201,14 @@ const EditJobPosting = (props) => {
             setErrorMessage(errMessage);
             setHasSubmitError(true);
             setIsButtonDisabled(false);
-            setButtonText("Create Post");
+            setButtonText("Save Changes");
           }
         } else {
           errMessage.push("Error happened. Unable to Save Changes");
           setErrorMessage(errMessage);
           setHasSubmitError(true);
           setIsButtonDisabled(false);
-          setButtonText("Create Post");
+          setButtonText("Save Changes");
         }
       });
     } catch (error) {
@@ -216,7 +216,7 @@ const EditJobPosting = (props) => {
       setErrorMessage(errMessage);
       setHasSubmitError(true);
       setIsButtonDisabled(false);
-      setButtonText("Create Post");
+      setButtonText("Save Changes");
     }
   };
 
