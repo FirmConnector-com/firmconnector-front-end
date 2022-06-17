@@ -575,9 +575,26 @@ a{
    width: 24.35% !important
 }
 
+.search-location-auto-complete-block{
+   padding: 0.5rem;
+   background-color: var(--muted-light);
+   position: absolute;
+   border-radius: 0.2rem;
+   z-index: 99;
+   overflow-y: scroll;
+   max-height: 18.5rem;
+   top: 7.5rem;
+   width: 24.35% !important
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
    .search-auto-complete-block{
-      top: 8.8rem;
+      top: 11.8rem;
+      width: 90% !important
+   }
+
+   .search-location-auto-complete-block{
+      top: 11.8rem;
       width: 90% !important
    }
 }
@@ -587,11 +604,21 @@ a{
       top: 7.2rem;
       width: 80% !important
    }
+
+   .search-location-auto-complete-block{
+      top: 8.2rem;
+      width: 80% !important
+   }
 }
 
 @media (min-width: 901px) and (max-width: 1300px) {
    .search-auto-complete-block{
       top: 7.2rem;
+      width: 60% !important
+   }
+
+   .search-location-auto-complete-block{
+      top: 10.2rem;
       width: 60% !important
    }
 }
@@ -601,9 +628,18 @@ a{
       top: 7.5rem;
       width: 50% !important
    }
+
+   .search-location-auto-complete-block{
+      top: 10.2rem;
+      width: 50% !important
+   }
 }
 
 .search-auto-complete-block::-webkit-scrollbar {
+   display: none;
+ }
+
+ .search-location-auto-complete-block::-webkit-scrollbar {
    display: none;
  }
 

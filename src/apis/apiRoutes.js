@@ -42,6 +42,7 @@ const GET_ALL_CITY = `${API_BASE}get-all-city`;
 
 const GET_ALL_FIRM_ACCESS_LIST = `${API_BASE}get-all-firm-access-list`;
 const GET_SEARCH_AUTO_COMPLETE = `${API_BASE}get-search-auto-complete`;
+const GET_LOCATION_SEARCH_AUTO_COMPLETE = `${API_BASE}get-location-search-auto-complete`;
 const GET_SEARCH_RESULT = `${API_BASE}get-search-result`;
 const GET_ORGANIZATION_CHART = `${API_BASE}get-organization-chart`;
 
@@ -90,6 +91,7 @@ export {
   CREATE_CLIENT_ROUTE,
   GET_ALL_FIRM_ACCESS_LIST,
   GET_SEARCH_AUTO_COMPLETE,
+  GET_LOCATION_SEARCH_AUTO_COMPLETE,
   GET_SEARCH_RESULT,
   GET_MY_RESOURCE_MANAGER_LISTING,
   GET_EDUCATION_DETAILS,

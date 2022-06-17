@@ -5,6 +5,8 @@ import getFirmAccessList from "../../apis/getFirmAccessList";
 import LoadingPageSm from "../CommonComponent/LoadingPageSm";
 import { FIRM_IMAGE_BASE } from "../../config/env";
 import getSearchAutoComplete from "../../apis/getSearchAutoComplete";
+import getLocationSearchAutoComplete from "../../apis/getLocationSearchAutoComplete";
+
 import getSearchResult from "../../apis/getSearchResult";
 import { PieChart } from "react-minimal-pie-chart";
 import { Link } from "react-router-dom";
@@ -35,6 +37,13 @@ const SearchBlock = () => {
 
   const [searchResult, setSearchResult] = useState(false);
   const [selectedAvailability, setSelectedAvailability] = useState(99999);
+
+  const [searchLocationText, setSearchLocationText] = useState("");
+  const [isLocationKeywordChanging, setIsLocationKeywordChanging] =
+    useState(false);
+  const [isLocationAutoCompleteVisible, setIsLocationAutoCompleteVisible] =
+    useState(false);
+  const [suggestionLocationList, setSuggestionLocationList] = useState(false);
 
   const [show, setShow] = useState(false);
 
@@ -77,6 +86,48 @@ const SearchBlock = () => {
     }
 
     setSelectedFirmList(ids);
+  };
+
+  const onKeyworkLocationChange = (e) => {
+    let keyword = e.target.value;
+
+    if (keyword.trim().length > 0) {
+      if (keyword.trim().length > 0) {
+        setIsLocationKeywordChanging(true);
+        setIsLocationAutoCompleteVisible(true);
+        setSearchLocationText(keyword);
+
+        getLocationAutoCompleteResult(keyword);
+      } else {
+        setSearchLocationText(keyword);
+        setIsLocationKeywordChanging(false);
+        setIsLocationAutoCompleteVisible(false);
+      }
+    } else {
+      setIsLocationKeywordChanging(false);
+      setIsLocationAutoCompleteVisible(false);
+      setSearchLocationText("");
+    }
+  };
+
+  const getLocationAutoCompleteResult = (keyword) => {
+    Promise.all([getLocationSearchAutoComplete(keyword)])
+      .then(async ([data]) => {
+        if (data?.data?.suggestionList) {
+          setSuggestionLocationList(data?.data?.suggestionList);
+          setIsLocationKeywordChanging(false);
+        } else {
+          setIsLocationKeywordChanging(false);
+          setSuggestionLocationList(false);
+          setIsLocationAutoCompleteVisible(false);
+        }
+      })
+      .catch((err) => {
+        setIsLocationKeywordChanging(false);
+        setSuggestionLocationList(false);
+        setIsLocationAutoCompleteVisible(false);
+        console.log(err);
+      });
   };
 
   const onKeyworkChange = (e) => {
@@ -135,6 +186,7 @@ const SearchBlock = () => {
     Promise.all([
       getSearchResult(
         searchText,
+        searchLocationText,
         selectedFirmList,
         selectedAvailability,
         user_slug
@@ -163,13 +215,13 @@ const SearchBlock = () => {
 
   const searchTopBlock = () => {
     return (
-      <div className="d-block bg-dark-custom bounded p-3 rounded position-relative">
+      <div className="d-block bg-dark-custom rounded p-3 rounded position-relative shadow-lg">
         <h4 className="text-light">
           Search Resources / Skills / Roles / Locations
         </h4>
         <div className="d-block mt-4 mb-2">
           <div className="row d-flex justify-content-between m-0">
-            <div className="col-12 col-lg-6 col-xl-6 col-xxl-6 d-flex align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
+            <div className="col-12 col-lg-6 col-xl-6 col-xxl-6 d-flex align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0 rounded">
               <input
                 type="text"
                 name="name"
@@ -182,16 +234,20 @@ const SearchBlock = () => {
               />
               {displayAutoCompleteBlock()}
             </div>
-            {/* <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0 position-relative">
+            <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0 rounded">
               <input
                 type="text"
                 name="name"
                 placeholder="Seach for location"
                 className="w-100 input-without-outline rounded p-2"
                 autoComplete="off"
+                onChange={onKeyworkLocationChange}
+                value={searchLocationText}
+                onKeyPress={(e) => handler(e)}
               />
-            </div> */}
-            <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex bg-light rounded align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
+              {displayLocationAutoCompleteBlock()}
+            </div>
+            {/* <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex bg-light rounded align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
               <Button
                 variant="light"
                 size="md"
@@ -256,7 +312,7 @@ const SearchBlock = () => {
                   </Button>
                 </Modal.Footer>
               </Modal>
-            </div>
+            </div> */}
             <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 d-flex align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
               <select
                 className="form-select col-12 col-lg-2 col-xl-2 col-xxl-2"
@@ -280,6 +336,57 @@ const SearchBlock = () => {
         </div>
       </div>
     );
+  };
+
+  const displayLocationAutoCompleteBlock = () => {
+    if (isLocationAutoCompleteVisible) {
+      return (
+        <div className="search-location-auto-complete-block col-12 col-lg-3 col-xl-3 col-xxl-3 shadow-sm">
+          {autoLocationCompleteBlock()}
+        </div>
+      );
+    }
+  };
+
+  const autoLocationCompleteBlock = () => {
+    if (isLocationKeywordChanging) {
+      return (
+        <div className="d-flex justify-content-center align-items-center">
+          <span>Loading suggestions</span>
+        </div>
+      );
+    } else {
+      return displayLocationAutoCompleteResult();
+    }
+  };
+
+  const displayLocationAutoCompleteResult = () => {
+    if (suggestionLocationList) {
+      return (
+        <>
+          {suggestionLocationList.map(function (item, index) {
+            return (
+              <div
+                className="d-block p-2 bg-light mb-1 cursor-pointer"
+                key={index.toString()}
+                onClick={() =>
+                  updateLocationSearchText(formatSuggestionName(item.name))
+                }
+              >
+                {formatSuggestionList(item.name)}
+              </div>
+            );
+          })}
+        </>
+      );
+    }
+  };
+
+  const updateLocationSearchText = (text) => {
+    setIsLocationKeywordChanging(false);
+    setSuggestionLocationList(false);
+    setIsLocationAutoCompleteVisible(false);
+    setSearchLocationText(text);
   };
 
   const displayAutoCompleteBlock = () => {
@@ -349,10 +456,10 @@ const SearchBlock = () => {
 
     return (
       <div className="row">
-        <div className="col-9">
+        <div className="col-8">
           <span>{suggestionName}</span>
         </div>
-        <div className="col-3">{displaySuggestionType(suggestionType)}</div>
+        <div className="col-4">{displaySuggestionType(suggestionType)}</div>
       </div>
     );
   };
@@ -413,21 +520,7 @@ const SearchBlock = () => {
 
   const displaySearchItems = () => {
     if (hasNoInitialResult) {
-      return (
-        <div
-          className="alert m-0 d-flex flex-column align-items-center justify-content-center"
-          role="alert"
-        >
-          <div className="d-block">
-            <span className="fw-bold display-6">Hi,</span>
-          </div>
-          <div className="d-block">
-            <span className="lead text-dark-custom">
-              Enter your search query for resource listing.{" "}
-            </span>
-          </div>
-        </div>
-      );
+      return null;
     } else {
       return displaySearch();
     }
