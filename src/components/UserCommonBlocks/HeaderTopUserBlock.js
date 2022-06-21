@@ -18,9 +18,9 @@ const HeaderTopUserBlock = (props) => {
   return (
     <Link to={"search"}>
       <div className="d-flex align-items-center">
-        <div className="d-block me-2">
+        {/* <div className="d-block me-2">
           <span className="text-white">{displayProfileName()}</span>
-        </div>
+        </div> */}
         <div className="profile-image-sm-rounded">
           <img
             className="img-fluid"

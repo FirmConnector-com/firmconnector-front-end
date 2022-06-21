@@ -234,7 +234,9 @@ const AddJobPosting = () => {
     return (
       <BlockHeader
         title={"Create New Job"}
-        subText={"Create a posting within your firm"}
+        subText={
+          "Create a job posting and select which firms to participate in finding a candidate"
+        }
       />
     );
   };

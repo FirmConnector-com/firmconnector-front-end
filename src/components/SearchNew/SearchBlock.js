@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthContext } from "../../context/AuthContext";
-import { Button, Modal } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import getFirmAccessList from "../../apis/getFirmAccessList";
 import LoadingPageSm from "../CommonComponent/LoadingPageSm";
 import { FIRM_IMAGE_BASE } from "../../config/env";
@@ -23,7 +23,7 @@ const SearchBlock = () => {
   const { userDetails } = useAuthContext();
   const user_slug = JSON.parse(userDetails).user_slug;
 
-  const [firmList, setFirmList] = useState(false);
+  // const [firmList, setFirmList] = useState(false);
   const [selectedFirmList, setSelectedFirmList] = useState([]);
   const [ownFirm, setOwnFirm] = useState(false);
 
@@ -45,48 +45,48 @@ const SearchBlock = () => {
     useState(false);
   const [suggestionLocationList, setSuggestionLocationList] = useState(false);
 
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
 
-  useEffect(() => {
-    if (user_slug !== undefined) {
-      Promise.all([getFirmAccessList(user_slug)])
-        .then(async ([data]) => {
-          if (data?.data?.firmList) {
-            setFirmList(data.data.firmList);
-            setOwnFirm(data.data.ownFirm);
+  // useEffect(() => {
+  //   if (user_slug !== undefined) {
+  //     Promise.all([getFirmAccessList(user_slug)])
+  //       .then(async ([data]) => {
+  //         if (data?.data?.firmList) {
+  //           setFirmList(data.data.firmList);
+  //           setOwnFirm(data.data.ownFirm);
 
-            var firmCheckedIds = [];
+  //           var firmCheckedIds = [];
 
-            data.data.firmList.map((item) => {
-              return firmCheckedIds.push(item.firm_id);
-            });
+  //           data.data.firmList.map((item) => {
+  //             return firmCheckedIds.push(item.firm_id);
+  //           });
 
-            await setSelectedFirmList(firmCheckedIds);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [user_slug]);
+  //           await setSelectedFirmList(firmCheckedIds);
+  //         }
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  // }, [user_slug]);
 
-  const updateSelectedFirmIds = (id) => {
-    console.log(id);
-    var ids = [...selectedFirmList];
+  // const updateSelectedFirmIds = (id) => {
+  //   console.log(id);
+  //   var ids = [...selectedFirmList];
 
-    const index = selectedFirmList.indexOf(id);
+  //   const index = selectedFirmList.indexOf(id);
 
-    if (index > -1) {
-      ids.pop(index);
-    } else {
-      ids.push(id);
-    }
+  //   if (index > -1) {
+  //     ids.pop(index);
+  //   } else {
+  //     ids.push(id);
+  //   }
 
-    setSelectedFirmList(ids);
-  };
+  //   setSelectedFirmList(ids);
+  // };
 
   const onKeyworkLocationChange = (e) => {
     let keyword = e.target.value;

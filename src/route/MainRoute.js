@@ -30,7 +30,7 @@ import SignUpScreen from "../screens/Auth/SignUpScreen";
 
 //Import resource manager route
 import AddResourceManager from "../screens/ResourceManager/AddResourceManager";
-import EditProfile from "../screens/ResourceManager/EditProfile";
+import EditProfile from "../screens/Profile/EditProfile";
 import Managers from "../screens/ResourceManager/Managers";
 import DisolayOrgChart from "../screens/OrgChart/DisolayOrgChart";
 

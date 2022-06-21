@@ -6,23 +6,16 @@ import {
   CDBSidebarMenu,
   CDBSidebarMenuItem,
 } from "cdbreact";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../../../../context/AuthContext";
 import LogoutButtonComponent from "./LogoutButtonComponent";
 import "./LeftMenuCss.css";
 
 const Sidebar = () => {
   const { userDetails } = useAuthContext();
-  const [activeRoute, setActiveRoute] = useState("");
   const [isExpand, setIsExpand] = useState(true);
   const firm_details = JSON.parse(userDetails).firm_details;
   const user_primary_role = JSON.parse(userDetails).user_primary_role;
-  const location = useLocation();
-  const routeName = location.pathname;
-
-  useEffect(() => {
-    setActiveRoute(routeName);
-  }, [routeName]);
 
   const checkResourceTextDisplay = () => {
     if (firm_details) {

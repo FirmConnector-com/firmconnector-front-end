@@ -87,25 +87,28 @@ const LeftMenuTest = () => {
           iconColor="var(--success)"
           onClick={() => history.push("/search")}
         />
-        <NavItems
-          active={
-            pages[1][0] === location.pathname
-              ? true
-              : pages[1][1] === location.pathname
-              ? true
-              : false
-          }
-          name={checkResourceTextDisplay()}
-          eventKey="resources"
-          path={firmType === "1" ? "/my-team" : "/resources"}
-          iconName="FiUsers"
-          iconColor="var(--warning)"
-          onClick={() =>
-            firmType === "1"
-              ? history.push("/my-team")
-              : history.push("/resources")
-          }
-        />
+        {user_primary_role === 1 || user_primary_role === 2 ? (
+          <NavItems
+            active={
+              pages[1][0] === location.pathname
+                ? true
+                : pages[1][1] === location.pathname
+                ? true
+                : false
+            }
+            name={checkResourceTextDisplay()}
+            eventKey="resources"
+            path={firmType === "1" ? "/my-team" : "/resources"}
+            iconName="FiUsers"
+            iconColor="var(--warning)"
+            onClick={() =>
+              firmType === "1"
+                ? history.push("/my-team")
+                : history.push("/resources")
+            }
+          />
+        ) : null}
+
         {user_primary_role === "1" && (
           <NavItems
             active={pages[2] === location.pathname ? true : false}

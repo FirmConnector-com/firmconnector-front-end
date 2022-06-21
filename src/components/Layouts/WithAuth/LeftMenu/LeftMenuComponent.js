@@ -4,7 +4,6 @@ import LogoutButtonComponent from "./LogoutButtonComponent";
 import IconContainer from "../../../Iconcontainer/IconContainer";
 import { useLocation } from "react-router-dom";
 import { useAuthContext } from "../../../../context/AuthContext";
-import useWindowSize from "../../../Resources/ResourceProfile/WindowSize";
 import "./LeftMenuCss.css";
 
 const LeftMenuComponent = () => {
