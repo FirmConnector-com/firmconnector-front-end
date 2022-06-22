@@ -6,7 +6,6 @@ import { GET_SEARCH_RESULT } from "./apiRoutes";
 const getSearchResult = (
   keyword,
   searchLocationText,
-  selectedFirmList,
   selectedAvailability,
   userSlug
 ) => {
@@ -14,7 +13,6 @@ const getSearchResult = (
 
   postData.append("keyword", keyword);
   postData.append("location", searchLocationText);
-  postData.append("firmIds", selectedFirmList);
   postData.append("availability", selectedAvailability);
   postData.append("user_slug", userSlug);
 

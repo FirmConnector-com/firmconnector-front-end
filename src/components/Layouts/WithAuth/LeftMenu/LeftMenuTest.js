@@ -87,7 +87,7 @@ const LeftMenuTest = () => {
           iconColor="var(--success)"
           onClick={() => history.push("/search")}
         />
-        {user_primary_role === 1 || user_primary_role === 2 ? (
+        {user_primary_role === "1" || user_primary_role === "2" ? (
           <NavItems
             active={
               pages[1][0] === location.pathname

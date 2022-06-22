@@ -4,7 +4,7 @@ import { AlertInfo } from "../../Alerts/Alert";
 import getResourceManagerDetails from "../../../apis/getResourceManagerDetails";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 
-import EditResourceManagerFormBlock from "./EditResourceManagerFormBlock";
+import EditResourceManagerFormBlock from "./EditFormBlock";
 
 const EditManagerForm = (props) => {
   const { userDetails } = useAuthContext();

@@ -1,23 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useAuthContext } from "../../context/AuthContext";
 import HeaderSm from "../Headers/HeaderSm";
 import InputLebelComponent from "../InputLebel/InputLebelComponent";
 import { Button } from "react-bootstrap";
 import { AlertDanger, AlertInfo, AlertSuccess } from "../Alerts/Alert";
-import emailjs, { init } from "@emailjs/browser";
-import { generator } from "generate-password";
 
 //import API
 import createClient from "../../apis/createClient";
-import getMyClientListing from "../../apis/getMyClientListing";
 
 const AddClientForm = () => {
   const { userDetails } = useAuthContext();
   const user_slug = JSON.parse(userDetails).user_slug;
   const user_primary_role = JSON.parse(userDetails).user_primary_role;
-  const first_name = JSON.parse(userDetails).first_name;
-  const last_name = JSON.parse(userDetails).last_name;
-  const firm_name = JSON.parse(userDetails).firm_details?.firm_name;
 
   const [email, setEmail] = useState("");
   const [buttonText, setButtonText] = useState("Create Account");
@@ -125,59 +119,6 @@ const AddClientForm = () => {
       setHasSubmitError(true);
       setIsButtonDisabled(false);
       setButtonText("Create Account");
-    }
-  };
-
-  const handleData = (status) => {
-    try {
-      const pwd = generator.generate({
-        length: 8,
-        numbers: true,
-        lowercase: false,
-        uppercase: false,
-        symbols: false,
-      });
-
-      let templateParams = {
-        email: email,
-        password: pwd,
-        first_name: first_name,
-        last_name: last_name,
-        firm_name: firm_name,
-        user_slug: user_slug,
-        from_to: email,
-      };
-      if (status === true) {
-        emailjs
-          .send(
-            "service_ipdiryl",
-            "template_k39cdfa",
-            templateParams,
-            "5jIvmb8qNtHaO73Nm"
-          )
-          .then(
-            (result) => {
-              alert("Message Sent Successfully");
-            },
-            (error) => console.log(error.text)
-          );
-      } else {
-        emailjs
-          .send(
-            "service_ipdiryl",
-            "template_k39cdfa",
-            templateParams,
-            "5jIvmb8qNtHaO73Nm"
-          )
-          .then(
-            (result) => {
-              alert("Message Sent Successfully");
-            },
-            (error) => console.log(error.text)
-          );
-      }
-    } catch (e) {
-      console.log("oops!.Error during mail sending", e);
     }
   };
 

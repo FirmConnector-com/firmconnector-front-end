@@ -54,6 +54,7 @@ const GET_JOB_DETAILS_ROUTE = `${API_BASE}get-job-details`;
 const REMOVE_JOB_ROUTE = `${API_BASE}remove-job`;
 const GET_LATEST_JOB_POSTING_ROUTE = `${API_BASE}get-latest-job-postings`;
 const GET_USER_DETAILS_ROUTE = `${API_BASE}get-user-details`;
+const SEND_QUERY_ROUTE = `${API_BASE}send-query`;
 
 export {
   LOGIN_ROUTE,
@@ -106,4 +107,5 @@ export {
   REMOVE_JOB_ROUTE,
   GET_LATEST_JOB_POSTING_ROUTE,
   GET_USER_DETAILS_ROUTE,
+  SEND_QUERY_ROUTE,
 };

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useAuthContext } from "../../context/AuthContext";
 import { Button } from "react-bootstrap";
-import getFirmAccessList from "../../apis/getFirmAccessList";
 import LoadingPageSm from "../CommonComponent/LoadingPageSm";
 import { FIRM_IMAGE_BASE } from "../../config/env";
 import getSearchAutoComplete from "../../apis/getSearchAutoComplete";
@@ -18,14 +17,11 @@ import {
   faPhone,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
+import { useEffect } from "react";
 
 const SearchBlock = () => {
   const { userDetails } = useAuthContext();
   const user_slug = JSON.parse(userDetails).user_slug;
-
-  // const [firmList, setFirmList] = useState(false);
-  const [selectedFirmList, setSelectedFirmList] = useState([]);
-  const [ownFirm, setOwnFirm] = useState(false);
 
   const [isSearching, setIsSearching] = useState(false);
   const [hasNoInitialResult, setHasNoInitialResult] = useState(true);
@@ -44,49 +40,7 @@ const SearchBlock = () => {
   const [isLocationAutoCompleteVisible, setIsLocationAutoCompleteVisible] =
     useState(false);
   const [suggestionLocationList, setSuggestionLocationList] = useState(false);
-
-  // const [show, setShow] = useState(false);
-
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
-
-  // useEffect(() => {
-  //   if (user_slug !== undefined) {
-  //     Promise.all([getFirmAccessList(user_slug)])
-  //       .then(async ([data]) => {
-  //         if (data?.data?.firmList) {
-  //           setFirmList(data.data.firmList);
-  //           setOwnFirm(data.data.ownFirm);
-
-  //           var firmCheckedIds = [];
-
-  //           data.data.firmList.map((item) => {
-  //             return firmCheckedIds.push(item.firm_id);
-  //           });
-
-  //           await setSelectedFirmList(firmCheckedIds);
-  //         }
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   }
-  // }, [user_slug]);
-
-  // const updateSelectedFirmIds = (id) => {
-  //   console.log(id);
-  //   var ids = [...selectedFirmList];
-
-  //   const index = selectedFirmList.indexOf(id);
-
-  //   if (index > -1) {
-  //     ids.pop(index);
-  //   } else {
-  //     ids.push(id);
-  //   }
-
-  //   setSelectedFirmList(ids);
-  // };
+  const [ownFirm, setOwnFirm] = useState(0);
 
   const onKeyworkLocationChange = (e) => {
     let keyword = e.target.value;
@@ -178,6 +132,8 @@ const SearchBlock = () => {
     }
   };
 
+  useEffect(() => {}, [ownFirm]);
+
   const getSearch = () => {
     setSearchResult(false);
     setIsSearching(true);
@@ -187,7 +143,6 @@ const SearchBlock = () => {
       getSearchResult(
         searchText,
         searchLocationText,
-        selectedFirmList,
         selectedAvailability,
         user_slug
       ),
@@ -197,6 +152,7 @@ const SearchBlock = () => {
           setIsSearching(false);
           setSearchResult(data?.data?.searchResult);
           setHasNoInitialResult(false);
+          await setOwnFirm(data?.data?.own_firm);
         } else {
           setIsSearching(false);
           setSearchResult(false);
@@ -247,72 +203,6 @@ const SearchBlock = () => {
               />
               {displayLocationAutoCompleteBlock()}
             </div>
-            {/* <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex bg-light rounded align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
-              <Button
-                variant="light"
-                size="md"
-                className="w-100"
-                onClick={handleShow}
-              >
-                Refine by Firms
-              </Button>
-
-              <Modal show={show} onHide={handleClose}>
-                <div className="d-block p-3">
-                  <div className="d-block">
-                    <span className="h5">Select Firms</span>
-                  </div>
-                  <div className="d-block">
-                    <span className="text-secondary">
-                      Click on the firm logo to select or deselect
-                    </span>
-                  </div>
-                </div>
-                <Modal.Body>
-                  <div className="d-flex">
-                    {firmList.length > 0
-                      ? firmList.map(function (item) {
-                          return (
-                            <div
-                              className="me-3 cursor-pointer rounded bg-light position-relative"
-                              onClick={() =>
-                                updateSelectedFirmIds(item.firm_id)
-                              }
-                            >
-                              <div
-                                className="firm-logo-sm-custom bg-white"
-                                alt={item.firm_name}
-                                style={{
-                                  backgroundImage: `url("${
-                                    FIRM_IMAGE_BASE + item.firm_logo
-                                  }")`,
-                                  backgroundSize: "contain",
-                                  backgroundPosition: "center",
-                                  backgroundRepeat: "no-repeat",
-                                }}
-                              />
-
-                              {selectedFirmList.includes(item.firm_id) ? (
-                                <div
-                                  className="text-white position-absolute"
-                                  style={{ right: "-0.4rem", top: "-0.5rem" }}
-                                >
-                                  &#9989;
-                                </div>
-                              ) : null}
-                            </div>
-                          );
-                        })
-                      : null}
-                  </div>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button size="sm" variant="secondary" onClick={handleClose}>
-                    Close Filter
-                  </Button>
-                </Modal.Footer>
-              </Modal>
-            </div> */}
             <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 d-flex align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
               <select
                 className="form-select col-12 col-lg-2 col-xl-2 col-xxl-2"
@@ -595,7 +485,7 @@ const SearchBlock = () => {
 
   const displayProfilePicture = (item) => {
     if (ownFirm !== "" && ownFirm !== undefined) {
-      if (ownFirm.firm_id === item.firm_id) {
+      if (ownFirm === item.firm_id) {
         return (
           <div className="d-block">
             <ProfileImageMd imgSrc={item.profile_image_path} />
@@ -613,7 +503,7 @@ const SearchBlock = () => {
 
   const displayProfileName = (item) => {
     if (ownFirm !== "" && ownFirm !== undefined) {
-      if (ownFirm.firm_id === item.firm_id) {
+      if (ownFirm === item.firm_id) {
         return (
           <div className="d-block">
             <span className="h6 fw-bold-custom text-info-custom">
@@ -643,7 +533,7 @@ const SearchBlock = () => {
 
   const checkContactBlockDisplay = (item) => {
     if (ownFirm !== "" && ownFirm !== undefined) {
-      if (ownFirm.firm_id === item.firm_id) {
+      if (ownFirm === item.firm_id) {
         return (
           <div className="d-block bg-light p-2 rounded">
             {displayEmail(item)}
@@ -657,7 +547,7 @@ const SearchBlock = () => {
 
   const displayLocation = (item) => {
     if (ownFirm !== "" && ownFirm !== undefined) {
-      if (ownFirm.firm_id === item.firm_id) {
+      if (ownFirm === item.firm_id) {
         return (
           <div className="d-flex align-items-center">
             <span className="text-info-custom me-3">
@@ -674,7 +564,7 @@ const SearchBlock = () => {
 
   const displayEmail = (item) => {
     if (ownFirm !== "" && ownFirm !== undefined) {
-      if (ownFirm.firm_id === item.firm_id) {
+      if (ownFirm === item.firm_id) {
         return (
           <div className="d-flex align-items-center">
             <span className="text-info-custom me-2">
@@ -691,7 +581,7 @@ const SearchBlock = () => {
 
   const displayPhone = (item) => {
     if (ownFirm !== "" && ownFirm !== undefined) {
-      if (ownFirm.firm_id === item.firm_id) {
+      if (ownFirm === item.firm_id) {
         return (
           <div className="d-flex align-items-center">
             <span className="text-info-custom me-2">
