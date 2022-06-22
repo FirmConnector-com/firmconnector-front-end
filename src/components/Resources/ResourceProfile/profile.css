@@ -104,6 +104,30 @@
     color: var(--black);
 }
 
+.skill-wrapper-success{
+    padding: 0.15rem 1.2rem;
+    background-color: var(--success-light);
+    align-self: flex-start;
+    border-radius: 0.2rem;
+    width: auto;
+}
+
+.skill-wrapper-success > span{
+    color: var(--black);
+}
+
+.skill-wrapper-dark{
+    padding: 0.1rem 1rem 0.3rem 1rem;
+    background-color: var(--top-header-bg);
+    align-self: flex-start;
+    border-radius: 0.2rem;
+    width: auto;
+}
+
+.skill-wrapper-dark > span{
+    color: var(--white);
+}
+
 .profile-tab-container{
     background-color: var(--white);
     border-radius: 0.2rem;

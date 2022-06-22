@@ -19,8 +19,10 @@ const About = (props) => {
   };
 
   return (
-    <div className="d-block p-3 bg-white">
-      <span className="p-wrap">{displayProfileBio()}</span>
+    <div className="card-custom">
+      <div className="card-body">
+        <span className="p-wrap">{displayProfileBio()}</span>
+      </div>
     </div>
   );
 };

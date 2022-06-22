@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 body {
-   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+   font-family: 'Inter', sans-serif !important;
    color: var(--black) !important;
    -webkit-font-smoothing: antialiased !important;
    line-height: 1.5;
    /* font-size: 0.885rem !important; */
-   background-color: var(--background-color) !important;
+   /* background-color: var(--background-color) !important; */
    overflow-y:scroll !important;
 }
 
@@ -379,7 +381,7 @@ a{
 }
 
 .fw-medium-custom {
-   font-weight: 600!important;
+   font-weight: 500!important;
 }
 
 .selection-muted{

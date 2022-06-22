@@ -171,7 +171,7 @@ const SearchBlock = () => {
 
   const searchTopBlock = () => {
     return (
-      <div className="d-block bg-dark-custom rounded p-3 rounded position-relative shadow-lg">
+      <div className="d-block bg-dark-custom rounded p-3 mb-5 rounded position-relative shadow-lg">
         <h4 className="text-light">
           Search Resources / Skills / Roles / Locations
         </h4>
@@ -477,7 +477,9 @@ const SearchBlock = () => {
     if (role !== null && role.trim().length !== 0) {
       return (
         <div className="d-block">
-          <span className="text-x-sm-custom text-muted-custom">{role}</span>
+          <span className="text-info-custom text-sm-custom fw-medium-custom">
+            {role}
+          </span>
         </div>
       );
     }
@@ -506,7 +508,7 @@ const SearchBlock = () => {
       if (ownFirm === item.firm_id) {
         return (
           <div className="d-block">
-            <span className="h6 fw-bold-custom text-info-custom">
+            <span className="h5 text-dark fw-bold-custom">
               {item.resource_name}
             </span>
           </div>
@@ -514,7 +516,7 @@ const SearchBlock = () => {
       } else {
         return (
           <div className="d-block">
-            <span className="h6 fw-bold-custom text-info-custom">
+            <span className="h5 text-secondary fw-bold-custom">
               Name Withheld
             </span>
           </div>
@@ -523,7 +525,7 @@ const SearchBlock = () => {
     } else {
       return (
         <div className="d-block">
-          <span className="h6 fw-bold-custom text-info-custom">
+          <span className="h5 text-secondary fw-bold-custom">
             Name Withheld
           </span>
         </div>
@@ -553,7 +555,7 @@ const SearchBlock = () => {
             <span className="text-info-custom me-3">
               <FontAwesomeIcon icon={faMapPin} />
             </span>
-            <span className="text-x-sm-custom text-dark-custom">
+            <span className="text-sm-custom text-dark-custom">
               {item.city_name}, {item.state_name}, {item.country_name}
             </span>
           </div>
@@ -570,7 +572,7 @@ const SearchBlock = () => {
             <span className="text-info-custom me-2">
               <FontAwesomeIcon icon={faEnvelope} />
             </span>
-            <span className="text-x-sm-custom text-dark-custom">
+            <span className="text-sm-custom text-dark-custom">
               {item.user_email}
             </span>
           </div>
@@ -587,7 +589,7 @@ const SearchBlock = () => {
             <span className="text-info-custom me-2">
               <FontAwesomeIcon icon={faPhone} />
             </span>
-            <span className="text-x-sm-custom text-dark-custom">
+            <span className="text-sm-custom text-dark-custom">
               {item.user_phone}
             </span>
           </div>
@@ -624,9 +626,9 @@ const SearchBlock = () => {
               <div className="d-flex flex-wrap">
                 {skillFormatted.map((skillItem, skillIndex) => {
                   return (
-                    <div className="skill-wrapper-muted my-1 me-1 rounded-pill">
+                    <div className="skill-wrapper-dark my-1 me-2 roundedshadow">
                       <span
-                        className="text-x-sm-custom"
+                        className="text-x-sm-custom text-capitalize"
                         key={skillIndex.toString()}
                       >
                         {skillItem}
@@ -634,7 +636,7 @@ const SearchBlock = () => {
                     </div>
                   );
                 })}
-                <span className=" my-2 me-1 text-x-sm-custom fw-bold text-dark-custom">
+                <span className=" my-2 me-1 text-sm-custom text-info-custom">
                   +{remainingSkills} more skills
                 </span>
               </div>
@@ -647,7 +649,7 @@ const SearchBlock = () => {
                 return (
                   <div className="skill-wrapper-muted my-1 me-1">
                     <span
-                      className="text-x-sm-custom"
+                      className="text-sm-custom text-dark fw-medium-custom"
                       key={skillIndex.toString()}
                     >
                       {skillItem}

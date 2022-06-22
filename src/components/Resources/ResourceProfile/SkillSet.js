@@ -49,7 +49,10 @@ const SkillSet = (props) => {
 
   const displaySkillItem = (item) => {
     return (
-      <div className="skill-wrapper my-1 me-1" key={item.skill_id.toString()}>
+      <div
+        className="skill-wrapper-dark my-1 me-1"
+        key={item.skill_id.toString()}
+      >
         <span className="text-x-sm-custom">{item.skill_name}</span>
       </div>
     );
