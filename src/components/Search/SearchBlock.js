@@ -108,7 +108,7 @@ const SearchBlock = () => {
   };
 
   const getAutoCompleteResult = (keyword) => {
-    Promise.all([getSearchAutoComplete(keyword)])
+    Promise.all([getSearchAutoComplete(keyword, user_slug)])
       .then(async ([data]) => {
         if (data?.data?.suggestionList) {
           setSuggestionList(data?.data?.suggestionList);

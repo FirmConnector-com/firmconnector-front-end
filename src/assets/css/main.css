@@ -539,7 +539,7 @@ a{
    z-index: 99;
    overflow-y: scroll;
    max-height: 18.5rem;
-   top: 4.5rem;
+   top: 3.7rem;
    width: 25% !important
 }
 
@@ -551,18 +551,18 @@ a{
    z-index: 99;
    overflow-y: scroll;
    max-height: 18.5rem;
-   top: 4.5rem;
+   top: 3.7rem;
    width: 25% !important
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
    .search-auto-complete-block{
-      top: 4.3rem;
+      top: 3.8rem;
       width: 90% !important
    }
 
    .search-location-auto-complete-block{
-      top: 7.6rem;
+      top: 7.1rem;
       width: 90% !important
    }
 }
