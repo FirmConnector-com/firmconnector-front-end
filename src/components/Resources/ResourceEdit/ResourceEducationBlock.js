@@ -485,7 +485,7 @@ const ResourceEducationBlock = (props) => {
   const displayAddEducationButton = () => {
     return (
       <div className="d-block justify-content-end">
-        <Button variant="primary" size="sm" onClick={() => handleShow()}>
+        <Button variant="primary" size="md" onClick={() => handleShow()}>
           Add New Education
         </Button>
       </div>
@@ -617,7 +617,7 @@ const ResourceEducationBlock = (props) => {
           variant="primary"
           disabled={isButtonDisabled}
           onClick={handleFormSubmit}
-          size="sm"
+          size="md"
         >
           {buttonText}
         </Button>
@@ -632,7 +632,7 @@ const ResourceEducationBlock = (props) => {
           variant="dark"
           disabled={isButtonDisabled}
           onClick={() => closeAddModal()}
-          size="sm"
+          size="md"
         >
           Close
         </Button>
@@ -815,7 +815,7 @@ const ResourceEducationBlock = (props) => {
           variant="primary"
           disabled={isButtonDisabled}
           onClick={handleFormUpdate}
-          size="sm"
+          size="md"
         >
           {buttonText}
         </Button>
@@ -830,7 +830,7 @@ const ResourceEducationBlock = (props) => {
           variant="dark"
           disabled={isButtonDisabled}
           onClick={() => handleCloseEditModal()}
-          size="sm"
+          size="md"
         >
           Close
         </Button>
@@ -861,7 +861,7 @@ const ResourceEducationBlock = (props) => {
                 onClick={() =>
                   handleEditEducation(education.education_history_id)
                 }
-                size="sm"
+                size="md"
               >
                 Edit Item
               </Button>
@@ -875,7 +875,7 @@ const ResourceEducationBlock = (props) => {
                 onClick={() =>
                   handleRemoveEducation(education.education_history_id)
                 }
-                size="sm"
+                size="md"
               >
                 Remove
               </Button>

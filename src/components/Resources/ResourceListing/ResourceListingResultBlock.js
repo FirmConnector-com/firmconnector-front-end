@@ -219,7 +219,7 @@ const ResourceListingResultBlock = () => {
                     <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex justify-content-start justify-content-lg-end justify-content-xl-end justify-content-xxl-end">
                       <Button
                         variant="warning"
-                        size="sm"
+                        size="md"
                         className="me-2"
                         onClick={() =>
                           navigateTpProfile(
@@ -239,7 +239,7 @@ const ResourceListingResultBlock = () => {
                               : "resources/edit-resource/" + item.user_slug
                           }
                         >
-                          <Button variant="primary" size="sm" className="ms-2">
+                          <Button variant="primary" size="md" className="ms-2">
                             Edit Profile
                           </Button>
                         </Link>
@@ -328,13 +328,13 @@ const ResourceListingResultBlock = () => {
   const displayUserProfileRole = (user_profile_role) => {
     if (user_profile_role !== null) {
       return (
-        <span className="text-muted-custom text-x-sm-custom">
+        <span className="text-info-custom text-sm-custom fw-medium-custom">
           {user_profile_role}
         </span>
       );
     } else {
       return (
-        <span className="text-danger-custom text-x-sm-custom">
+        <span className="text-danger-custom text-sm-custom fw-medium-custom">
           Not available
         </span>
       );
@@ -343,18 +343,14 @@ const ResourceListingResultBlock = () => {
 
   const displayName = (name) => {
     if (name !== null) {
-      if (name.length > 25) {
+      if (name.length > 20) {
         return (
-          <span className="text-dark-custom fw-bold text-sm-custom">
-            {name.substring(0, 25) + "..."}
+          <span className="h5 text-dark fw-bold-custom">
+            {name.substring(0, 20) + "..."}
           </span>
         );
       } else {
-        return (
-          <span className="text-dark-custom fw-bold text-sm-custom">
-            {name}
-          </span>
-        );
+        return <span className="h5 text-dark fw-bold-custom">{name}</span>;
       }
     } else {
       return <BadgeInfo title={"Not available"} />;

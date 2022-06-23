@@ -156,7 +156,7 @@ const ResourceAvailabilityForm = (props) => {
   const displayUpdateButton = () => {
     return (
       <div className="d-block justify-content-end">
-        <Button variant="primary" size="sm" onClick={() => handleShow()}>
+        <Button variant="primary" size="md" onClick={() => handleShow()}>
           Update Availability
         </Button>
       </div>
@@ -322,7 +322,7 @@ const ResourceAvailabilityForm = (props) => {
           variant="primary"
           disabled={isButtonDisabled}
           onClick={handleFormSubmit}
-          size="sm"
+          size="md"
         >
           {buttonText}
         </Button>
@@ -337,7 +337,7 @@ const ResourceAvailabilityForm = (props) => {
           variant="dark"
           disabled={isButtonDisabled}
           onClick={() => closeAddModal()}
-          size="sm"
+          size="md"
         >
           Close
         </Button>

@@ -51,7 +51,7 @@ const SelectOrganizationComponent = () => {
                   </p>
                   <Button
                     variant="light"
-                    size="sm"
+                    size="md"
                     onClick={() => changeBlockView(1)}
                   >
                     Learn more
@@ -76,7 +76,7 @@ const SelectOrganizationComponent = () => {
                   </p>
                   <Button
                     variant="light"
-                    size="sm"
+                    size="md"
                     onClick={() => changeBlockView(2)}
                   >
                     Learn more
@@ -95,7 +95,7 @@ const SelectOrganizationComponent = () => {
                   <p className="card-text">Place more candidates</p>
                   <Button
                     variant="light"
-                    size="sm"
+                    size="md"
                     onClick={() => changeBlockView(3)}
                   >
                     Learn more

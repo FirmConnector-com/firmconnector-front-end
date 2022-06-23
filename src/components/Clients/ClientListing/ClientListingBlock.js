@@ -15,7 +15,7 @@ const ClientListingBlock = () => {
       if (firm_details.firm_type === 1) {
         return (
           <Link to="/resources">
-            <Button variant="light" size="sm">
+            <Button variant="light" size="md">
               Candidates
             </Button>
           </Link>
@@ -34,7 +34,7 @@ const ClientListingBlock = () => {
         <div className="row">
           <div className="col-6 d-flex">
             <Link to="/access-control">
-              <Button variant="warning" size="sm" className="me-2">
+              <Button variant="warning" size="md" className="me-2">
                 My Clients
               </Button>
             </Link>
@@ -45,7 +45,7 @@ const ClientListingBlock = () => {
             {user_primary_role === "2" ? (
               <div className="d-flex justify-content-end">
                 <Link to="/add-client">
-                  <Button variant="primary" size="sm">
+                  <Button variant="primary" size="md">
                     Add New Client
                   </Button>
                 </Link>

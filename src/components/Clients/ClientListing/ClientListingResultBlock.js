@@ -133,13 +133,13 @@ const ClientListingResultBlock = () => {
                     </div>
                     {/* <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex justify-content-start justify-content-lg-end justify-content-xl-end justify-content-xxl-end">
                       {user_primary_role === "2" ? (
-                        <Button variant="danger" size="sm" className="ms-2">
+                        <Button variant="danger" size="md" className="ms-2">
                           Remove Access
                         </Button>
                       ) : (
                         <Button
                           variant="secondary"
-                          size="sm"
+                          size="md"
                           className="ms-2"
                           disabled
                         >

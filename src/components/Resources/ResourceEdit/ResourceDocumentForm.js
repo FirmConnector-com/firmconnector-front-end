@@ -191,7 +191,7 @@ const ResourceDocumentForm = (props) => {
   const displayAddDocumentnButton = () => {
     return (
       <div className="d-flex justify-content-end">
-        <Button variant="primary" size="sm" onClick={() => handleShow()}>
+        <Button variant="primary" size="md" onClick={() => handleShow()}>
           Add New Document
         </Button>
       </div>
@@ -409,7 +409,7 @@ text/plain, application/pdf"
           variant="primary"
           disabled={isButtonDisabled}
           onClick={handleFormSubmit}
-          size="sm"
+          size="md"
         >
           {buttonText}
         </Button>
@@ -424,7 +424,7 @@ text/plain, application/pdf"
           variant="dark"
           disabled={isButtonDisabled}
           onClick={() => closeAddModal()}
-          size="sm"
+          size="md"
         >
           Close
         </Button>
@@ -481,7 +481,7 @@ text/plain, application/pdf"
               borderBottom={true}
             />
           </div>
-          <div className="d-block mb-3">{displayAddDocumentnButton()}</div>
+          <div className="d-block my-3">{displayAddDocumentnButton()}</div>
           <div className="d-block">{displayDocuments()}</div>
         </div>
       </div>

@@ -56,7 +56,7 @@ const FirmResourceCount = (props) => {
         </div>
         <div className="d-block mt-3">
           <Link to={"resources"}>
-            <Button variant="primary" size="sm">
+            <Button variant="primary" size="md">
               View All Resources
             </Button>
           </Link>

@@ -64,18 +64,18 @@ const JobListingResultBlock = (props) => {
           </div>
           <div className="d-flex justify-content-end border-top p-3">
             <Link to={`/job/details/${item.job_slug}`}>
-              <Button variant="warning" size="sm">
+              <Button variant="warning" size="md">
                 View Job
               </Button>
             </Link>
             <Link to={`/job/edit/${item.job_slug}`}>
-              <Button variant="success" size="sm" className="ms-3">
+              <Button variant="success" size="md" className="ms-3">
                 Edit Job
               </Button>
             </Link>
             <Button
               variant="danger"
-              size="sm"
+              size="md"
               className="ms-3"
               onClick={() => removeJob(item.job_slug)}
             >

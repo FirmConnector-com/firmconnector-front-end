@@ -272,7 +272,7 @@ const ProfileContactForm = (props) => {
           variant="primary"
           disabled={isButtonDisabled}
           onClick={handleFormSubmit}
-          size="sm"
+          size="md"
         >
           {buttonText}
         </Button>

@@ -66,7 +66,7 @@ const FirmBlockSm = (props) => {
         <div className="d-block">{displayFirmEmail()}</div>
         <div className="d-block">
           <Link to={"edit-firm"}>
-            <Button variant="primary" size="sm">
+            <Button variant="primary" size="md">
               Edit Firm Details
             </Button>
           </Link>

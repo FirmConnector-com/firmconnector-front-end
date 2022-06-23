@@ -33,7 +33,7 @@ const SkillSet = (props) => {
           </div>
           {skillCount.skill_count > 7 ? (
             <div className="d-flex justify-content-end">
-              <Button variant="primary" size="sm" onClick={() => handleShow()}>
+              <Button variant="primary" size="md" onClick={() => handleShow()}>
                 View All Skills
               </Button>
             </div>
@@ -77,7 +77,7 @@ const SkillSet = (props) => {
         </Modal.Header>
         <Modal.Body>{displayAllSkills()}</Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleClose} size="sm">
+          <Button variant="primary" onClick={handleClose} size="md">
             Close Skill
           </Button>
         </Modal.Footer>
