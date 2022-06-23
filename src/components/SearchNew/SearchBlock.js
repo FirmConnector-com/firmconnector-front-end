@@ -5,6 +5,7 @@ import LoadingPageSm from "../CommonComponent/LoadingPageSm";
 import { FIRM_IMAGE_BASE } from "../../config/env";
 import getSearchAutoComplete from "../../apis/getSearchAutoComplete";
 import getLocationSearchAutoComplete from "../../apis/getLocationSearchAutoComplete";
+import BlockHeader from "../Headers/BlockHeader";
 
 import getSearchResult from "../../apis/getSearchResult";
 import { PieChart } from "react-minimal-pie-chart";
@@ -171,56 +172,51 @@ const SearchBlock = () => {
 
   const searchTopBlock = () => {
     return (
-      <div className="d-block bg-dark-custom rounded p-3 mb-5 rounded position-relative shadow-lg">
-        <h4 className="text-light">
-          Search Resources / Skills / Roles / Locations
-        </h4>
-        <div className="d-block mt-4 mb-2">
-          <div className="row d-flex justify-content-between m-0">
-            <div className="col-12 col-lg-6 col-xl-6 col-xxl-6 d-flex align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0 rounded">
-              <input
-                type="text"
-                name="name"
-                placeholder="Search for resources"
-                className="w-100 input-without-outline rounded p-2"
-                autoComplete="off"
-                onChange={onKeyworkChange}
-                value={searchText}
-                onKeyPress={(e) => handler(e)}
-              />
-              {displayAutoCompleteBlock()}
-            </div>
-            <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0 rounded">
-              <input
-                type="text"
-                name="name"
-                placeholder="Seach for location"
-                className="w-100 input-without-outline rounded p-2"
-                autoComplete="off"
-                onChange={onKeyworkLocationChange}
-                value={searchLocationText}
-                onKeyPress={(e) => handler(e)}
-              />
-              {displayLocationAutoCompleteBlock()}
-            </div>
-            <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 d-flex align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
-              <select
-                className="form-select col-12 col-lg-2 col-xl-2 col-xxl-2"
-                aria-label="Current Availability"
-                onChange={handleAvailabilityChange}
-              >
-                <option selected>Current Availability</option>
-                <option value="40">40 hrs/week</option>
-                <option value="30">30 hrs/week</option>
-                <option value="20">20 hrs/week</option>
-                <option value="10">10 hrs/week</option>
-                <option value="0">N/A</option>
-              </select>
-            </div>
+      <div className="d-block position-relative p-3 shadow mb-5">
+        <div className="row d-flex justify-content-between m-0">
+          <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 d-flex align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0 rounded">
+            <input
+              type="text"
+              name="name"
+              placeholder="Keyword"
+              className="form-control-custom"
+              autoComplete="off"
+              onChange={onKeyworkChange}
+              value={searchText}
+              onKeyPress={(e) => handler(e)}
+            />
+            {displayAutoCompleteBlock()}
           </div>
-          <div className="d-flex justify-content-end mt-4">
+          <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0 rounded">
+            <input
+              type="text"
+              name="name"
+              placeholder="location"
+              className="form-control-custom"
+              autoComplete="off"
+              onChange={onKeyworkLocationChange}
+              value={searchLocationText}
+              onKeyPress={(e) => handler(e)}
+            />
+            {displayLocationAutoCompleteBlock()}
+          </div>
+          <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 d-flex align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
+            <select
+              className="form-select col-12 col-lg-2 col-xl-2 col-xxl-2 form-control-custom"
+              aria-label="Current Availability"
+              onChange={handleAvailabilityChange}
+            >
+              <option selected>Current Availability</option>
+              <option value="40">40 hrs/week</option>
+              <option value="30">30 hrs/week</option>
+              <option value="20">20 hrs/week</option>
+              <option value="10">10 hrs/week</option>
+              <option value="0">N/A</option>
+            </select>
+          </div>
+          <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 d-flex justify-content-end align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
             <Button variant="warning" size="md" onClick={() => getSearch()}>
-              Search Resources
+              Search Profile
             </Button>
           </div>
         </div>
@@ -756,6 +752,10 @@ const SearchBlock = () => {
 
   return (
     <div className="container">
+      <BlockHeader
+        title={"Search"}
+        subText={"Search for resources/ skills/ location/ roles"}
+      />
       {searchTopBlock()}
       {searchResultBlock()}
     </div>
