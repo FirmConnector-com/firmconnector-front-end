@@ -42,6 +42,7 @@ const SearchBlock = () => {
     useState(false);
   const [suggestionLocationList, setSuggestionLocationList] = useState(false);
   const [ownFirm, setOwnFirm] = useState(0);
+  const [changeAfterClick, setChangeAfterClick] = useState(false);
 
   const onKeyworkLocationChange = (e) => {
     let keyword = e.target.value;
@@ -85,25 +86,38 @@ const SearchBlock = () => {
       });
   };
 
+  useEffect(() => {
+    if (changeAfterClick && searchText !== "") {
+      const delayDebounceFn = setTimeout(() => {
+        setChangeAfterClick(false);
+        setIsKeywordChanging(true);
+        setIsAutoCompleteVisible(true);
+        getAutoCompleteResult(searchText);
+      }, 500);
+
+      return () => clearTimeout(delayDebounceFn);
+    }
+  }, [searchText, changeAfterClick]);
+
   const onKeyworkChange = (e) => {
     let keyword = e.target.value;
 
     if (keyword.trim().length > 0) {
       if (keyword.trim().length > 0) {
-        setIsKeywordChanging(true);
-        setIsAutoCompleteVisible(true);
         setSearchText(keyword);
-
-        getAutoCompleteResult(keyword);
+        setIsAutoCompleteVisible(false);
+        setChangeAfterClick(true);
       } else {
         setSearchText(keyword);
         setIsKeywordChanging(false);
         setIsAutoCompleteVisible(false);
+        setChangeAfterClick(true);
       }
     } else {
       setIsKeywordChanging(false);
       setIsAutoCompleteVisible(false);
       setSearchText("");
+      setChangeAfterClick(false);
     }
   };
 
@@ -342,10 +356,12 @@ const SearchBlock = () => {
 
     return (
       <div className="row">
-        <div className="col-8">
+        <div className="col-9">
           <span>{suggestionName}</span>
         </div>
-        <div className="col-4">{displaySuggestionType(suggestionType)}</div>
+        <div className="col-3 d-flex justify-content-end align-items-center">
+          {displaySuggestionType(suggestionType)}
+        </div>
       </div>
     );
   };
