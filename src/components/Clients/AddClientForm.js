@@ -164,7 +164,7 @@ const AddClientForm = () => {
               <div className="d-block">
                 <input
                   type="text"
-                  className="form-control-custom"
+                  className="form-control"
                   id="email"
                   placeholder="Enter client email address"
                   onChange={handleEmailChange}

@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuthContext } from "../../context/AuthContext";
 import Layout from "../../components/Layouts/WithAuth/Layout";
+import BlockHeader from "../../components/Headers/BlockHeader";
 
 //import specific my profile component
 import FirmOwnerScreen from "../../components/MyProfile/FirmOwnerProfile/FirmOwnerScreen";
@@ -23,6 +24,10 @@ const MyProfileScreen = () => {
 
   return (
     <Layout pageTitle={"FirmConnector :: My Profile"}>
+      <BlockHeader
+        title={"Profile Settings"}
+        subText={"Edit your profile & other settings"}
+      />
       {displayMyProfileOnRoleBasis()}
     </Layout>
   );

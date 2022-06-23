@@ -423,7 +423,7 @@ const ProfileBasicForm = (props) => {
                   <div className="d-block">
                     <input
                       type="text"
-                      className="form-control-custom-sm"
+                      className="form-control"
                       id="first-name"
                       placeholder="Enter first name"
                       onChange={handleFirstNameChange}
@@ -439,7 +439,7 @@ const ProfileBasicForm = (props) => {
                   <div className="d-block">
                     <input
                       type="text"
-                      className="form-control-custom-sm"
+                      className="form-control"
                       id="last-name"
                       placeholder="Enter last name"
                       onChange={handleLastNameChange}
@@ -455,7 +455,7 @@ const ProfileBasicForm = (props) => {
                   <div className="d-block">
                     <input
                       type="text"
-                      className="form-control-custom-sm"
+                      className="form-control"
                       id="job-role"
                       placeholder="Enter job role"
                       onChange={handleJobRoleChange}
@@ -471,7 +471,7 @@ const ProfileBasicForm = (props) => {
                     <InputLebelComponent title="Select Reporting Person" />
                     <div className="d-block">
                       <select
-                        className="form-control-custom-sm"
+                        className="form-control"
                         aria-label="Country"
                         onChange={handleReportTo}
                         value={reportTo}

@@ -328,7 +328,7 @@ const ProfileContactForm = (props) => {
                   <div className="d-block">
                     <input
                       type="email"
-                      className="form-control-custom-sm"
+                      className="form-control"
                       id="contact-email"
                       placeholder="Enter contact email"
                       onChange={handleContactEmailChange}
@@ -344,7 +344,7 @@ const ProfileContactForm = (props) => {
                   <div className="d-block">
                     <input
                       type="text"
-                      className="form-control-custom-sm"
+                      className="form-control"
                       id="phone-number"
                       placeholder="Enter phone number"
                       onChange={handlePhoneChange}
@@ -360,7 +360,7 @@ const ProfileContactForm = (props) => {
                   <div className="d-block">
                     <input
                       type="text"
-                      className="form-control-custom-sm"
+                      className="form-control"
                       id="office-phone-number"
                       placeholder="Enter office phone number"
                       onChange={handleOfficePhoneChange}
@@ -376,7 +376,7 @@ const ProfileContactForm = (props) => {
                   <div className="d-block">
                     <input
                       type="text"
-                      className="form-control-custom-sm"
+                      className="form-control"
                       id="street-address"
                       placeholder="Enter your street address"
                       onChange={handleStreetAddressChange}
@@ -391,7 +391,7 @@ const ProfileContactForm = (props) => {
                   <InputLebelComponent title="Select Country" />
                   <div className="d-block">
                     <select
-                      className="form-control-custom-sm"
+                      className="form-control"
                       aria-label="Country"
                       onChange={handleCountryChange}
                       value={userAddressCountryId}
@@ -413,7 +413,7 @@ const ProfileContactForm = (props) => {
                   <InputLebelComponent title="Select Provience/State" />
                   <div className="d-block">
                     <select
-                      className="form-control-custom-sm"
+                      className="form-control"
                       aria-label="State"
                       onChange={handleProvienceChange}
                       value={userAddressProvienceId}
@@ -435,7 +435,7 @@ const ProfileContactForm = (props) => {
                   <InputLebelComponent title="Select City" />
                   <div className="d-block">
                     <select
-                      className="form-control-custom-sm"
+                      className="form-control"
                       aria-label="City"
                       onChange={handleCityChange}
                       value={userAddressCityId}

@@ -187,7 +187,7 @@ const SignupScreenRightComponent = () => {
             <div className="d-block">
               <input
                 type="text"
-                className="form-control-custom"
+                className="form-control"
                 id="contact_name"
                 placeholder="Enter organization name"
                 autoComplete="off"
@@ -226,7 +226,7 @@ const SignupScreenRightComponent = () => {
             <div className="d-block">
               <input
                 type="email"
-                className="form-control-custom"
+                className="form-control"
                 id="email_address"
                 placeholder="Enter email address"
                 autoComplete="off"
@@ -240,7 +240,7 @@ const SignupScreenRightComponent = () => {
             <div className="d-block">
               <input
                 type="text"
-                className="form-control-custom"
+                className="form-control"
                 id="first_name"
                 placeholder="Enter your first name"
                 autoComplete="off"
@@ -254,7 +254,7 @@ const SignupScreenRightComponent = () => {
             <div className="d-block">
               <input
                 type="text"
-                className="form-control-custom"
+                className="form-control"
                 id="last_name"
                 placeholder="Enter your last name"
                 autoComplete="off"
@@ -268,7 +268,7 @@ const SignupScreenRightComponent = () => {
             <div className="d-block">
               <input
                 type="password"
-                className="form-control-custom"
+                className="form-control"
                 id="password"
                 placeholder="Enter account password"
                 onChange={handlePasswordChange}

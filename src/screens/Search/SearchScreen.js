@@ -1,5 +1,5 @@
 import React from "react";
-import SearchBlock from "../../components/SearchNew/SearchBlock";
+import SearchBlock from "../../components/Search/SearchBlock";
 import Layout from "../../components/Layouts/WithAuth/Layout";
 
 const SearchScreen = () => {

@@ -172,14 +172,14 @@ const SearchBlock = () => {
 
   const searchTopBlock = () => {
     return (
-      <div className="d-block position-relative p-3 shadow mb-5">
+      <div className="d-block position-relative p-3 shadow mb-5 bg-white">
         <div className="row d-flex justify-content-between m-0">
           <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 d-flex align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0 rounded">
             <input
               type="text"
               name="name"
               placeholder="Keyword"
-              className="form-control-custom"
+              className="form-control"
               autoComplete="off"
               onChange={onKeyworkChange}
               value={searchText}
@@ -192,7 +192,7 @@ const SearchBlock = () => {
               type="text"
               name="name"
               placeholder="location"
-              className="form-control-custom"
+              className="form-control"
               autoComplete="off"
               onChange={onKeyworkLocationChange}
               value={searchLocationText}
@@ -202,7 +202,7 @@ const SearchBlock = () => {
           </div>
           <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 d-flex align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
             <select
-              className="form-select col-12 col-lg-2 col-xl-2 col-xxl-2 form-control-custom"
+              className="form-select col-12 col-lg-2 col-xl-2 col-xxl-2 form-control"
               aria-label="Current Availability"
               onChange={handleAvailabilityChange}
             >

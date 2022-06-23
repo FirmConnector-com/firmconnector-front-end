@@ -527,7 +527,7 @@ const ResourceEducationBlock = (props) => {
                     <div className="d-block">
                       <input
                         type="text"
-                        className="form-control-custom-sm"
+                        className="form-control"
                         id="degree-name"
                         placeholder="Enter degree name"
                         onChange={handleDegreeNameChange}
@@ -543,7 +543,7 @@ const ResourceEducationBlock = (props) => {
                     <div className="d-block">
                       <input
                         type="text"
-                        className="form-control-custom-sm"
+                        className="form-control"
                         id="subject"
                         placeholder="Enter your subject"
                         onChange={handleSubjectChange}
@@ -562,7 +562,7 @@ const ResourceEducationBlock = (props) => {
                       <div className="d-block">
                         <input
                           type="text"
-                          className="form-control-custom-sm"
+                          className="form-control"
                           id="school"
                           placeholder="Enter your school name"
                           onChange={handleSchoolNameChange}
@@ -580,7 +580,7 @@ const ResourceEducationBlock = (props) => {
                       <div className="d-block">
                         <input
                           type="date"
-                          className="form-control-custom-sm"
+                          className="form-control"
                           id="passed-on"
                           placeholder="Enter year of passing"
                           onChange={handlePassedOnChange}
@@ -725,7 +725,7 @@ const ResourceEducationBlock = (props) => {
                     <div className="d-block">
                       <input
                         type="text"
-                        className="form-control-custom-sm"
+                        className="form-control"
                         id="degree-name-edit"
                         placeholder="Enter degree name"
                         onChange={handleDegreeNameChange}
@@ -741,7 +741,7 @@ const ResourceEducationBlock = (props) => {
                     <div className="d-block">
                       <input
                         type="text"
-                        className="form-control-custom-sm"
+                        className="form-control"
                         id="subject-edit"
                         placeholder="Enter your subject"
                         onChange={handleSubjectChange}
@@ -760,7 +760,7 @@ const ResourceEducationBlock = (props) => {
                       <div className="d-block">
                         <input
                           type="text"
-                          className="form-control-custom-sm"
+                          className="form-control"
                           id="school-edit"
                           placeholder="Enter your school name"
                           onChange={handleSchoolNameChange}
@@ -778,7 +778,7 @@ const ResourceEducationBlock = (props) => {
                       <div className="d-block">
                         <input
                           type="date"
-                          className="form-control-custom-sm"
+                          className="form-control"
                           id="passed-on-edit"
                           placeholder="Enter year of passing"
                           onChange={handlePassedOnChange}

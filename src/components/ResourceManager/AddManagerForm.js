@@ -278,7 +278,7 @@ const AddManagerForm = () => {
               <div className="d-block">
                 <input
                   type="email"
-                  className="form-control-custom"
+                  className="form-control"
                   id="first-name"
                   placeholder="Enter email address"
                   onChange={handleEmailChange}
@@ -294,7 +294,7 @@ const AddManagerForm = () => {
               <div className="d-block">
                 <input
                   type="password"
-                  className="form-control-custom"
+                  className="form-control"
                   id="last-name"
                   placeholder="Enter password"
                   onChange={handlePasswordChange}
@@ -327,7 +327,7 @@ const AddManagerForm = () => {
               <div className="d-block">
                 <input
                   type="text"
-                  className="form-control-custom"
+                  className="form-control"
                   id="first-name"
                   placeholder="Enter first name"
                   onChange={handleFirstNameChange}
@@ -343,7 +343,7 @@ const AddManagerForm = () => {
               <div className="d-block">
                 <input
                   type="text"
-                  className="form-control-custom"
+                  className="form-control"
                   id="last-name"
                   placeholder="Enter last name"
                   onChange={handleLastNameChange}
@@ -376,7 +376,7 @@ const AddManagerForm = () => {
               <div className="d-block">
                 <input
                   type="email"
-                  className="form-control-custom"
+                  className="form-control"
                   id="contact-email"
                   placeholder="Enter contact email"
                   onChange={handleContactEmailChange}
@@ -392,7 +392,7 @@ const AddManagerForm = () => {
               <div className="d-block">
                 <input
                   type="text"
-                  className="form-control-custom"
+                  className="form-control"
                   id="phone-number"
                   placeholder="Enter phone number"
                   onChange={handlePhoneChange}

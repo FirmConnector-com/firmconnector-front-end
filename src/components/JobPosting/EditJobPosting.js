@@ -323,7 +323,7 @@ const EditJobPosting = (props) => {
             <div className="d-block">
               <input
                 type="text"
-                className="form-control-custom"
+                className="form-control"
                 id="role-title"
                 placeholder="Enter job title"
                 onChange={handleRoleTitleChange}

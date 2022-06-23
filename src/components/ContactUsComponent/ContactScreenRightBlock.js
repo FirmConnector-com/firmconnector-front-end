@@ -20,7 +20,7 @@ const ContactScreenRightBlock = () => {
             <div className="d-block">
               <input
                 type="text"
-                className="form-control-custom"
+                className="form-control"
                 id="full-name"
                 placeholder="Enter your full name"
               />
@@ -31,7 +31,7 @@ const ContactScreenRightBlock = () => {
             <div className="d-block">
               <input
                 type="email"
-                className="form-control-custom"
+                className="form-control"
                 id="email-address"
                 placeholder="Enter email address"
               />
@@ -42,7 +42,7 @@ const ContactScreenRightBlock = () => {
             <div className="d-block">
               <input
                 type="text"
-                className="form-control-custom"
+                className="form-control"
                 id="phone"
                 placeholder="Enter your mobile number"
               />

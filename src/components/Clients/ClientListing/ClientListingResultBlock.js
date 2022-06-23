@@ -76,7 +76,7 @@ const ClientListingResultBlock = () => {
     return (
       <div className="col-12">
         <div className="d-flex">
-          <div className="col-4 col-lg-5 col-xl-5 col-xxl-5">
+          <div className="col-12 col-lg-5 col-xl-5 col-xxl-5">
             <input
               type="email"
               placeholder="Search for email"

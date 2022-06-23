@@ -27,9 +27,12 @@ const ClientListingBlock = () => {
   return (
     <>
       <div className="d-block mb-3">
-        <BlockHeader title={"Access Control"} />
+        <BlockHeader
+          title={"Access Control"}
+          subText={"All client profiles within your firm"}
+        />
         <div className="row">
-          <div className="col-3">
+          <div className="col-6 d-flex">
             <Link to="/access-control">
               <Button variant="warning" size="sm" className="me-2">
                 My Clients
@@ -38,7 +41,7 @@ const ClientListingBlock = () => {
             {checkResourceTextDisplay()}
           </div>
 
-          <div className="col-9 d-flex justify-content-end">
+          <div className="col-6 d-flex justify-content-end">
             {user_primary_role === "2" ? (
               <div className="d-flex justify-content-end">
                 <Link to="/add-client">
@@ -50,13 +53,11 @@ const ClientListingBlock = () => {
             ) : null}
           </div>
         </div>
-        <div className="row mt-3 ">
-          <div className="text-secondary">
-            Optional. Add users, outside of your company, who can search{" "}
-            {firm_details?.firm_name} profiles that have been flagged as
-            “Advertised”. To view what these users will see, click on the
-            “Client View” button of a profile.
-          </div>
+        <div className="text-info-custom bd-lead my-3">
+          Optional. Add users, outside of your company, who can search{" "}
+          {firm_details?.firm_name} profiles that have been flagged as
+          “Advertised”. To view what these users will see, click on the “Client
+          View” button of a profile.
         </div>
       </div>
       <ClientListingResultBlock />

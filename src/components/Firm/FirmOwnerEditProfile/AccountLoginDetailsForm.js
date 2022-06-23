@@ -33,7 +33,7 @@ const AccountLoginDetailsForm = (props) => {
                   <div className="d-block">
                     <input
                       type="email"
-                      className="form-control-custom-sm"
+                      className="form-control"
                       id="email-address"
                       placeholder="Enter email address"
                       value={email}

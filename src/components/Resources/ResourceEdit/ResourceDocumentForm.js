@@ -355,7 +355,7 @@ const ResourceDocumentForm = (props) => {
                     <div className="d-block">
                       <input
                         type="text"
-                        className="form-control-custom-sm"
+                        className="form-control"
                         id="degree-name"
                         placeholder="Enter degree name"
                         onChange={handleDocumentTitleChange}

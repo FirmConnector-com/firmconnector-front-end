@@ -219,7 +219,7 @@ const ProfileContactForm = (props) => {
                   <div className="d-block">
                     <input
                       type="email"
-                      className="form-control-custom-sm"
+                      className="form-control"
                       id="contact-email"
                       placeholder="Enter contact email"
                       onChange={handleContactEmailChange}
@@ -235,7 +235,7 @@ const ProfileContactForm = (props) => {
                   <div className="d-block">
                     <input
                       type="text"
-                      className="form-control-custom-sm"
+                      className="form-control"
                       id="phone-number"
                       placeholder="Enter phone number"
                       onChange={handlePhoneChange}
@@ -251,7 +251,7 @@ const ProfileContactForm = (props) => {
                   <div className="d-block">
                     <input
                       type="text"
-                      className="form-control-custom-sm"
+                      className="form-control"
                       id="office-phone-number"
                       placeholder="Enter office phone number"
                       onChange={handleOfficePhoneChange}
