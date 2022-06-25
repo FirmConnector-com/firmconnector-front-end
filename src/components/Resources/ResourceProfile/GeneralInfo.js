@@ -11,13 +11,19 @@ import { FIRM_IMAGE_BASE } from "../../../config/env";
 import { useAuthContext } from "../../../context/AuthContext";
 import sendClientQuery from "../../../apis/sendClientQuery";
 
+import Swal from "sweetalert2";
+import swalWithBootstrapButtons from "sweetalert2-react-content";
+
 const GeneralInfo = (props) => {
   const { displayView, contactDetails, resourceDetails, rmDetails } = props;
+  const MySwal = swalWithBootstrapButtons(Swal);
 
   const { userDetails } = useAuthContext();
   const user_slug = JSON.parse(userDetails).user_slug;
   const [isProfileLoading, setIsProfileLoading] = useState(true);
   const [inquiry, setInquiry] = useState("");
+  const [isQuerySendButton, setIsQuerySendButton] = useState(false);
+  const [querySendButtonText, setQuerySendButtonText] = useState("Submit");
 
   useEffect(() => {
     setIsProfileLoading(false);
@@ -116,27 +122,53 @@ const GeneralInfo = (props) => {
   };
 
   const handleData = () => {
-    let message = [];
+    setIsQuerySendButton(true);
+    setQuerySendButtonText("Sending...");
 
-    let formData = {
-      user_slug: resourceDetails?.user_slug,
-      resource_slug: user_slug,
-      message: inquiry,
-    };
+    if (inquiry.trim().length > 0) {
+      let formData = {
+        user_slug: user_slug,
+        resource_slug: resourceDetails?.user_slug,
+        message: inquiry,
+      };
 
-    try {
-      sendClientQuery(formData).then(async (data) => {
-        if (data?.data) {
-          if (data.data.status === 1) {
-            message.push(data.data.message);
+      try {
+        sendClientQuery(formData).then(async (data) => {
+          if (data?.data) {
+            if (data.data.status === 1) {
+              await MySwal.fire({
+                title: <strong>Success</strong>,
+                html: <i>{data.data.message}</i>,
+                icon: "success",
+              });
+              await setInquiry("");
+            } else {
+              await MySwal.fire({
+                title: <strong>Error</strong>,
+                html: <i>{data.data.message}</i>,
+                icon: "danger",
+              });
+              await setInquiry("");
+            }
           } else {
-            message.push(data.data.message);
+            await MySwal.fire({
+              title: <strong>Error</strong>,
+              html: <i>{"Something went wrong. Please try again later."}</i>,
+              icon: "danger",
+            });
           }
-        } else {
-          message.push(data.data.message);
-        }
-      });
-    } catch (error) {}
+        });
+
+        setIsQuerySendButton(false);
+        setQuerySendButtonText("Submit");
+      } catch (error) {
+        setIsQuerySendButton(false);
+        setQuerySendButtonText("Submit");
+      }
+    } else {
+      setIsQuerySendButton(false);
+      setQuerySendButtonText("Submit");
+    }
   };
 
   const inquireView = () => {
@@ -149,6 +181,7 @@ const GeneralInfo = (props) => {
             rows="3"
             placeholder={`Ask a question about this candidate to ${rmDetails?.rm_name} at ${resourceDetails?.firm_name}.`}
             onChange={changehandler}
+            value={inquiry}
           ></textarea>
         </div>
 
@@ -158,8 +191,9 @@ const GeneralInfo = (props) => {
               type="button"
               className="btn-custom btn-primary-custom"
               onClick={handleData}
+              disabled={isQuerySendButton}
             >
-              Submit
+              {querySendButtonText}
             </button>
           </div>
         </div>
