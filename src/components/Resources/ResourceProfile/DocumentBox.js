@@ -38,7 +38,7 @@ const DocumentBox = (props) => {
           {documentDetails.length > 4 ? (
             <div className="d-flex justify-content-end">
               <ButtonSm
-                className="btn-primary-custom"
+                className="btn-info"
                 role="button"
                 title="View All"
                 type="button"

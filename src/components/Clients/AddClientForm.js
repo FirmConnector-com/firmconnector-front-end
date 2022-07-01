@@ -135,42 +135,36 @@ const AddClientForm = () => {
   const displayForm = () => {
     return (
       <div className="d-block">
-        <div className="card-custom">
-          <div className="card-body">
-            <form id="create-frm">
-              {displayLoginBlock()}
-              {displaySubmitButton()}
-              {displayStatusMessage()}
-            </form>
-          </div>
-        </div>
+        {displayLoginBlock()}
+        {displaySubmitButton()}
+        {displayStatusMessage()}
       </div>
     );
   };
 
   const displayLoginBlock = () => {
     return (
-      <div className="d-block mb-4">
-        <HeaderSm
-          title={"Add account information"}
-          subText={null}
-          borderBottom={true}
-        />
+      <div className="card-custom">
+        <div class="d-flex p-3 border-bottom">
+          <h5 class="mb-0">Add account information</h5>
+        </div>
 
-        <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
-          <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-            <div className="form-input-holder">
-              <InputLebelComponent title="Email Address" />
-              <div className="d-block">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="email"
-                  placeholder="Enter client email address"
-                  onChange={handleEmailChange}
-                  value={email}
-                  autoComplete="off"
-                />
+        <div className="card-body">
+          <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Email Address" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="email"
+                    placeholder="Enter client email address"
+                    onChange={handleEmailChange}
+                    value={email}
+                    autoComplete="off"
+                  />
+                </div>
               </div>
             </div>
           </div>

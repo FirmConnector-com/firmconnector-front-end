@@ -1,11 +1,8 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
-
 body {
-   /* font-family: 'Inter', sans-serif !important; */
+   font-family: "SF UI Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
    color: var(--black) !important;
    -webkit-font-smoothing: antialiased !important;
-   line-height: 1.5;
-   background-color: var(--background-color) !important;
+   /* background-color: var(--background-color) !important; */
    overflow-y:scroll !important;
 }
 
@@ -254,7 +251,7 @@ a{
    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.form-control-textarea-custom{
+.form-control-custom{
    display: block;
    width: 100%;
    padding: .375rem .75rem;
@@ -265,13 +262,12 @@ a{
    outline: none;
    background-color: var(--white);
    height: auto;
-   min-height: 10rem;
    border: 0.1rem solid var(--muted);
    border-radius: 0.3rem;
    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.form-control-textarea-custom-sm{
+.form-control-custom-sm{
    display: block;
    width: 100%;
    padding: .375rem .75rem;
@@ -288,7 +284,7 @@ a{
    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.form-control-textarea{
+.form-control{
    display: block;
    width: 100%;
    padding: .375rem .75rem;
@@ -299,7 +295,6 @@ a{
    outline: none;
    background-color: var(--white);
    height: auto;
-   min-height: 10rem;
    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
    border-radius: 0.33rem;
    border: 0.15rem solid var(--muted-light);

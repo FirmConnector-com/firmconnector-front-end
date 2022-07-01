@@ -339,7 +339,7 @@ const EditJobPosting = (props) => {
             <div className="d-block">
               <textarea
                 type="textarea"
-                className="form-control-textarea"
+                className="form-control"
                 id="description"
                 placeholder="Enter job description"
                 onChange={handleDescriptionChange}

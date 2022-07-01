@@ -433,7 +433,7 @@ const ProfileBasicForm = (props) => {
                   <div className="d-block">
                     <textarea
                       type="textarea"
-                      className="form-control-textarea-custom"
+                      className="form-control-custom"
                       id="job-role"
                       placeholder="Enter your bio"
                       onChange={handleBioChange}

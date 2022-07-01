@@ -70,7 +70,7 @@ const NoteAddModal = (props) => {
                 <div className="d-block">
                   <textarea
                     type="textarea"
-                    className="form-control-textarea-custom"
+                    className="form-control-custom"
                     id="add-note"
                     placeholder="Enter note"
                     defaultValue={noteText !== "" ? noteText : ""}

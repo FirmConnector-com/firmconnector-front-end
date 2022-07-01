@@ -23,7 +23,7 @@ const FourthBlock = () => {
           </p>
           {/* <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
             <ButtonLg
-              className="btn-primary-custom"
+              className="btn-info"
               role="button"
               title="Request a Demo"
               type="button"

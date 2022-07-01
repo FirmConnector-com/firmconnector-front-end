@@ -17,12 +17,12 @@
     font-size: 1rem;
 }
 
-.btn-primary-custom{
+.btn-info{
     background-color: var(--info-dark-light);
     color: var(--white);
  }
 
- .btn-primary-custom:hover{
+ .btn-info:hover{
     background-color: var(--info);
  }
  

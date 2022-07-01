@@ -159,7 +159,9 @@ const ClientListingResultBlock = () => {
 
   return (
     <div className="d-block">
-      <div className="d-flex row my-3">{displaySearchResourceBlock()}</div>
+      {clientListing ? (
+        <div className="d-flex row my-4">{displaySearchResourceBlock()}</div>
+      ) : null}
       {displayMainContent()}
     </div>
   );

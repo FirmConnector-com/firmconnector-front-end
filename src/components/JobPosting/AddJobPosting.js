@@ -243,28 +243,24 @@ const AddJobPosting = () => {
 
   const displayForm = () => {
     return (
-      <>
-        <div className="d-block">
-          <p>
-            <strong>Please Note</strong>{" "}
-            <span className="text-info-light-custom">
-              ***Fill up all fields to create a new job
-            </span>
-          </p>
-        </div>
-        <div className="d-block mb-5">
-          <div className="card-custom bg-white">
-            <div className="card-body">
-              <form id="create-frm">
-                {displayJobBlock()}
-                {displayRelatedFirms()}
-                {displayStatusMessage()}
-                {displaySubmitButton()}
-              </form>
+      <div className="d-block">
+        <div className="card-custom">
+          <div className="d-block p-3 border-bottom">
+            <h5 className="mb-0">Add job information</h5>
+            <div className="d-block">
+              <span className="text-secondary">
+                Fill up all fields to create a new job
+              </span>
             </div>
           </div>
+          <div className="card-body">
+            {displayJobBlock()}
+            {displayRelatedFirms()}
+            {displayStatusMessage()}
+            {displaySubmitButton()}
+          </div>
         </div>
-      </>
+      </div>
     );
   };
 
@@ -297,12 +293,13 @@ const AddJobPosting = () => {
                 <div className="d-block">
                   <textarea
                     type="textarea"
-                    className="form-control-textarea"
+                    className="form-control"
                     id="description"
                     placeholder="Enter job description"
                     onChange={handleDescriptionChange}
                     value={description}
                     autoComplete="off"
+                    rows={8}
                   />
                 </div>
               </div>

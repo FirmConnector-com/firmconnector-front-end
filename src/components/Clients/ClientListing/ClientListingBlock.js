@@ -32,14 +32,7 @@ const ClientListingBlock = () => {
           subText={"All client profiles within your firm"}
         />
         <div className="row">
-          <div className="col-6 d-flex">
-            <Link to="/access-control">
-              <Button variant="warning" size="md" className="me-2">
-                My Clients
-              </Button>
-            </Link>
-            {checkResourceTextDisplay()}
-          </div>
+          <div className="col-6 d-flex">{checkResourceTextDisplay()}</div>
 
           <div className="col-6 d-flex justify-content-end">
             {user_primary_role === "2" ? (
@@ -53,7 +46,7 @@ const ClientListingBlock = () => {
             ) : null}
           </div>
         </div>
-        <div className="text-info-custom bd-lead my-3">
+        <div className="text-info my-3">
           Optional. Add users, outside of your company, who can search{" "}
           {firm_details?.firm_name} profiles that have been flagged as
           “Advertised”. To view what these users will see, click on the “Client

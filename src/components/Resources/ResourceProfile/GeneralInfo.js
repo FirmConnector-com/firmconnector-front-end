@@ -189,7 +189,7 @@ const GeneralInfo = (props) => {
           <div className="d-flex justify-content-end">
             <button
               type="button"
-              className="btn-custom btn-primary-custom"
+              className="btn-custom btn-info"
               onClick={handleData}
               disabled={isQuerySendButton}
             >

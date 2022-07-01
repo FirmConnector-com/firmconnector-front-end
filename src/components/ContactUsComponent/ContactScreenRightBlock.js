@@ -54,7 +54,7 @@ const ContactScreenRightBlock = () => {
             <div className="d-block">
               <textarea
                 type="text"
-                className="form-control-textarea-custom"
+                className="form-control-custom"
                 id="message"
                 placeholder="Write something about your query"
               />
@@ -63,7 +63,7 @@ const ContactScreenRightBlock = () => {
 
           <div className="form-button-holder justify-content-end mt-4">
             <ButtonLg
-              className="btn-primary w-100"
+              className="btn-info w-100"
               role="button"
               title="Send Query"
               type="button"
