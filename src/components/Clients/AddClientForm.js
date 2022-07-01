@@ -4,6 +4,7 @@ import HeaderSm from "../Headers/HeaderSm";
 import InputLebelComponent from "../InputLebel/InputLebelComponent";
 import { Button } from "react-bootstrap";
 import { AlertDanger, AlertInfo, AlertSuccess } from "../Alerts/Alert";
+import BlockHeader from "../Headers/BlockHeader";
 
 //import API
 import createClient from "../../apis/createClient";
@@ -124,9 +125,10 @@ const AddClientForm = () => {
 
   const displayTopBlock = () => {
     return (
-      <div className="d-flex flex-column">
-        <span className="display-6">Create Client Access</span>
-      </div>
+      <BlockHeader
+        title={"Create Client Access"}
+        subText={"Give access a client within your firm"}
+      />
     );
   };
 
@@ -149,13 +151,11 @@ const AddClientForm = () => {
   const displayLoginBlock = () => {
     return (
       <div className="d-block mb-4">
-        <div className="d-block">
-          <HeaderSm
-            title={"Add account information"}
-            subText={null}
-            borderBottom={true}
-          />
-        </div>
+        <HeaderSm
+          title={"Add account information"}
+          subText={null}
+          borderBottom={true}
+        />
 
         <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
           <div className="col-12 col-md-6 col-lg-6 col-xlg-6">

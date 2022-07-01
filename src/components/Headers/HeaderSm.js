@@ -5,7 +5,9 @@ const HeaderSm = (props) => {
 
   return (
     <div
-      className={`header-holder ${borderBottom ? "border-bottom-light" : null}`}
+      className={`d-block pb-1 mb-4 ${
+        borderBottom ? "border-bottom-light" : null
+      }`}
     >
       <div className="d-block">
         <span className="header-text-title-custom text-dark-custom">

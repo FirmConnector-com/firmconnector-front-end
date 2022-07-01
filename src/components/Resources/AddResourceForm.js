@@ -5,6 +5,7 @@ import HeaderSm from "../Headers/HeaderSm";
 import InputLebelComponent from "../InputLebel/InputLebelComponent";
 import { Button } from "react-bootstrap";
 import { AlertDanger, AlertInfo, AlertSuccess } from "../Alerts/Alert";
+import BlockHeader from "../Headers/BlockHeader";
 
 //import API
 import createResource from "../../apis/createResource";
@@ -178,6 +179,10 @@ const AddResourceForm = () => {
             setHasSubmitError(true);
             setIsButtonDisabled(false);
             setButtonText("Create Account");
+
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
           } else {
             errMessage.push(
               "Error happened. Unable to create profile information."
@@ -186,6 +191,10 @@ const AddResourceForm = () => {
             setHasSubmitError(true);
             setIsButtonDisabled(false);
             setButtonText("Create Account");
+
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
           }
         } else {
           errMessage.push(
@@ -195,6 +204,10 @@ const AddResourceForm = () => {
           setHasSubmitError(true);
           setIsButtonDisabled(false);
           setButtonText("Create Account");
+
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
         }
       });
     } catch (error) {
@@ -203,41 +216,23 @@ const AddResourceForm = () => {
       setHasSubmitError(true);
       setIsButtonDisabled(false);
       setButtonText("Create Account");
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     }
   };
 
   const displayTopBlock = () => {
     return (
-      <div className="d-block">
-        <div className="d-flex flex-column">
-          <span className="display-6">
-            {firmType === "1"
-              ? "Create Team Member Profile"
-              : "Create Candidate Profile"}
-          </span>
-        </div>
-        {/* <div className="d-block">
-          <p className="text-muted-custom">
-            Create a resource profile within your firm
-          </p>
-        </div> */}
-        <div className="my-4">
-          <Button
-            variant="primary"
-            className="me-2"
-            onClick={() => setViaResumeParsing(true)}
-          >
-            Via Resume Parsing
-          </Button>
-          <Button
-            variant="primary"
-            className="me-2"
-            onClick={() => setViaResumeParsing(false)}
-          >
-            Manual Entry
-          </Button>
-        </div>
-      </div>
+      <BlockHeader
+        title={
+          firmType === "1"
+            ? "Create Team Member Profile"
+            : "Create Candidate Profile"
+        }
+        subText={"Create a resource profile within your firm"}
+      />
     );
   };
 
@@ -246,7 +241,7 @@ const AddResourceForm = () => {
       <>
         <div className="d-block">
           <form id="create-frm-by-resume">
-            <div className="form-button-holder mt-4 mb-4">
+            <div className="form-button-holder">
               <div className="form-group file">
                 <label>Upload Resume </label>
                 <input
@@ -267,23 +262,11 @@ const AddResourceForm = () => {
                 </div>
               ) : null}
             </div>
-            {/* <input
-              type="file"
-              ref={hiddenFileInput}
-              onChange={handleChange}
-              style={{ display: "none" }}
-              accept="application/pdf,application/msword,
-            application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-            /> */}
           </form>
         </div>
-        <div className="d-block mt-2">{displayResumeUploadStatusMessage()}</div>
+        <div className="d-block my-2">{displayResumeUploadStatusMessage()}</div>
       </>
     );
-  };
-
-  const handleResumeUpload = () => {
-    hiddenFileInput.current.click();
   };
 
   const handleChange = (event) => {
@@ -309,6 +292,10 @@ const AddResourceForm = () => {
             errMessage.push(data.data.message);
             setErrorResumeUploadMessage(errMessage);
             setHasResumeUploadError(true);
+
+            setTimeout(() => {
+              window.location.reload();
+            }, 1500);
           } else {
             succMessage.push(data.data.message);
             setSuccessResumeUploadMessage(succMessage);
@@ -339,25 +326,19 @@ const AddResourceForm = () => {
   const displayForm = () => {
     return (
       <>
-        <div className="d-block">
-          <p>
-            <strong>Please Note</strong>{" "}
-            <span className="text-info-light-custom">
-              ***Fill up all fields to create a Candidate account
-            </span>
-          </p>
+        <div className="d-block my-3">
+          <strong>Please Note</strong>{" "}
+          <span className="text-info-light-custom">
+            ***Fill up all fields to create a Candidate account
+          </span>
         </div>
         <div className="d-block">
-          <div className="card-custom p-3 h-100 bg-white">
-            <div className="card-body">
-              <form id="create-frm">
-                {displayloginBlock()}
-                {displayprofileBlock()}
-                {displayContactBlock()}
-                {displaySubmitButton()}
-                {displayStatusMessage()}
-              </form>
-            </div>
+          <div id="create-frm">
+            {displayloginBlock()}
+            {displayprofileBlock()}
+            {displayContactBlock()}
+            {displaySubmitButton()}
+            {displayStatusMessage()}
           </div>
         </div>
       </>
@@ -366,25 +347,26 @@ const AddResourceForm = () => {
 
   const displayloginBlock = () => {
     return (
-      <div className="d-block mb-4">
-        <div className="d-block">
-          <HeaderSm title={"Add login information"} borderBottom={true} />
+      <div className="card-custom mb-4">
+        <div className="d-flex p-3 border-bottom">
+          <h5 class="mb-0">Add login information</h5>
         </div>
-
-        <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
-          <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-            <div className="form-input-holder">
-              <InputLebelComponent title="Email Address" />
-              <div className="d-block">
-                <input
-                  type="email"
-                  className="form-control"
-                  id="email-address"
-                  placeholder="Enter email address"
-                  onChange={handleEmailChange}
-                  value={email}
-                  autoComplete="off"
-                />
+        <div className="card-body">
+          <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Email Address" />
+                <div className="d-block">
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email-address"
+                    placeholder="Enter email address"
+                    onChange={handleEmailChange}
+                    value={email}
+                    autoComplete="off"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -395,74 +377,77 @@ const AddResourceForm = () => {
 
   const displayprofileBlock = () => {
     return (
-      <div className="d-block mb-4">
-        <div className="d-block">
-          <HeaderSm title={"Add profile information"} borderBottom={true} />
+      <div className="card-custom mb-4">
+        <div className="d-flex p-3 border-bottom">
+          <h5 class="mb-0">Add profile information</h5>
         </div>
 
-        <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
-          <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-            <div className="form-input-holder">
-              <InputLebelComponent title="First Name" />
-              <div className="d-block">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="first-name"
-                  placeholder="Enter first name"
-                  onChange={handleFirstNameChange}
-                  value={firstName}
-                  autoComplete="off"
-                />
+        <div className="card-body">
+          <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="First Name" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="first-name"
+                    placeholder="Enter first name"
+                    onChange={handleFirstNameChange}
+                    value={firstName}
+                    autoComplete="off"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-            <div className="form-input-holder">
-              <InputLebelComponent title="Last Name" />
-              <div className="d-block">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="last-name"
-                  placeholder="Enter last name"
-                  onChange={handleLastNameChange}
-                  value={lastName}
-                  autoComplete="off"
-                />
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Last Name" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="last-name"
+                    placeholder="Enter last name"
+                    onChange={handleLastNameChange}
+                    value={lastName}
+                    autoComplete="off"
+                  />
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-            <div className="form-input-holder">
-              <InputLebelComponent title="Job Role" />
-              <div className="d-block">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="last-name"
-                  placeholder="Enter job role"
-                  onChange={handleJobRoleChange}
-                  value={jobRole}
-                  autoComplete="off"
-                />
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Job Role" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="last-name"
+                    placeholder="Enter job role"
+                    onChange={handleJobRoleChange}
+                    value={jobRole}
+                    autoComplete="off"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-12 col-md-12 col-lg-12 col-xlg-12">
-            <div className="form-input-holder">
-              <InputLebelComponent title="Profile Bio" />
-              <div className="d-block">
-                <textarea
-                  type="textarea"
-                  className="form-control-textarea"
-                  id="job-role"
-                  placeholder="Enter your bio"
-                  onChange={handleBioChange}
-                  value={bio}
-                  autoComplete="off"
-                />
+            <div className="col-12 col-md-12 col-lg-12 col-xlg-12">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Profile Bio" />
+                <div className="d-block">
+                  <textarea
+                    type="textarea"
+                    className="form-control"
+                    id="job-role"
+                    placeholder="Enter your bio"
+                    onChange={handleBioChange}
+                    value={bio}
+                    autoComplete="off"
+                    rows={6}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -473,61 +458,59 @@ const AddResourceForm = () => {
 
   const displayContactBlock = () => {
     return (
-      <div className="d-block">
-        <div className="d-block">
-          <HeaderSm
-            title={"Add contact information"}
-            subText={"These informations will be used in profile"}
-            borderBottom={true}
-          />
+      <div className="card-custom mb-2">
+        <div className="d-flex p-3 border-bottom">
+          <h5 class="mb-0">Add contact information</h5>
         </div>
 
-        <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
-          <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-            <div className="form-input-holder">
-              <InputLebelComponent title="Contact Email" />
-              <div className="d-block">
-                <input
-                  type="email"
-                  className="form-control"
-                  id="contact-email"
-                  placeholder="Enter contact email"
-                  onChange={handleContactEmailChange}
-                  value={contactEmail}
-                  autoComplete="off"
-                />
+        <div className="card-body">
+          <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Contact Email" />
+                <div className="d-block">
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="contact-email"
+                    placeholder="Enter contact email"
+                    onChange={handleContactEmailChange}
+                    value={contactEmail}
+                    autoComplete="off"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-            <div className="form-input-holder">
-              <InputLebelComponent title="Phone Number" />
-              <div className="d-block">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="phone-number"
-                  placeholder="Enter phone number"
-                  onChange={handlePhoneChange}
-                  value={phone}
-                  autoComplete="off"
-                />
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Phone Number" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="phone-number"
+                    placeholder="Enter phone number"
+                    onChange={handlePhoneChange}
+                    value={phone}
+                    autoComplete="off"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-            <div className="form-input-holder">
-              <InputLebelComponent title="Office Phone" />
-              <div className="d-block">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="office-phone-number"
-                  placeholder="Enter office phone number"
-                  onChange={handleOfficePhoneChange}
-                  value={officePhone}
-                  autoComplete="off"
-                />
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Office Phone" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="office-phone-number"
+                    placeholder="Enter office phone number"
+                    onChange={handleOfficePhoneChange}
+                    value={officePhone}
+                    autoComplete="off"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -598,6 +581,17 @@ const AddResourceForm = () => {
       return (
         <>
           {displayTopBlock()}
+          <div className="d-flex justify-content-between mb-2">
+            <Button variant="primary" onClick={() => setViaResumeParsing(true)}>
+              Via Resume Parsing
+            </Button>
+            <Button
+              variant="primary"
+              onClick={() => setViaResumeParsing(false)}
+            >
+              Manual Entry
+            </Button>
+          </div>
           {isViaResumeParsing ? displayResumeUpload() : displayForm()}
         </>
       );
