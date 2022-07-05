@@ -209,7 +209,7 @@ const ResourceListingResultBlock = () => {
                     <div className="col-12 col-lg-1 col-xl-1 col-xxl-1 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0 d-flex flex-column align-items-start align-items-lg-center align-items-xl-center align-items-xxl-center">
                       {displayAvailability(item.availability)}
                       <div className="d-flex justify-content-center align-items-center">
-                        <span className="text-dark">
+                        <span className="text-dark text-x-sm-custom fw-bold">
                           {item.availability} hrs/week
                         </span>
                       </div>
@@ -325,7 +325,11 @@ const ResourceListingResultBlock = () => {
 
   const displayUserProfileRole = (user_profile_role) => {
     if (user_profile_role !== null) {
-      return <span className="text-info">{user_profile_role}</span>;
+      return (
+        <span className="text-x-sm-custom text-info-custom">
+          {user_profile_role}
+        </span>
+      );
     } else {
       return <span className="text-danger">Not available</span>;
     }
@@ -335,12 +339,12 @@ const ResourceListingResultBlock = () => {
     if (name !== null) {
       if (name.length > 20) {
         return (
-          <span className="fw-bold text-dark">
+          <span className="fw-bold text-dark h6">
             {name.substring(0, 20) + "..."}
           </span>
         );
       } else {
-        return <span className="fw-bold text-dark">{name}</span>;
+        return <span className="fw-bold text-dark h6">{name}</span>;
       }
     } else {
       return <BadgeInfo title={"Not available"} />;

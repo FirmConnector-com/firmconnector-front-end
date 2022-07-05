@@ -638,7 +638,10 @@ const SearchBlock = () => {
               <div className="d-flex flex-wrap">
                 {skillFormatted.map((skillItem, skillIndex) => {
                   return (
-                    <div className="skill-wrapper-dark my-1 me-2 roundedshadow">
+                    <div
+                      className="skill-wrapper-dark my-1 me-2 roundedshadow"
+                      key={skillIndex}
+                    >
                       <span
                         className="text-x-sm-custom text-capitalize"
                         key={skillIndex.toString()}
@@ -656,20 +659,25 @@ const SearchBlock = () => {
           );
         } else {
           return (
-            <>
-              {skillArray.map((skillItem, skillIndex) => {
-                return (
-                  <div className="skill-wrapper-muted my-1 me-1">
-                    <span
-                      className="text-sm-custom text-dark fw-medium-custom"
-                      key={skillIndex.toString()}
+            <div className="d-block mt-2">
+              <div className="d-flex flex-wrap">
+                {skillArray.map((skillItem, skillIndex) => {
+                  return (
+                    <div
+                      className="skill-wrapper-dark my-1 me-2 roundedshadow"
+                      key={skillIndex}
                     >
-                      {skillItem}
-                    </span>
-                  </div>
-                );
-              })}
-            </>
+                      <span
+                        className="text-x-sm-custom text-capitalize"
+                        key={skillIndex.toString()}
+                      >
+                        {skillItem}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           );
         }
       } else {
