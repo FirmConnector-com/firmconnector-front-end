@@ -555,6 +555,12 @@ const SearchBlock = () => {
             {displayLocation(item)}
           </div>
         );
+      } else {
+        return (
+          <div className="d-block bg-light p-2 rounded">
+            {displayLocation(item)}
+          </div>
+        );
       }
     }
   };
@@ -562,6 +568,17 @@ const SearchBlock = () => {
   const displayLocation = (item) => {
     if (ownFirm !== "" && ownFirm !== undefined) {
       if (ownFirm === item.firm_id) {
+        return (
+          <div className="d-flex align-items-center">
+            <span className="text-info-custom me-3">
+              <FontAwesomeIcon icon={faMapPin} />
+            </span>
+            <span className="text-sm-custom text-dark-custom">
+              {item.city_name}, {item.state_name}, {item.country_name}
+            </span>
+          </div>
+        );
+      } else {
         return (
           <div className="d-flex align-items-center">
             <span className="text-info-custom me-3">
