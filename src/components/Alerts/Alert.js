@@ -36,10 +36,10 @@ const AlertSuccess = (props) => {
   return (
     <div className="alert-custom alert-success-custom w-100">
       <div>
-        <span className="text-success-custom fw-bold">{title}</span>
+        <span className="text-white fw-bold">{title}</span>
       </div>
       <div>
-        <span className="text-success-custom">{message}</span>
+        <span className="text-white">{message}</span>
       </div>
     </div>
   );

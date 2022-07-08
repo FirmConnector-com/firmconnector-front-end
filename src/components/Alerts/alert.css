@@ -12,7 +12,7 @@
 }
 
 .alert-success-custom {
-    background-color: var(--success-light);
+    background-color: var(--success);
     border: 0.05rem solid var(--success-dark);
 }
 

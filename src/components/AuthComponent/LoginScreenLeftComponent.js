@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import banner_image from "../../assets/images/login.svg";
 
 const LoginScreenLeftComponent = () => {
@@ -9,11 +8,6 @@ const LoginScreenLeftComponent = () => {
         <div>
           <span className="fst-normal">If you don't have an account</span>
         </div>
-        {/* <div>
-          <Link to="/sign-up">
-            <span className="fst-normal">{"Create Account"}</span>
-          </Link>
-        </div> */}
         <div>
           <span className="fst-normal">
             {"Please contact Firmconnector Support team"}

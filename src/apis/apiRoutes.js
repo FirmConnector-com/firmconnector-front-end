@@ -56,6 +56,10 @@ const GET_LATEST_JOB_POSTING_ROUTE = `${API_BASE}get-latest-job-postings`;
 const GET_USER_DETAILS_ROUTE = `${API_BASE}get-user-details`;
 const SEND_QUERY_ROUTE = `${API_BASE}send-query`;
 
+const FORGOT_PASSWORD_ROUTE = `${API_BASE}forgot-password`;
+const RESET_PASSWORD_ROUTE = `${API_BASE}reset-password`;
+const GET_RESET_LINK_ROUTE = `${API_BASE}get-reset-link`;
+
 export {
   LOGIN_ROUTE,
   SIGNUP_ROUTE,
@@ -108,4 +112,7 @@ export {
   GET_LATEST_JOB_POSTING_ROUTE,
   GET_USER_DETAILS_ROUTE,
   SEND_QUERY_ROUTE,
+  FORGOT_PASSWORD_ROUTE,
+  RESET_PASSWORD_ROUTE,
+  GET_RESET_LINK_ROUTE,
 };

@@ -28,6 +28,9 @@ import ResourceDetailsScreen from "../screens/Resource/ResourceDetailsScreen";
 import LoginScreen from "../screens/Auth/LoginScreen";
 import SignUpScreen from "../screens/Auth/SignUpScreen";
 
+import ForgotPassword from "../screens/Auth/ForgotPassword";
+import ResetPassword from "../screens/Auth/ResetPassword";
+
 //Import resource manager route
 import AddResourceManager from "../screens/ResourceManager/AddResourceManager";
 import EditProfile from "../screens/Profile/EditProfile";
@@ -81,6 +84,18 @@ const MainRoute = () => {
           exact
           path={`/sign-up-v2-access`}
           component={SignUpScreen}
+        />
+
+        <ProtectedRouteWithoutAuth
+          exact
+          path={`/forgot-password`}
+          component={ForgotPassword}
+        />
+
+        <ProtectedRouteWithoutAuth
+          exact
+          path={`/reset-password/:resetLink`}
+          component={ResetPassword}
         />
 
         {/* Job Listing */}
