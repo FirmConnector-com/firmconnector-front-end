@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { AlertInfo } from "../../../Alerts/Alert";
 
 const About = (props) => {
   const { profileDetails } = props;
@@ -12,19 +13,21 @@ const About = (props) => {
 
   const displayProfileBio = () => {
     if (profileBio !== null && profileBio !== "") {
-      return profileBio;
+      return (
+        <div className="card-custom">
+          <div className="card-body">
+            <span className="p-wrap">{profileBio}</span>
+          </div>
+        </div>
+      );
     } else {
-      return <span className="text-muted">Profile bio not available!</span>;
+      return (
+        <AlertInfo title={"Oops"} message={["Profile bio not available!"]} />
+      );
     }
   };
 
-  return (
-    <div className="card-custom">
-      <div className="card-body">
-        <span className="p-wrap">{displayProfileBio()}</span>
-      </div>
-    </div>
-  );
+  return displayProfileBio();
 };
 
 export default About;

@@ -15,32 +15,27 @@ const AccountLoginDetailsForm = (props) => {
 
   return (
     <div className="card-custom">
+      <HeaderXSm
+        title={"Login Information"}
+        subText={null}
+        borderBottom={true}
+      />
       <div className="card-body">
         <form id="create-frm">
-          <div className="d-block">
-            <div className="d-block">
-              <HeaderXSm
-                title={"Login Information"}
-                subText={null}
-                borderBottom={true}
-              />
-            </div>
-
-            <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
-              <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Login Email Address" />
-                  <div className="d-block">
-                    <input
-                      type="email"
-                      className="form-control"
-                      id="email-address"
-                      placeholder="Enter email address"
-                      value={email}
-                      autoComplete="off"
-                      disabled="disabled"
-                    />
-                  </div>
+          <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Login Email Address" />
+                <div className="d-block">
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email-address"
+                    placeholder="Enter email address"
+                    value={email}
+                    autoComplete="off"
+                    disabled="disabled"
+                  />
                 </div>
               </div>
             </div>

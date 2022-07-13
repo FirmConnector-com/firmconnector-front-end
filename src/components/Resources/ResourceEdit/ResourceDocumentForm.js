@@ -472,18 +472,10 @@ text/plain, application/pdf"
 
   return (
     <div className="card-custom">
+      <HeaderXSm title={"My Documents"} subText={null} borderBottom={true} />
       <div className="card-body">
-        <div className="d-block">
-          <div className="d-block">
-            <HeaderXSm
-              title={"My Documents"}
-              subText={null}
-              borderBottom={true}
-            />
-          </div>
-          <div className="d-block my-3">{displayAddDocumentnButton()}</div>
-          <div className="d-block">{displayDocuments()}</div>
-        </div>
+        <div className="d-block my-3">{displayAddDocumentnButton()}</div>
+        <div className="d-block">{displayDocuments()}</div>
       </div>
       {showModal()}
     </div>

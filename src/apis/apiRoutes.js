@@ -60,6 +60,11 @@ const FORGOT_PASSWORD_ROUTE = `${API_BASE}forgot-password`;
 const RESET_PASSWORD_ROUTE = `${API_BASE}reset-password`;
 const GET_RESET_LINK_ROUTE = `${API_BASE}get-reset-link`;
 
+const CREATE_NOTE_ROUTE = `${API_BASE}create-note`;
+const GET_NOTE_EDIT_ACCESS_ROUTE = `${API_BASE}get-note-edit-access`;
+const UPDATE_NOTE_ROUTE = `${API_BASE}update-note`;
+const REMOVE_NOTE_ROUTE = `${API_BASE}remove-note`;
+
 export {
   LOGIN_ROUTE,
   SIGNUP_ROUTE,
@@ -115,4 +120,8 @@ export {
   FORGOT_PASSWORD_ROUTE,
   RESET_PASSWORD_ROUTE,
   GET_RESET_LINK_ROUTE,
+  CREATE_NOTE_ROUTE,
+  GET_NOTE_EDIT_ACCESS_ROUTE,
+  UPDATE_NOTE_ROUTE,
+  REMOVE_NOTE_ROUTE,
 };

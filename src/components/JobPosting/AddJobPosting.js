@@ -3,6 +3,7 @@ import { useAuthContext } from "../../context/AuthContext";
 import InputLebelComponent from "../InputLebel/InputLebelComponent";
 import { Button } from "react-bootstrap";
 import { AlertDanger, AlertInfo, AlertSuccess } from "../Alerts/Alert";
+import HeaderXSm from "../Headers/HeaderXSm";
 
 //import API
 import createJob from "../../apis/createJob";
@@ -245,14 +246,11 @@ const AddJobPosting = () => {
     return (
       <div className="d-block">
         <div className="card-custom">
-          <div className="d-block p-3 border-bottom">
-            <h5 className="mb-0">Add job information</h5>
-            <div className="d-block">
-              <span className="text-secondary">
-                Fill up all fields to create a new job
-              </span>
-            </div>
-          </div>
+          <HeaderXSm
+            title={"Add job information"}
+            subText={"Fill up all fields to create a new job"}
+            borderBottom={true}
+          />
           <div className="card-body">
             {displayJobBlock()}
             {displayRelatedFirms()}

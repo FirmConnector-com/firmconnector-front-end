@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthContext } from "../../context/AuthContext";
 import getFirmDetails from "../../apis/getFirmDetails";
 import LoadingPageSm from "../CommonComponent/LoadingPageSm";
-import HeaderSm from "../Headers/HeaderSm";
+import HeaderXSm from "../Headers/HeaderXSm";
 import InputLebelComponent from "../InputLebel/InputLebelComponent";
 import { Button } from "react-bootstrap";
 import { AlertDanger, AlertSuccess, AlertInfo } from "../Alerts/Alert";
@@ -263,13 +263,11 @@ const AddManagerForm = () => {
   const displayloginBlock = () => {
     return (
       <div className="d-block mb-4">
-        <div className="d-block">
-          <HeaderSm
-            title={"Add login informations"}
-            subText={"These informations will be used while login"}
-            borderBottom={true}
-          />
-        </div>
+        <HeaderXSm
+          title={"Add login informations"}
+          subText={"These informations will be used while login"}
+          borderBottom={true}
+        />
 
         <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
           <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
@@ -312,14 +310,11 @@ const AddManagerForm = () => {
   const displayprofileBlock = () => {
     return (
       <div className="d-block mb-4">
-        <div className="d-block">
-          <HeaderSm
-            title={"Add profile informations"}
-            subText={"These informations will be used in profile view"}
-            borderBottom={true}
-          />
-        </div>
-
+        <HeaderXSm
+          title={"Add profile informations"}
+          subText={"These informations will be used in profile view"}
+          borderBottom={true}
+        />
         <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
           <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
             <div className="form-input-holder">
@@ -358,54 +353,52 @@ const AddManagerForm = () => {
     );
   };
 
-  const displayContactBlock = () => {
-    return (
-      <div className="d-block">
-        <div className="d-block">
-          <HeaderSm
-            title={"Add contact informations"}
-            subText={"These informations will be used in profile"}
-            borderBottom={true}
-          />
-        </div>
+  // const displayContactBlock = () => {
+  //   return (
+  //     <div className="d-block">
+  //       <HeaderSm
+  //         title={"Add contact informations"}
+  //         subText={"These informations will be used in profile"}
+  //         borderBottom={true}
+  //       />
 
-        <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
-          <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-            <div className="form-input-holder">
-              <InputLebelComponent title="Contact Email" />
-              <div className="d-block">
-                <input
-                  type="email"
-                  className="form-control"
-                  id="contact-email"
-                  placeholder="Enter contact email"
-                  onChange={handleContactEmailChange}
-                  value={contactEmail}
-                  autoComplete="off"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-            <div className="form-input-holder">
-              <InputLebelComponent title="Phone Number" />
-              <div className="d-block">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="phone-number"
-                  placeholder="Enter phone number"
-                  onChange={handlePhoneChange}
-                  value={phone}
-                  autoComplete="off"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
+  //       <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
+  //         <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+  //           <div className="form-input-holder">
+  //             <InputLebelComponent title="Contact Email" />
+  //             <div className="d-block">
+  //               <input
+  //                 type="email"
+  //                 className="form-control"
+  //                 id="contact-email"
+  //                 placeholder="Enter contact email"
+  //                 onChange={handleContactEmailChange}
+  //                 value={contactEmail}
+  //                 autoComplete="off"
+  //               />
+  //             </div>
+  //           </div>
+  //         </div>
+  //         <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+  //           <div className="form-input-holder">
+  //             <InputLebelComponent title="Phone Number" />
+  //             <div className="d-block">
+  //               <input
+  //                 type="text"
+  //                 className="form-control"
+  //                 id="phone-number"
+  //                 placeholder="Enter phone number"
+  //                 onChange={handlePhoneChange}
+  //                 value={phone}
+  //                 autoComplete="off"
+  //               />
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   const displaySubmitButton = () => {
     return (

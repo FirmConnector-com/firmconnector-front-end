@@ -6,8 +6,13 @@ import RecruiterNotes from "./Tabs/RecruiterNotes";
 import { useAuthContext } from "../../../context/AuthContext";
 
 const ProfileInfoTabSection = (props) => {
-  const { displayView, profileDetails, educationDetails, employmentDetails } =
-    props;
+  const {
+    displayView,
+    profileDetails,
+    educationDetails,
+    employmentDetails,
+    recruiterNotes,
+  } = props;
   const [selectedTab, setSelectedTab] = useState("about");
   const { userDetails } = useAuthContext();
   const firmType = JSON.parse(userDetails).firm_details?.firm_type;
@@ -27,7 +32,12 @@ const ProfileInfoTabSection = (props) => {
         />
       );
     } else if (selectedTab === "recruiterNotes") {
-      return <RecruiterNotes educationDetails={educationDetails} />;
+      return (
+        <RecruiterNotes
+          recruiterNotes={recruiterNotes}
+          resourceSlug={profileDetails.user_slug}
+        />
+      );
     }
   };
 

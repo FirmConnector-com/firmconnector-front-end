@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAuthContext } from "../../context/AuthContext";
-import HeaderSm from "../Headers/HeaderSm";
+import HeaderXSm from "../Headers/HeaderXSm";
 import InputLebelComponent from "../InputLebel/InputLebelComponent";
 import { Button } from "react-bootstrap";
 import { AlertDanger, AlertInfo, AlertSuccess } from "../Alerts/Alert";
@@ -145,9 +145,11 @@ const AddClientForm = () => {
   const displayLoginBlock = () => {
     return (
       <div className="card-custom">
-        <div class="d-flex p-3 border-bottom">
-          <h5 class="mb-0">Add account information</h5>
-        </div>
+        <HeaderXSm
+          title={"Add account information"}
+          subText={"Enter client email address to add"}
+          borderBottom={true}
+        />
 
         <div className="card-body">
           <div className="d-block d-md-flex d-lg-flex d-xl-flex row">

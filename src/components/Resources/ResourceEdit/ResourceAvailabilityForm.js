@@ -391,23 +391,19 @@ const ResourceAvailabilityForm = (props) => {
   return (
     <>
       <div className="card-custom">
+        <HeaderXSm
+          title={"Current Availability"}
+          subText={null}
+          borderBottom={true}
+        />
         <div className="card-body">
-          <div className="d-block">
-            <div className="d-block">
-              <HeaderXSm
-                title={"Current Availability"}
-                subText={null}
-                borderBottom={true}
-              />
-            </div>
-            <div className="d-flex align-items-center">
-              <span className="text-dark-custom">
-                I can currently work {displayAvailability()}
-              </span>
-            </div>
-            <div className="d-flex mt-3 justify-content-end">
-              {displayUpdateButton()}
-            </div>
+          <div className="d-flex align-items-center">
+            <span className="text-dark-custom">
+              I can currently work {displayAvailability()}
+            </span>
+          </div>
+          <div className="d-flex mt-3 justify-content-end">
+            {displayUpdateButton()}
           </div>
         </div>
       </div>

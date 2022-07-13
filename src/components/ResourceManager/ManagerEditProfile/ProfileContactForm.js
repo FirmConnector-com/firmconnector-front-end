@@ -201,66 +201,45 @@ const ProfileContactForm = (props) => {
 
   return (
     <div className="card-custom">
+      <HeaderXSm
+        title={"Contact Informations"}
+        subText={null}
+        borderBottom={true}
+      />
       <div className="card-body">
         <form id="create-frm">
-          <div className="d-block">
-            <div className="d-block">
-              <HeaderXSm
-                title={"Contact Informations"}
-                subText={null}
-                borderBottom={true}
-              />
+          <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Contact Email" />
+                <div className="d-block">
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="contact-email"
+                    placeholder="Enter contact email"
+                    onChange={handleContactEmailChange}
+                    value={contactEmail}
+                    autoComplete="off"
+                  />
+                </div>
+              </div>
             </div>
-
-            <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
-              <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Contact Email" />
-                  <div className="d-block">
-                    <input
-                      type="email"
-                      className="form-control"
-                      id="contact-email"
-                      placeholder="Enter contact email"
-                      onChange={handleContactEmailChange}
-                      value={contactEmail}
-                      autoComplete="off"
-                    />
-                  </div>
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Phone Number" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="phone-number"
+                    placeholder="Enter phone number"
+                    onChange={handlePhoneChange}
+                    value={phone}
+                    autoComplete="off"
+                  />
                 </div>
               </div>
-              <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Phone Number" />
-                  <div className="d-block">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="phone-number"
-                      placeholder="Enter phone number"
-                      onChange={handlePhoneChange}
-                      value={phone}
-                      autoComplete="off"
-                    />
-                  </div>
-                </div>
-              </div>
-              {/* <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Office Phone" />
-                  <div className="d-block">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="office-phone-number"
-                      placeholder="Enter office phone number"
-                      onChange={handleOfficePhoneChange}
-                      value={officePhone}
-                      autoComplete="off"
-                    />
-                  </div>
-                </div>
-              </div> */}
             </div>
           </div>
           {displaySubmitButton()}

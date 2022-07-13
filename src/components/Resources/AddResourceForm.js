@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuthContext } from "../../context/AuthContext";
 import { useHistory } from "react-router-dom";
-import HeaderSm from "../Headers/HeaderSm";
+import HeaderXSm from "../Headers/HeaderXSm";
 import InputLebelComponent from "../InputLebel/InputLebelComponent";
 import { Button } from "react-bootstrap";
 import { AlertDanger, AlertInfo, AlertSuccess } from "../Alerts/Alert";
@@ -348,9 +348,11 @@ const AddResourceForm = () => {
   const displayloginBlock = () => {
     return (
       <div className="card-custom mb-4">
-        <div className="d-flex p-3 border-bottom">
-          <h5 class="mb-0">Add login information</h5>
-        </div>
+        <HeaderXSm
+          title={"Add login informations"}
+          subText={"These informations will be used while login"}
+          borderBottom={true}
+        />
         <div className="card-body">
           <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
             <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
@@ -378,9 +380,11 @@ const AddResourceForm = () => {
   const displayprofileBlock = () => {
     return (
       <div className="card-custom mb-4">
-        <div className="d-flex p-3 border-bottom">
-          <h5 class="mb-0">Add profile information</h5>
-        </div>
+        <HeaderXSm
+          title={"Add profile information"}
+          subText={"These informations will be used in profile view"}
+          borderBottom={true}
+        />
 
         <div className="card-body">
           <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
@@ -459,9 +463,11 @@ const AddResourceForm = () => {
   const displayContactBlock = () => {
     return (
       <div className="card-custom mb-2">
-        <div className="d-flex p-3 border-bottom">
-          <h5 class="mb-0">Add contact information</h5>
-        </div>
+        <HeaderXSm
+          title={"Add contact informations"}
+          subText={"These informations will be used in profile"}
+          borderBottom={true}
+        />
 
         <div className="card-body">
           <div className="d-block d-md-flex d-lg-flex d-xl-flex row">

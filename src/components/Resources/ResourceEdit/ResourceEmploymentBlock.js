@@ -1205,18 +1205,14 @@ const ResourceEmploymentBlock = (props) => {
 
   return (
     <div className="card-custom">
+      <HeaderXSm
+        title={"Employment History"}
+        subText={null}
+        borderBottom={true}
+      />
       <div className="card-body">
-        <div className="d-block">
-          <div className="d-block">
-            <HeaderXSm
-              title={"Employment History"}
-              subText={null}
-              borderBottom={true}
-            />
-          </div>
-          <div className="d-block mb-3">{displayAddEmploymentButton()}</div>
-          <div className="d-block">{displayEmploymentHistory()}</div>
-        </div>
+        <div className="d-block mb-3">{displayAddEmploymentButton()}</div>
+        <div className="d-block">{displayEmploymentHistory()}</div>
         {showModal()}
         {showEditModal()}
       </div>

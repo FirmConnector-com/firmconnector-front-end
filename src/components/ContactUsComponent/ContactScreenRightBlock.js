@@ -1,6 +1,6 @@
 import React from "react";
 import ButtonLg from "../Buttons/ButtonLg";
-import HeaderSm from "../Headers/HeaderSm";
+import HeaderXSm from "../Headers/HeaderXSm";
 import InputLebelComponent from "../InputLebel/InputLebelComponent";
 
 const ContactScreenRightBlock = () => {
@@ -8,7 +8,7 @@ const ContactScreenRightBlock = () => {
     <div className="col-12 col-sm-12 col-md-12 col-lg-5">
       <div className="card d-block p-4 rounded shadow-lg">
         <form>
-          <HeaderSm
+          <HeaderXSm
             title={"Get in touch"}
             subText={
               "Have any queries or some feedback for us? Fill out the form below to contact our team."

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import HeaderSm from "../../Headers/HeaderSm";
+import HeaderXSm from "../../Headers/HeaderXSm";
 import InputLebelComponent from "../../InputLebel/InputLebelComponent";
 import { AlertDanger, AlertSuccess } from "../../Alerts/Alert";
 
@@ -175,7 +175,7 @@ const SignupScreenRightComponent = () => {
     <div className="col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
       <div className="card bg-white-custom p-1">
         <form>
-          <HeaderSm
+          <HeaderXSm
             title={"Create Organization"}
             subText={
               "Please fill up your profile details below. You are one step behind to get started."

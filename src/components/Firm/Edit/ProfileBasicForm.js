@@ -332,48 +332,41 @@ const FirmBasicForm = (props) => {
 
   return (
     <div className="card-custom">
+      <HeaderXSm
+        title={"Profile Information"}
+        subText={"These informations will be used to display on profile"}
+        borderBottom={true}
+      />
       <div className="card-body">
         <form id="create-frm">
-          <div className="d-block">
-            <div className="d-block">
-              <HeaderXSm
-                title={"Profile Information"}
-                subText={
-                  "These informations will be used to display on profile"
-                }
-                borderBottom={true}
-              />
-            </div>
-
-            <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
-              <div className="col-12">
-                <InputLebelComponent title="Profile Image" />
-                <div className="profile-image-upload-holder">
-                  <Image
-                    className="profile-image-upload-holder-image"
-                    src={file}
-                  />
-                </div>
-                <div className="d-block mb-4 mt-2">
-                  <Button variant="primary" size="md" onClick={handleShow}>
-                    Upload Logo
-                  </Button>
-                </div>
+          <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
+            <div className="col-12">
+              <InputLebelComponent title="Profile Image" />
+              <div className="profile-image-upload-holder">
+                <Image
+                  className="profile-image-upload-holder-image"
+                  src={file}
+                />
               </div>
-              <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="First Name" />
-                  <div className="d-block">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="first-name"
-                      placeholder="Enter first name"
-                      onChange={handleFirmNameChange}
-                      value={firmName}
-                      autoComplete="off"
-                    />
-                  </div>
+              <div className="d-block mb-4 mt-2">
+                <Button variant="primary" size="md" onClick={handleShow}>
+                  Upload Logo
+                </Button>
+              </div>
+            </div>
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="First Name" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="first-name"
+                    placeholder="Enter first name"
+                    onChange={handleFirmNameChange}
+                    value={firmName}
+                    autoComplete="off"
+                  />
                 </div>
               </div>
             </div>

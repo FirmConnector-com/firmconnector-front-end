@@ -345,6 +345,7 @@ const EditJobPosting = (props) => {
                 onChange={handleDescriptionChange}
                 value={description}
                 autoComplete="off"
+                rows="8"
               />
             </div>
           </div>

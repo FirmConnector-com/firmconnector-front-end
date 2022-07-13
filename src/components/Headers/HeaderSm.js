@@ -5,17 +5,15 @@ const HeaderSm = (props) => {
 
   return (
     <div
-      className={`d-block pb-1 mb-4 ${
+      className={`header-holder mb-3 px-3 py-2 ${
         borderBottom ? "border-bottom-light" : null
       }`}
     >
       <div className="d-block">
-        <span className="header-text-title-custom text-dark-custom">
-          {title}
-        </span>
+        <span className="text-md-custom fw-bold-custom">{title}</span>
       </div>
       <div className="d-block">
-        <span className="text-muted">{subText}</span>
+        <span className="text-muted-custom">{subText}</span>
       </div>
     </div>
   );

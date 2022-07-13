@@ -888,18 +888,14 @@ const ResourceEducationBlock = (props) => {
 
   return (
     <div className="card-custom">
+      <HeaderXSm
+        title={"Education History"}
+        subText={null}
+        borderBottom={true}
+      />
       <div className="card-body">
-        <div className="d-block">
-          <div className="d-block">
-            <HeaderXSm
-              title={"Education History"}
-              subText={null}
-              borderBottom={true}
-            />
-          </div>
-          <div className="d-block mb-3">{displayAddEducationButton()}</div>
-          <div className="d-block">{displayEducationHistory()}</div>
-        </div>
+        <div className="d-block mb-3">{displayAddEducationButton()}</div>
+        <div className="d-block">{displayEducationHistory()}</div>
         {showModal()}
         {showEditModal()}
       </div>

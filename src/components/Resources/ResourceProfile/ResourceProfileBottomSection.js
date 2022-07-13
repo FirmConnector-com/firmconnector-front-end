@@ -13,6 +13,8 @@ const ResourceProfileBottomSection = (props) => {
         profileDetails={resourceDetails.profile_details}
         educationDetails={resourceDetails.education_details}
         employmentDetails={resourceDetails.employment_details}
+        recruiterNotes={resourceDetails.recruiter_notes}
+        resourceDetails={resourceDetails}
       />
       <div className="col-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 mb-3">
         <AvailabilityHolder

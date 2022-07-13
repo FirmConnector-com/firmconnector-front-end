@@ -310,146 +310,141 @@ const ProfileContactForm = (props) => {
 
   return (
     <div className="card-custom">
+      <HeaderXSm
+        title={"Contact Informations"}
+        subText={null}
+        borderBottom={true}
+      />
       <div className="card-body">
         <form id="create-frm">
-          <div className="d-block">
-            <div className="d-block">
-              <HeaderXSm
-                title={"Contact Informations"}
-                subText={null}
-                borderBottom={true}
-              />
+          <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Contact Email" />
+                <div className="d-block">
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="contact-email"
+                    placeholder="Enter contact email"
+                    onChange={handleContactEmailChange}
+                    value={contactEmail}
+                    autoComplete="off"
+                  />
+                </div>
+              </div>
             </div>
-
-            <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
-              <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Contact Email" />
-                  <div className="d-block">
-                    <input
-                      type="email"
-                      className="form-control"
-                      id="contact-email"
-                      placeholder="Enter contact email"
-                      onChange={handleContactEmailChange}
-                      value={contactEmail}
-                      autoComplete="off"
-                    />
-                  </div>
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Phone Number" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="phone-number"
+                    placeholder="Enter phone number"
+                    onChange={handlePhoneChange}
+                    value={phone}
+                    autoComplete="off"
+                  />
                 </div>
               </div>
-              <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Phone Number" />
-                  <div className="d-block">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="phone-number"
-                      placeholder="Enter phone number"
-                      onChange={handlePhoneChange}
-                      value={phone}
-                      autoComplete="off"
-                    />
-                  </div>
+            </div>
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Office Phone" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="office-phone-number"
+                    placeholder="Enter office phone number"
+                    onChange={handleOfficePhoneChange}
+                    value={officePhone}
+                    autoComplete="off"
+                  />
                 </div>
               </div>
-              <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Office Phone" />
-                  <div className="d-block">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="office-phone-number"
-                      placeholder="Enter office phone number"
-                      onChange={handleOfficePhoneChange}
-                      value={officePhone}
-                      autoComplete="off"
-                    />
-                  </div>
+            </div>
+            <div className="col-12">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Street address" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="street-address"
+                    placeholder="Enter your street address"
+                    onChange={handleStreetAddressChange}
+                    value={userStreetAddress}
+                    autoComplete="off"
+                  />
                 </div>
               </div>
-              <div className="col-12">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Street address" />
-                  <div className="d-block">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="street-address"
-                      placeholder="Enter your street address"
-                      onChange={handleStreetAddressChange}
-                      value={userStreetAddress}
-                      autoComplete="off"
-                    />
-                  </div>
+            </div>
+            <div className="col-12 col-md-4 col-lg-4 col-xlg-4">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Select Country" />
+                <div className="d-block">
+                  <select
+                    className="form-control"
+                    aria-label="Country"
+                    onChange={handleCountryChange}
+                    value={userAddressCountryId}
+                  >
+                    <option value="">Select country</option>
+                    {countryList ? (
+                      <>
+                        {countryList.map(function (item) {
+                          return <option value={item.id}>{item.name}</option>;
+                        })}
+                      </>
+                    ) : null}
+                  </select>
                 </div>
               </div>
-              <div className="col-12 col-md-4 col-lg-4 col-xlg-4">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Select Country" />
-                  <div className="d-block">
-                    <select
-                      className="form-control"
-                      aria-label="Country"
-                      onChange={handleCountryChange}
-                      value={userAddressCountryId}
-                    >
-                      <option value="">Select country</option>
-                      {countryList ? (
-                        <>
-                          {countryList.map(function (item) {
-                            return <option value={item.id}>{item.name}</option>;
-                          })}
-                        </>
-                      ) : null}
-                    </select>
-                  </div>
+            </div>
+            <div className="col-12 col-md-4 col-lg-4 col-xlg-4">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Select Provience/State" />
+                <div className="d-block">
+                  <select
+                    className="form-control"
+                    aria-label="State"
+                    onChange={handleProvienceChange}
+                    value={userAddressProvienceId}
+                  >
+                    <option value="">Select provience</option>
+                    {stateList ? (
+                      <>
+                        {stateList.map(function (item) {
+                          return <option value={item.id}>{item.name}</option>;
+                        })}
+                      </>
+                    ) : null}
+                  </select>
                 </div>
               </div>
-              <div className="col-12 col-md-4 col-lg-4 col-xlg-4">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Select Provience/State" />
-                  <div className="d-block">
-                    <select
-                      className="form-control"
-                      aria-label="State"
-                      onChange={handleProvienceChange}
-                      value={userAddressProvienceId}
-                    >
-                      <option value="">Select provience</option>
-                      {stateList ? (
-                        <>
-                          {stateList.map(function (item) {
-                            return <option value={item.id}>{item.name}</option>;
-                          })}
-                        </>
-                      ) : null}
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-md-4 col-lg-4 col-xlg-4">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Select City" />
-                  <div className="d-block">
-                    <select
-                      className="form-control"
-                      aria-label="City"
-                      onChange={handleCityChange}
-                      value={userAddressCityId}
-                    >
-                      <option value="">Select city</option>
-                      {cityList ? (
-                        <>
-                          {cityList.map(function (item) {
-                            return <option value={item.id}>{item.name}</option>;
-                          })}
-                        </>
-                      ) : null}
-                    </select>
-                  </div>
+            </div>
+            <div className="col-12 col-md-4 col-lg-4 col-xlg-4">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Select City" />
+                <div className="d-block">
+                  <select
+                    className="form-control"
+                    aria-label="City"
+                    onChange={handleCityChange}
+                    value={userAddressCityId}
+                  >
+                    <option value="">Select city</option>
+                    {cityList ? (
+                      <>
+                        {cityList.map(function (item) {
+                          return <option value={item.id}>{item.name}</option>;
+                        })}
+                      </>
+                    ) : null}
+                  </select>
                 </div>
               </div>
             </div>

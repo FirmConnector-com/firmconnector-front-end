@@ -355,96 +355,59 @@ const ProfileBasicForm = (props) => {
 
   return (
     <div className="card-custom">
+      <HeaderXSm
+        title={"Profile Information"}
+        subText={null}
+        borderBottom={true}
+      />
       <div className="card-body">
         <form id="create-frm">
-          <div className="d-block">
-            <div className="d-block">
-              <HeaderXSm
-                title={"Profile Information"}
-                subText={null}
-                borderBottom={true}
-              />
+          <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
+            <div className="col-12">
+              <InputLebelComponent title="Profile Image" />
+              <div className="profile-image-upload-holder">
+                <Image
+                  className="profile-image-upload-holder-image"
+                  src={file}
+                />
+              </div>
+              <div className="d-block mb-4 mt-2">
+                <Button variant="primary" size="md" onClick={handleShow}>
+                  Upload Profile Image
+                </Button>
+              </div>
             </div>
-
-            <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
-              <div className="col-12">
-                <InputLebelComponent title="Profile Image" />
-                <div className="profile-image-upload-holder">
-                  <Image
-                    className="profile-image-upload-holder-image"
-                    src={file}
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="First Name" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="first-name"
+                    placeholder="Enter first name"
+                    onChange={handleFirstNameChange}
+                    value={firstName}
+                    autoComplete="off"
                   />
                 </div>
-                <div className="d-block mb-4 mt-2">
-                  <Button variant="primary" size="md" onClick={handleShow}>
-                    Upload Profile Image
-                  </Button>
+              </div>
+            </div>
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Last Name" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="last-name"
+                    placeholder="Enter last name"
+                    onChange={handleLastNameChange}
+                    value={lastName}
+                    autoComplete="off"
+                  />
                 </div>
               </div>
-              <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="First Name" />
-                  <div className="d-block">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="first-name"
-                      placeholder="Enter first name"
-                      onChange={handleFirstNameChange}
-                      value={firstName}
-                      autoComplete="off"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Last Name" />
-                  <div className="d-block">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="last-name"
-                      placeholder="Enter last name"
-                      onChange={handleLastNameChange}
-                      value={lastName}
-                      autoComplete="off"
-                    />
-                  </div>
-                </div>
-              </div>
-              {/* <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Job Role" />
-                  <div className="d-block">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="job-role"
-                      placeholder="Enter job role"
-                      onChange={handleJobRoleChange}
-                      value={jobRole}
-                      autoComplete="off"
-                    />
-                  </div>
-                </div>
-              </div> */}
-              {/* <div className="col-12 col-md-12 col-lg-12 col-xlg-12">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Profile Bio" />
-                  <div className="d-block">
-                    <textarea
-                      type="textarea"
-                      className="form-control-custom"
-                      id="job-role"
-                      placeholder="Enter your bio"
-                      onChange={handleBioChange}
-                      value={bio}
-                      autoComplete="off"
-                    />
-                  </div>
-                </div>
-              </div> */}
             </div>
           </div>
           {displaySubmitButton()}
