@@ -60,24 +60,28 @@ const ResourceProfile = (props) => {
               {rmId === user_slug ? (
                 <>
                   <div className="me-2">
-                    <span
-                      className={`btn btn-${
-                        displayView === "default" ? "primary" : "secondary"
-                      } btn-md`}
+                    <Button
                       onClick={() => changeView("default")}
-                    >
-                      Default View
-                    </span>
-                  </div>
-                  <div className="me-2">
-                    <span
-                      className={`btn btn-${
-                        displayView === "client" ? "primary" : "secondary"
-                      } btn-md`}
-                      onClick={() => changeView("client")}
+                      variant={
+                        displayView === "default" ? "primary" : "secondary"
+                      }
+                      size="sm"
+                      className="ms-2"
                     >
                       Client View
-                    </span>
+                    </Button>
+                  </div>
+                  <div className="me-2">
+                    <Button
+                      onClick={() => changeView("client")}
+                      variant={
+                        displayView === "client" ? "primary" : "secondary"
+                      }
+                      size="sm"
+                      className="ms-2"
+                    >
+                      Client View
+                    </Button>
                   </div>
                   <Link
                     to={

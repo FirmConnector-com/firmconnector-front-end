@@ -149,7 +149,9 @@ const RecruiterNotes = (props) => {
         </div>
       );
     } else {
-      return <AlertInfo title={"Oops"} message={["No notes found!"]} />;
+      return (
+        <AlertInfo title={""} message={["No notes exist for this candidate"]} />
+      );
     }
   };
 
