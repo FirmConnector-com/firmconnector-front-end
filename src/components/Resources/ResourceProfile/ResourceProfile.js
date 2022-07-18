@@ -3,6 +3,7 @@ import ResourceProfileTopSection from "./ResourceProfileTopSection";
 import ResourceProfileBottomSection from "./ResourceProfileBottomSection";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 import { useAuthContext } from "../../../context/AuthContext";
+import { Button } from "react-bootstrap";
 
 import getResourceDetails from "../../../apis/getResourceDetails";
 import { Link } from "react-router-dom";
@@ -85,11 +86,9 @@ const ResourceProfile = (props) => {
                         : "/resources/edit-resource/" + resourceSlug
                     }
                   >
-                    <div>
-                      <span className="btn btn-secondary btn-md">
-                        Edit Profile
-                      </span>
-                    </div>
+                    <Button variant="primary" size="sm" className="ms-2">
+                      Edit Profile
+                    </Button>
                   </Link>
                 </>
               ) : null}

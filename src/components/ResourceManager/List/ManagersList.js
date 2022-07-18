@@ -22,7 +22,7 @@ const ManagersList = () => {
           {user_primary_role === "1" ? (
             <div className="d-flex justify-content-end">
               <Link to="/add-resource-manager">
-                <Button variant="primary" size="md">
+                <Button variant="primary" size="sm">
                   Add Manager
                 </Button>
               </Link>

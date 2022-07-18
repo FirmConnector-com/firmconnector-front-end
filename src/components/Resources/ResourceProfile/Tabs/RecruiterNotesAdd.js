@@ -28,13 +28,13 @@ const NoteAddModal = (props) => {
     return (
       <div className="d-block">
         {isProcessing ? (
-          <Button variant="primary" size="md" disabled={isButtonDisabled}>
+          <Button variant="primary" size="sm" disabled={isButtonDisabled}>
             <span>{buttonText}</span>
           </Button>
         ) : (
           <Button
             variant="primary"
-            size="md"
+            size="sm"
             disabled={isButtonDisabled}
             onClick={() => handleSubmit()}
           >
@@ -124,7 +124,7 @@ const NoteAddModal = (props) => {
         <Button
           variant="dark"
           onClick={() => closeAddModal()}
-          size="md"
+          size="sm"
           disabled={isButtonDisabled}
         >
           Close

@@ -16,11 +16,7 @@ const EmploymentContent = (props) => {
 
   const employerName = (employer_name) => {
     if (employer_name !== "" && employer_name !== null) {
-      return (
-        <span className="text-dark-custom fs-6 fw-medium-custom">
-          {employer_name}
-        </span>
-      );
+      return <span className="fs-6 fw-medium-custom">{employer_name}</span>;
     } else {
       return (
         <span className="text-muted-custom fs-6 fw-medium-custom">
@@ -32,9 +28,7 @@ const EmploymentContent = (props) => {
 
   const displayDiscription = (discription) => {
     if (discription !== "" && discription !== null) {
-      return (
-        <span className="text-dark-custom text-sm-custom">{discription}</span>
-      );
+      return <span className="text-sm-custom">{discription}</span>;
     } else {
       return (
         <span className="text-muted-custom text-sm-custom">
@@ -59,8 +53,14 @@ const EmploymentContent = (props) => {
       return (
         <span className="text-muted-custom">
           From{" "}
-          <span className="text-dark-custom fw-medium-custom">
-            {displayView !== 'client'? start !== null ? start : "-" : start !== null ? moment(start, "MM-DD-YYYY").year() : "-"}
+          <span className="fw-medium-custom">
+            {displayView !== "client"
+              ? start !== null
+                ? start
+                : "-"
+              : start !== null
+              ? moment(start, "MM-DD-YYYY").year()
+              : "-"}
           </span>{" "}
           to <BadgeSuccess title={"Present"} />
         </span>
@@ -69,12 +69,24 @@ const EmploymentContent = (props) => {
       return (
         <span className="text-muted-custom">
           From{" "}
-          <span className="text-dark-custom fw-medium-custom">
-          {displayView !== 'client'? start !== null ? start : "-" : start !== null ? moment(start, "MM-DD-YYYY").year() : "-"}
+          <span className="fw-medium-custom">
+            {displayView !== "client"
+              ? start !== null
+                ? start
+                : "-"
+              : start !== null
+              ? moment(start, "MM-DD-YYYY").year()
+              : "-"}
           </span>{" "}
           to{" "}
-          <span className="text-dark-custom fw-medium-custom">
-          {displayView !== 'client'? end !== null ? end : "-" : end !== null ? moment(end, "MM-DD-YYYY").year() : "-"}
+          <span className="fw-medium-custom">
+            {displayView !== "client"
+              ? end !== null
+                ? end
+                : "-"
+              : end !== null
+              ? moment(end, "MM-DD-YYYY").year()
+              : "-"}
           </span>
         </span>
       );
@@ -84,17 +96,21 @@ const EmploymentContent = (props) => {
   const displayEmployementContent = (employment) => {
     return (
       <div className="d-block">
-          {displayView !== 'client' && <div className="d-block">{employerName(employment.employer_name)}</div>}
+        {displayView !== "client" && (
+          <div className="d-block">
+            {employerName(employment.employer_name)}
+          </div>
+        )}
         <div className="d-block">{jobTitle(employment.job_title)}</div>
-         { displayView !== 'client' &&
-              <div className="d-block">
-                  {displayLocation(
-                    employment.city,
-                    employment.province,
-                    employment.country_code
-                  )}
-             </div>
-         }
+        {displayView !== "client" && (
+          <div className="d-block">
+            {displayLocation(
+              employment.city,
+              employment.province,
+              employment.country_code
+            )}
+          </div>
+        )}
       </div>
     );
   };
@@ -120,7 +136,9 @@ const EmploymentContent = (props) => {
         </div>
       </div>
       <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center my-4">
-        <span className="p-wrap">{displayDiscription(employmentDetails.description)}</span>
+        <span className="p-wrap">
+          {displayDiscription(employmentDetails.description)}
+        </span>
       </div>
     </>
   );

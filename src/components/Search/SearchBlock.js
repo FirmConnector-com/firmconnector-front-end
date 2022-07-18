@@ -229,7 +229,7 @@ const SearchBlock = () => {
             </select>
           </div>
           <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 d-flex justify-content-end align-items-center p-0 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
-            <Button variant="warning" size="md" onClick={() => getSearch()}>
+            <Button variant="warning" size="sm" onClick={() => getSearch()}>
               Search Profile
             </Button>
           </div>
@@ -370,39 +370,31 @@ const SearchBlock = () => {
     if (type === "city") {
       return (
         <div className="badge rounded-pill bg-primary d-flex justify-content-center align-items-center">
-          <span className="text-x-x-sm-custom text-white fw-bold">
-            in {type}
-          </span>
+          <span className="text-white fw-bold">in {type}</span>
         </div>
       );
     } else if (type === "province") {
       return (
         <div className="badge rounded-pill bg-secondary d-flex justify-content-center align-items-center">
-          <span className="text-x-x-sm-custom text-white fw-bold">
-            in {type}
-          </span>
+          <span className="text-white fw-bold">in {type}</span>
         </div>
       );
     } else if (type === "country") {
       return (
         <div className="badge rounded-pill bg-warning d-flex justify-content-center align-items-center">
-          <span className="text-x-x-sm-custom text-white fw-bold">
-            in {type}
-          </span>
+          <span className="text-white fw-bold">in {type}</span>
         </div>
       );
     } else if (type === "skill") {
       return (
         <div className="badge rounded-pill bg-success d-flex justify-content-center align-items-center">
-          <span className="text-x-x-sm-custom text-white fw-bold">
-            in {type}
-          </span>
+          <span className="text-white fw-bold">in {type}</span>
         </div>
       );
     } else if (type === "job role") {
       return (
         <div className="badge rounded-pill bg-success d-flex justify-content-center align-items-center">
-          <span className="text-x-x-sm-custom text-white fw-bold">in role</span>
+          <span className="text-white fw-bold">in role</span>
         </div>
       );
     }
@@ -476,7 +468,7 @@ const SearchBlock = () => {
             <span className="fw-bold display-6">Oops,</span>
           </div>
           <div className="d-block">
-            <span className="lead text-dark-custom">
+            <span className="lead">
               No search result found. Please try with some different keyword.
             </span>
           </div>
@@ -489,9 +481,7 @@ const SearchBlock = () => {
     if (role !== null && role.trim().length !== 0) {
       return (
         <div className="d-block">
-          <span className="text-info-custom text-sm-custom fw-medium-custom">
-            {role}
-          </span>
+          <span className="text-info-custom fw-medium-custom">{role}</span>
         </div>
       );
     }
@@ -573,7 +563,7 @@ const SearchBlock = () => {
             <span className="text-info-custom me-3">
               <FontAwesomeIcon icon={faMapPin} />
             </span>
-            <span className="text-sm-custom text-dark-custom">
+            <span className="text-dark-custom">
               {item.city_name}, {item.state_name}, {item.country_name}
             </span>
           </div>
@@ -584,7 +574,7 @@ const SearchBlock = () => {
             <span className="text-info-custom me-3">
               <FontAwesomeIcon icon={faMapPin} />
             </span>
-            <span className="text-sm-custom text-dark-custom">
+            <span className="text-dark-custom">
               {item.city_name}, {item.state_name}, {item.country_name}
             </span>
           </div>
@@ -601,9 +591,7 @@ const SearchBlock = () => {
             <span className="text-info-custom me-2">
               <FontAwesomeIcon icon={faEnvelope} />
             </span>
-            <span className="text-sm-custom text-dark-custom">
-              {item.user_email}
-            </span>
+            <span className="text-dark-custom">{item.user_email}</span>
           </div>
         );
       }
@@ -618,9 +606,7 @@ const SearchBlock = () => {
             <span className="text-info-custom me-2">
               <FontAwesomeIcon icon={faPhone} />
             </span>
-            <span className="text-sm-custom text-dark-custom">
-              {item.user_phone}
-            </span>
+            <span className="text-dark-custom">{item.user_phone}</span>
           </div>
         );
       }
@@ -632,9 +618,7 @@ const SearchBlock = () => {
       <>
         {displayAvailabilityGraph(availability)}
         <div className="d-block">
-          <span className="text-x-x-sm-custom fw-medium-custom text-dark-custom">
-            {availability} hrs/week
-          </span>
+          <span className="fw-medium-custom">{availability} hrs/week</span>
         </div>
       </>
     );
@@ -660,7 +644,7 @@ const SearchBlock = () => {
                       key={skillIndex}
                     >
                       <span
-                        className="text-x-sm-custom text-capitalize"
+                        className="text-capitalize"
                         key={skillIndex.toString()}
                       >
                         {skillItem}
@@ -668,7 +652,7 @@ const SearchBlock = () => {
                     </div>
                   );
                 })}
-                <span className=" my-2 me-1 text-sm-custom text-info-custom">
+                <span className=" my-2 me-1 text-info-custom">
                   +{remainingSkills} more skills
                 </span>
               </div>
@@ -685,7 +669,7 @@ const SearchBlock = () => {
                       key={skillIndex}
                     >
                       <span
-                        className="text-x-sm-custom text-capitalize"
+                        className="text-capitalize"
                         key={skillIndex.toString()}
                       >
                         {skillItem}
@@ -698,11 +682,7 @@ const SearchBlock = () => {
           );
         }
       } else {
-        return (
-          <span className="text-x-sm-custom text-danger-custom">
-            No skills available!
-          </span>
-        );
+        return <span className="text-danger-custom">No skills available!</span>;
       }
     }
   };

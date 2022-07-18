@@ -5,7 +5,7 @@ const HeaderXSm = (props) => {
 
   return (
     <div
-      className={`header-holder bg-light mb-3 px-3 py-2 ${
+      className={`header-holder bg-light-custom mb-3 px-3 py-2 ${
         borderBottom ? "border-bottom-light" : null
       }`}
     >

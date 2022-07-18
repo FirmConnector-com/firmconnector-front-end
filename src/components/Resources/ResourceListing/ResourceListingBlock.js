@@ -16,7 +16,7 @@ const ResourceListingBlock = () => {
     if (firm_details) {
       return (
         <Link to="/resources">
-          <Button variant="warning" size="md">
+          <Button variant="warning" size="sm">
             {firmType === "1" ? "My Team" : "My Candidates"}
           </Button>
         </Link>
@@ -30,7 +30,7 @@ const ResourceListingBlock = () => {
         return (
           <div className="col-6 d-flex justify-content-end">
             <Link to="/add-resource">
-              <Button variant="primary" size="md">
+              <Button variant="primary" size="sm">
                 {firmType === "1" ? "Add Team Member" : "Add Candidate"}
               </Button>
             </Link>

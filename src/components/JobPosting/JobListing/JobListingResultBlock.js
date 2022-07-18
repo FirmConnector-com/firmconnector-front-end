@@ -39,20 +39,18 @@ const JobListingResultBlock = (props) => {
             <div className="row d-flex align-items-center">
               <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
                 <div className="d-block">
-                  <span className="text-dark text-x-sm-custom">Posted By</span>
+                  <span className="text-dark">Posted By</span>
                 </div>
                 <div className="d-block">
-                  <span className="text-sm-custom fw-bold">
-                    {item.creator_name}
-                  </span>
+                  <span className="fw-bold">{item.creator_name}</span>
                 </div>
               </div>
               <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
                 <div className="d-block">
-                  <span className="text-dark text-x-sm-custom">Posted On</span>
+                  <span className="text-dark">Posted On</span>
                 </div>
                 <div className="d-block">
-                  <span className="text-sm-custom fw-bold">
+                  <span className="fw-bold">
                     {moment(item.created_on).format("MM-DD-YYYY")}
                   </span>
                 </div>
@@ -64,18 +62,18 @@ const JobListingResultBlock = (props) => {
           </div>
           <div className="d-flex justify-content-end border-top p-3">
             <Link to={`/job/details/${item.job_slug}`}>
-              <Button variant="warning" size="md">
+              <Button variant="warning" size="sm">
                 View Job
               </Button>
             </Link>
             <Link to={`/job/edit/${item.job_slug}`}>
-              <Button variant="success" size="md" className="ms-3">
+              <Button variant="success" size="sm" className="ms-3">
                 Edit Job
               </Button>
             </Link>
             <Button
               variant="danger"
-              size="md"
+              size="sm"
               className="ms-3"
               onClick={() => removeJob(item.job_slug)}
             >

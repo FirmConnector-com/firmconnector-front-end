@@ -323,7 +323,7 @@ const ResourceEducationBlock = (props) => {
 
   const displayDegreeName = (education) => {
     return (
-      <span className="text-dark-custom fw-bold">
+      <span className="fw-bold">
         {education.degree_name !== null ? (
           <span className="text-success-custom">{education.degree_name}</span>
         ) : (
@@ -337,13 +337,13 @@ const ResourceEducationBlock = (props) => {
   const displaySchoolName = (education) => {
     if (education.school_name !== "" && education.school_name !== null) {
       return (
-        <span className="text-info-custom text-x-sm-custom fw-medium-custom">
+        <span className="text-info-custom fw-medium-custom">
           {education.school_name}
         </span>
       );
     } else {
       return (
-        <span className="text-danger-custom text-x-sm-custom fw-medium-custom">
+        <span className="text-danger-custom fw-medium-custom">
           Institute name not available
         </span>
       );
@@ -352,11 +352,7 @@ const ResourceEducationBlock = (props) => {
 
   const displayPassedOn = (passedOn) => {
     if (passedOn !== "" && passedOn !== null) {
-      return (
-        <span className="text-x-sm-custom fw-medium-custom">
-          Passed on {passedOn}
-        </span>
-      );
+      return <span className="fw-medium-custom">Passed on {passedOn}</span>;
     }
   };
 
@@ -485,7 +481,7 @@ const ResourceEducationBlock = (props) => {
   const displayAddEducationButton = () => {
     return (
       <div className="d-block justify-content-end">
-        <Button variant="primary" size="md" onClick={() => handleShow()}>
+        <Button variant="primary" size="sm" onClick={() => handleShow()}>
           Add New Education
         </Button>
       </div>
@@ -617,7 +613,7 @@ const ResourceEducationBlock = (props) => {
           variant="primary"
           disabled={isButtonDisabled}
           onClick={handleFormSubmit}
-          size="md"
+          size="sm"
         >
           {buttonText}
         </Button>
@@ -632,7 +628,7 @@ const ResourceEducationBlock = (props) => {
           variant="dark"
           disabled={isButtonDisabled}
           onClick={() => closeAddModal()}
-          size="md"
+          size="sm"
         >
           Close
         </Button>
@@ -815,7 +811,7 @@ const ResourceEducationBlock = (props) => {
           variant="primary"
           disabled={isButtonDisabled}
           onClick={handleFormUpdate}
-          size="md"
+          size="sm"
         >
           {buttonText}
         </Button>
@@ -830,7 +826,7 @@ const ResourceEducationBlock = (props) => {
           variant="dark"
           disabled={isButtonDisabled}
           onClick={() => handleCloseEditModal()}
-          size="md"
+          size="sm"
         >
           Close
         </Button>
@@ -861,7 +857,7 @@ const ResourceEducationBlock = (props) => {
                 onClick={() =>
                   handleEditEducation(education.education_history_id)
                 }
-                size="md"
+                size="sm"
               >
                 Edit Item
               </Button>
@@ -875,7 +871,7 @@ const ResourceEducationBlock = (props) => {
                 onClick={() =>
                   handleRemoveEducation(education.education_history_id)
                 }
-                size="md"
+                size="sm"
               >
                 Remove
               </Button>

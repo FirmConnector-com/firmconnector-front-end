@@ -56,13 +56,13 @@ const ProfileSection = (props) => {
           </span>
         </div>
         <div className="d-block">
-          <span className="text-info-light-custom">
+          <span className="text-info-custom-light-custom">
             {profileDetails.user_email}
           </span>
         </div>
         <div className="d-block">
           <Link to={"edit-profile"}>
-            <Button variant="primary" size="md" className="me-2">
+            <Button variant="primary" size="sm" className="me-2">
               Edit Profile
             </Button>
           </Link>

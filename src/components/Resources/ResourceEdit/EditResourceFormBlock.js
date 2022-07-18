@@ -7,6 +7,7 @@ import ResourceEmploymentBlock from "./ResourceEmploymentBlock";
 import ResourceAvailabilityForm from "./ResourceAvailabilityForm";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../../context/AuthContext";
+import { Button } from "react-bootstrap";
 
 const EditResourceFormBlock = (props) => {
   const { resourceDetails, resourceSlug } = props;
@@ -24,11 +25,13 @@ const EditResourceFormBlock = (props) => {
           }
           target="_blank"
         >
-          <button className="btn btn-light btn-md me-2">
+          <Button variant="light" size="sm" className="ms-2">
             See Public Profile
-          </button>
+          </Button>
         </Link>
-        <button className="btn btn-success btn-md">Edit Profile</button>
+        <Button variant="primary" size="sm" className="ms-2">
+          Edit Profile
+        </Button>
       </div>
       <div className="d-flex row">
         <div className="col-12 col-lg-8 col-xl-8">

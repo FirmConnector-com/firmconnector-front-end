@@ -14,7 +14,11 @@ body {
    -webkit-font-smoothing: antialiased !important;
    overflow-y:scroll !important;
    letter-spacing: -.006em !important;
-   font-size: 0.913em !important;
+   font-size: 0.911em !important;
+}
+
+.form-control{
+   font-size: 0.911em !important;
 }
 
 html {
@@ -98,6 +102,10 @@ html {
    color: var(--white) !important;
 }
 
+.bg-light-custom {
+   background: #dcdfe3;
+}
+
 .ms-custom-left{
    margin-left: 4.5rem;
 }
@@ -118,16 +126,8 @@ html {
    color: var(--danger-dark);
 }
 
-.text-dark-custom{
-   color: var(--black);
-}
-
 .text-info-custom{
-   color: var(--info-dark-light);
-}
-
-.text-info-light-custom{
-   color: var(--info);
+   color: var(--info) !important;
 }
 
 .text-warning-custom{
@@ -148,26 +148,6 @@ html {
 
 .muted-light-dark-text{
    color: var(--muted-light-dark-text);
-}
-
-.text-x-x-sm-custom{
-   font-size: .678rem;
-}
-
-.text-x-sm-custom{
-   font-size: .775rem;
-}
-
-.text-sm-custom{
-   font-size: .875rem;
-}
-
-.text-md-custom{
-   font-size: 1.1rem;
-}
-
-.text-lg-custom{
-   font-size: 1.6rem;
 }
 
 .bg-white-custom{
@@ -544,8 +524,10 @@ a{
    top: 3.7rem;
    width: 32.5% !important
 }
+
 .btn {
-   font-weight: 500 !important;
+   font-weight: 400 !important;
+   font-size: 1em !important;
 }
 
 .search-location-auto-complete-block{

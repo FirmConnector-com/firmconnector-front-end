@@ -62,9 +62,7 @@ const DashboardComponent = () => {
 
                     <div className="profile-details-holder mx-2">
                       <div className="d-block">
-                        <span className="text-dark-custom fw-medium-custom">
-                          {item.name}
-                        </span>
+                        <span className="fw-medium-custom">{item.name}</span>
                       </div>
                       <div className="d-block">
                         <span className="text-muted-custom ">{item.role}</span>

@@ -15,7 +15,7 @@ const ClientListingBlock = () => {
       if (firm_details.firm_type === 1) {
         return (
           <Link to="/resources">
-            <Button variant="light" size="md">
+            <Button variant="light" size="sm">
               Candidates
             </Button>
           </Link>
@@ -38,7 +38,7 @@ const ClientListingBlock = () => {
             {user_primary_role === "2" ? (
               <div className="d-flex justify-content-end">
                 <Link to="/add-client">
-                  <Button variant="primary" size="md">
+                  <Button variant="primary" size="sm">
                     Add New Client
                   </Button>
                 </Link>
@@ -46,7 +46,7 @@ const ClientListingBlock = () => {
             ) : null}
           </div>
         </div>
-        <div className="text-info my-3">
+        <div className="text-info-custom my-3">
           Optional. Add users, outside of your company, who can search{" "}
           {firm_details?.firm_name} profiles that have been flagged as
           “Advertised”. To view what these users will see, click on the “Client

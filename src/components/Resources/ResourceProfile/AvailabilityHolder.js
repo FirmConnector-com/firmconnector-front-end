@@ -76,7 +76,7 @@ const AvailabilityHolder = (props) => {
         {displayAvailabilityContent()}
 
         <div className="d-flex justify-content-center align-items-center mt-2">
-          <span className="text-md-custom fw-bold">
+          <span className="fw-bold">
             {parseInt(availabilityDetails?.availability)}hrs / week
           </span>
         </div>

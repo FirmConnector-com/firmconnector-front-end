@@ -56,7 +56,7 @@ const FirmResourceManagerCount = (props) => {
         </div>
         <div className="d-block mt-3">
           <Link to={"add-resource-manager"}>
-            <Button variant="success" size="md">
+            <Button variant="success" size="sm">
               Add Manager
             </Button>
           </Link>

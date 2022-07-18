@@ -109,9 +109,7 @@ const ResourceManagerListingResultBlock = () => {
                     </div>
                     <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <div className="d-block">
-                        <span className="text-x-sm-custom fw-bold text-dark-custom">
-                          Email Address
-                        </span>
+                        <span className="fw-bold">Email Address</span>
                       </div>
                       <div className="d-block">
                         <span className="text-muted-custom">
@@ -121,7 +119,7 @@ const ResourceManagerListingResultBlock = () => {
                     </div>
                     {/* <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <div className="d-block">
-                        <span className="text-x-sm-custom fw-bold text-dark-custom">
+                        <span className="fw-bold">
                           Phone Number
                         </span>
                       </div>
@@ -133,9 +131,7 @@ const ResourceManagerListingResultBlock = () => {
                     </div> */}
                     <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <div className="d-block">
-                        <span className="text-x-sm-custom fw-bold text-dark-custom">
-                          Created On
-                        </span>
+                        <span className="fw-bold">Created On</span>
                       </div>
                       <div className="d-block">
                         <span className="text-muted-custom">
@@ -171,16 +167,12 @@ const ResourceManagerListingResultBlock = () => {
     if (name !== null) {
       if (name.length > 25) {
         return (
-          <span className="text-dark-custom fw-bold text-sm-custom">
+          <span className="fw-bold text-sm-custom">
             {name.substring(0, 25) + "..."}
           </span>
         );
       } else {
-        return (
-          <span className="text-dark-custom fw-bold text-sm-custom">
-            {name}
-          </span>
-        );
+        return <span className="fw-bold text-sm-custom">{name}</span>;
       }
     } else {
       return <BadgeInfo title={"Not available"} />;

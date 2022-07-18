@@ -6,7 +6,7 @@ const BadgeSuccess = (props) => {
 
   return (
     <div className="badge-custom bg-success-custom w-auto d-inline-block justify-content-center align-items-center">
-      <span className="text-x-sm-custom fw-medium-custom" title={alt}>
+      <span className="fw-medium-custom" title={alt}>
         {title}
       </span>
     </div>
@@ -18,7 +18,7 @@ const BadgeLight = (props) => {
 
   return (
     <div className="badge-custom bg-light w-auto d-inline-block justify-content-center align-items-center">
-      <span className="text-x-sm-custom text-dark">{title}</span>
+      <span className="text-dark">{title}</span>
     </div>
   );
 };
@@ -28,7 +28,7 @@ const BadgeInfo = (props) => {
 
   return (
     <div className="badge-custom bg-info-custom w-auto d-inline-block justify-content-center align-items-center">
-      <span className="text-x-sm-custom text-badge-info-custom">{title}</span>
+      <span className="text-badge-info-custom">{title}</span>
     </div>
   );
 };

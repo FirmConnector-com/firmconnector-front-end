@@ -39,14 +39,14 @@ const ProfileBrief = (props) => {
       contactDetails.user_address_country_id > 0
     ) {
       return (
-        <span className="text-x-sm-custom text-center">
+        <span className="text-center">
           {contactDetails.city_name}, {contactDetails.state_name},{" "}
           {contactDetails.country_name}
         </span>
       );
     } else {
       return (
-        <span className="fw-bold-custom text-sm-custom text-muted-custom">
+        <span className="fw-bold-custom text-muted-custom">
           Location not available!
         </span>
       );

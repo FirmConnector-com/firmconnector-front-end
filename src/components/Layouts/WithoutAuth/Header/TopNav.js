@@ -19,13 +19,13 @@ const TopNav = () => {
       return (
         <div className="d-flex bd-buttons">
           <Link to="/sign-in">
-            <Button variant="primary" size="md">
+            <Button variant="primary" size="sm">
               {"Account Login"}
             </Button>
           </Link>
           {/* 
           <Link to="/sign-up">
-            <Button variant="primary" size="md" className="ms-3">
+            <Button variant="primary" size="sm" className="ms-3">
               {"Create Account"}
             </Button>
           </Link> */}

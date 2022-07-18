@@ -33,7 +33,7 @@ const SkillSet = (props) => {
           </div>
           {skillCount.skill_count > 7 ? (
             <div className="d-flex justify-content-end">
-              <Button variant="primary" size="md" onClick={() => handleShow()}>
+              <Button variant="primary" size="sm" onClick={() => handleShow()}>
                 View All Skills
               </Button>
             </div>
@@ -53,7 +53,7 @@ const SkillSet = (props) => {
         className="skill-wrapper-dark my-1 me-1"
         key={item.skill_id.toString()}
       >
-        <span className="text-x-sm-custom">{item.skill_name}</span>
+        <span>{item.skill_name}</span>
       </div>
     );
   };
@@ -70,14 +70,12 @@ const SkillSet = (props) => {
       >
         <Modal.Header>
           <div className="d-block">
-            <span className="text-sm-custom text-dark-custom fw-bold-custom">
-              My Skills
-            </span>
+            <span className="fw-bold-custom">My Skills</span>
           </div>
         </Modal.Header>
         <Modal.Body>{displayAllSkills()}</Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleClose} size="md">
+          <Button variant="primary" onClick={handleClose} size="sm">
             Close Skill
           </Button>
         </Modal.Footer>

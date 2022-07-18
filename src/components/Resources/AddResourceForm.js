@@ -328,7 +328,7 @@ const AddResourceForm = () => {
       <>
         <div className="d-block my-3">
           <strong>Please Note</strong>{" "}
-          <span className="text-info-light-custom">
+          <span className="text-info-custom-light-custom">
             ***Fill up all fields to create a Candidate account
           </span>
         </div>

@@ -174,15 +174,11 @@ const ResourceListingResultBlock = () => {
                         <div>
                           {item.is_advertised === "1" ? (
                             <div>
-                              <span className="text-x-x-sm-custom fw-bold text-success">
-                                Yes
-                              </span>
+                              <span className="fw-bold text-success">Yes</span>
                             </div>
                           ) : (
                             <div>
-                              <span className="text-x-x-sm-custom fw-bold text-danger">
-                                No
-                              </span>
+                              <span className="fw-bold text-danger">No</span>
                             </div>
                           )}
                         </div>
@@ -209,7 +205,7 @@ const ResourceListingResultBlock = () => {
                     <div className="col-12 col-lg-1 col-xl-1 col-xxl-1 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0 d-flex flex-column align-items-start align-items-lg-center align-items-xl-center align-items-xxl-center">
                       {displayAvailability(item.availability)}
                       <div className="d-flex justify-content-center align-items-center">
-                        <span className="text-dark text-x-sm-custom fw-bold">
+                        <span className="text-dark fw-bold">
                           {item.availability} hrs/week
                         </span>
                       </div>
@@ -217,7 +213,7 @@ const ResourceListingResultBlock = () => {
                     <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex justify-content-start justify-content-lg-end justify-content-xl-end justify-content-xxl-end">
                       <Button
                         variant="warning"
-                        size="md"
+                        size="sm"
                         className="me-2"
                         onClick={() =>
                           navigateTpProfile(
@@ -237,7 +233,7 @@ const ResourceListingResultBlock = () => {
                               : "resources/edit-resource/" + item.user_slug
                           }
                         >
-                          <Button variant="primary" size="md" className="ms-2">
+                          <Button variant="primary" size="sm" className="ms-2">
                             Edit Profile
                           </Button>
                         </Link>
@@ -325,11 +321,7 @@ const ResourceListingResultBlock = () => {
 
   const displayUserProfileRole = (user_profile_role) => {
     if (user_profile_role !== null) {
-      return (
-        <span className="text-x-sm-custom text-info-custom">
-          {user_profile_role}
-        </span>
-      );
+      return <span className="text-info-custom">{user_profile_role}</span>;
     } else {
       return <span className="text-danger">Not available</span>;
     }

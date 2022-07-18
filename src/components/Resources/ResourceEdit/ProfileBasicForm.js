@@ -203,7 +203,7 @@ const ProfileBasicForm = (props) => {
           variant="primary"
           disabled={isButtonDisabled}
           onClick={handleFormSubmit}
-          size="md"
+          size="sm"
         >
           {buttonText}
         </Button>
@@ -337,7 +337,7 @@ const ProfileBasicForm = (props) => {
                 />
               </div>
               <div className="d-block mb-4 mt-2">
-                <Button variant="warning" size="md" onClick={handleClick}>
+                <Button variant="warning" size="sm" onClick={handleClick}>
                   Upload Profile Image
                 </Button>
                 <input
@@ -356,7 +356,7 @@ const ProfileBasicForm = (props) => {
               onClick={handleClose}
               type="reset"
               disabled={modalButtonDisabled}
-              size="md"
+              size="sm"
             >
               Close
             </Button>
@@ -364,7 +364,7 @@ const ProfileBasicForm = (props) => {
               variant="primary"
               onClick={handleSubmitImageUpload}
               disabled={modalButtonDisabled}
-              size="md"
+              size="sm"
             >
               Save Changes
             </Button>
@@ -408,7 +408,7 @@ const ProfileBasicForm = (props) => {
                 />
               </div>
               <div className="d-block mb-4 mt-2">
-                <Button variant="primary" size="md" onClick={handleShow}>
+                <Button variant="primary" size="sm" onClick={handleShow}>
                   Upload Profile Image
                 </Button>
               </div>

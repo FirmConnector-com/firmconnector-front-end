@@ -34,20 +34,18 @@ const LatestJobListingResultBlock = (props) => {
             <div className="row d-flex align-items-center border-top py-2 bg-light m-0">
               <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
                 <div className="d-block">
-                  <span className="text-dark text-x-sm-custom">Posted By</span>
+                  <span className="text-dark">Posted By</span>
                 </div>
                 <div className="d-block">
-                  <span className="text-sm-custom fw-bold">
-                    {item.creator_name}
-                  </span>
+                  <span className="fw-bold">{item.creator_name}</span>
                 </div>
               </div>
               <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
                 <div className="d-block">
-                  <span className="text-dark text-x-sm-custom">Posted On</span>
+                  <span className="text-dark">Posted On</span>
                 </div>
                 <div className="d-block">
-                  <span className="text-sm-custom fw-bold">
+                  <span className="fw-bold">
                     {moment(item.created_on).format("MM-DD-YYYY")}
                   </span>
                 </div>

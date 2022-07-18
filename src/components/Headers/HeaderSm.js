@@ -10,7 +10,7 @@ const HeaderSm = (props) => {
       }`}
     >
       <div className="d-block">
-        <span className="text-md-custom fw-bold-custom">{title}</span>
+        <span className="fw-bold-custom">{title}</span>
       </div>
       <div className="d-block">
         <span className="text-muted-custom">{subText}</span>

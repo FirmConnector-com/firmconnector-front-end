@@ -32,7 +32,7 @@ const RecruiterNotes = (props) => {
   const displayAddNoteButton = () => {
     return (
       <div className="d-flex justify-content-end mb-4">
-        <Button variant="primary" onClick={() => handleShow()} size="md">
+        <Button variant="primary" onClick={() => handleShow()} size="sm">
           Add Note
         </Button>
       </div>

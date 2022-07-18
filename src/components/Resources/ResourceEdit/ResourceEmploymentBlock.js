@@ -550,7 +550,7 @@ const ResourceEmploymentBlock = (props) => {
   const displayAddEmploymentButton = () => {
     return (
       <div className="d-block justify-content-end">
-        <Button variant="primary" size="md" onClick={() => handleShow()}>
+        <Button variant="primary" size="sm" onClick={() => handleShow()}>
           Add Employment Details
         </Button>
       </div>
@@ -645,9 +645,7 @@ const ResourceEmploymentBlock = (props) => {
                         }
                         onClick={() => handleChangeEmploymentType(1)}
                       >
-                        <span className="text-x-sm-custom fw-medium-custom">
-                          Permanent
-                        </span>
+                        <span className="fw-medium-custom">Permanent</span>
                       </div>
                       <div
                         className={
@@ -657,9 +655,7 @@ const ResourceEmploymentBlock = (props) => {
                         }
                         onClick={() => handleChangeEmploymentType(2)}
                       >
-                        <span className="text-x-sm-custom fw-medium-custom">
-                          Part-time
-                        </span>
+                        <span className="fw-medium-custom">Part-time</span>
                       </div>
                     </div>
                   </div>
@@ -676,9 +672,7 @@ const ResourceEmploymentBlock = (props) => {
                         }
                         onClick={() => handleChangeIsCurrentlyWorkingHere()}
                       >
-                        <span className="text-x-sm-custom fw-medium-custom">
-                          Yes
-                        </span>
+                        <span className="fw-medium-custom">Yes</span>
                       </div>
                     </div>
                   </div>
@@ -812,7 +806,7 @@ const ResourceEmploymentBlock = (props) => {
           variant="primary"
           disabled={isButtonDisabled}
           onClick={handleFormSubmit}
-          size="md"
+          size="sm"
         >
           {buttonText}
         </Button>
@@ -827,7 +821,7 @@ const ResourceEmploymentBlock = (props) => {
           variant="dark"
           disabled={isButtonDisabled}
           onClick={() => closeAddModal()}
-          size="md"
+          size="sm"
         >
           Close
         </Button>
@@ -975,9 +969,7 @@ const ResourceEmploymentBlock = (props) => {
                         }
                         onClick={() => handleChangeEmploymentType(1)}
                       >
-                        <span className="text-x-sm-custom fw-medium-custom">
-                          Permanent
-                        </span>
+                        <span className="fw-medium-custom">Permanent</span>
                       </div>
                       <div
                         className={
@@ -987,9 +979,7 @@ const ResourceEmploymentBlock = (props) => {
                         }
                         onClick={() => handleChangeEmploymentType(2)}
                       >
-                        <span className="text-x-sm-custom fw-medium-custom">
-                          Part-time
-                        </span>
+                        <span className="fw-medium-custom">Part-time</span>
                       </div>
                     </div>
                   </div>
@@ -1006,9 +996,7 @@ const ResourceEmploymentBlock = (props) => {
                         }
                         onClick={() => handleChangeIsCurrentlyWorkingHere()}
                       >
-                        <span className="text-x-sm-custom fw-medium-custom">
-                          Yes
-                        </span>
+                        <span className="fw-medium-custom">Yes</span>
                       </div>
                     </div>
                   </div>
@@ -1142,7 +1130,7 @@ const ResourceEmploymentBlock = (props) => {
           variant="primary"
           disabled={isButtonDisabled}
           onClick={handleFormSubmitEdit}
-          size="md"
+          size="sm"
         >
           {buttonText}
         </Button>
@@ -1157,7 +1145,7 @@ const ResourceEmploymentBlock = (props) => {
           variant="dark"
           disabled={isButtonDisabled}
           onClick={() => handleCloseEditModal()}
-          size="md"
+          size="sm"
         >
           Close
         </Button>
@@ -1179,7 +1167,7 @@ const ResourceEmploymentBlock = (props) => {
               onClick={() =>
                 handleEditEmployment(employment.employment_history_id)
               }
-              size="md"
+              size="sm"
             >
               Edit Item
             </Button>
@@ -1193,7 +1181,7 @@ const ResourceEmploymentBlock = (props) => {
               onClick={() =>
                 handleRemoveEmployment(employment.employment_history_id)
               }
-              size="md"
+              size="sm"
             >
               Remove
             </Button>

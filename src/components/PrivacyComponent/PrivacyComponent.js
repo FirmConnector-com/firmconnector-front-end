@@ -152,7 +152,7 @@ const PrivacyComponent = () => {
               Many of these rights can be exercised by signing in and directly
               updating your account information. If you have questions about
               exercising these rights or need assistance, please contact us at{" "}
-              <span className="text-info-light-custom fw-bold">
+              <span className="text-info-custom-light-custom fw-bold">
                 info@firmconnector.com
               </span>
               .
@@ -178,7 +178,9 @@ const PrivacyComponent = () => {
           <div className="d-block">
             <span>
               All data is encrypted via{" "}
-              <span className="text-info-light-custom fw-bold">SSL/TLS</span>{" "}
+              <span className="text-info-custom-light-custom fw-bold">
+                SSL/TLS
+              </span>{" "}
               when transmitted from our servers to your browser. The database
               backups are also encrypted. Data isn’t encrypted while it's live
               in our database (since it needs to be ready to send to you when

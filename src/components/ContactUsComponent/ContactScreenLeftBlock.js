@@ -9,7 +9,9 @@ const ContactScreenLeftBlock = () => {
           <span>Please get in touch. We'd love to hear from you.</span>
         </div>
         <div className="d-block">
-          <span className="text-info-light-custom">info@firmconnector.com</span>
+          <span className="text-info-custom-light-custom">
+            info@firmconnector.com
+          </span>
         </div>
       </div>
       <div className="d-block login-page-lg-image mb-4">

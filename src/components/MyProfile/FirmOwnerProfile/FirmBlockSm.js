@@ -44,7 +44,9 @@ const FirmBlockSm = (props) => {
   const displayFirmEmail = () => {
     if (firmDetails.firm_email === "" && firmDetails.firm_email !== null) {
       return (
-        <span className="text-info-light-custom">{firmDetails.firm_email}</span>
+        <span className="text-info-custom-light-custom">
+          {firmDetails.firm_email}
+        </span>
       );
     } else {
       return <span className="text-danger-custom">No email added</span>;
@@ -66,7 +68,7 @@ const FirmBlockSm = (props) => {
         <div className="d-block">{displayFirmEmail()}</div>
         <div className="d-block">
           <Link to={"edit-firm"}>
-            <Button variant="primary" size="md">
+            <Button variant="primary" size="sm">
               Edit Firm Details
             </Button>
           </Link>

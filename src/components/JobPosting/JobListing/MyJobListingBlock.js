@@ -162,7 +162,7 @@ const MyJobListingBlock = () => {
       </div>
       <div className="d-flex justify-content-end my-3">
         <Link to="/create-job">
-          <Button variant="primary" size="md">
+          <Button variant="primary" size="sm">
             Create Job
           </Button>
         </Link>

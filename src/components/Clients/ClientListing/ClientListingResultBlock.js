@@ -109,9 +109,7 @@ const ClientListingResultBlock = () => {
                     </div>
                     <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <div className="d-block">
-                        <span className="text-dark-custom text-x-sm-custom fw-bold">
-                          Client Email
-                        </span>
+                        <span className="fw-bold">Client Email</span>
                       </div>
                       <div className="d-block">
                         <span className="text-info-custom">
@@ -121,9 +119,7 @@ const ClientListingResultBlock = () => {
                     </div>
                     <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <div className="d-block">
-                        <span className="text-dark-custom text-x-sm-custom fw-bold">
-                          Added On
-                        </span>
+                        <span className="fw-bold">Added On</span>
                       </div>
                       <div className="d-block">
                         <span className="text-muted-custom">
@@ -133,13 +129,13 @@ const ClientListingResultBlock = () => {
                     </div>
                     {/* <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex justify-content-start justify-content-lg-end justify-content-xl-end justify-content-xxl-end">
                       {user_primary_role === "2" ? (
-                        <Button variant="danger" size="md" className="ms-2">
+                        <Button variant="danger" size="sm" className="ms-2">
                           Remove Access
                         </Button>
                       ) : (
                         <Button
                           variant="secondary"
-                          size="md"
+                          size="sm"
                           className="ms-2"
                           disabled
                         >
