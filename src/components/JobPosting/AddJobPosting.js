@@ -22,6 +22,10 @@ const AddJobPosting = () => {
   const [isFirmListLoading, setIsFirmListLoading] = useState(true);
   const [selectedFirmList, setSelectedFirmList] = useState([]);
 
+  const [skills, setSkills] = useState("");
+  const [experience, setExperience] = useState("");
+  const [language, setLanguage] = useState("");
+
   const [buttonText, setButtonText] = useState("Create Job");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [hasSubmitError, setHasSubmitError] = useState(false);
@@ -79,6 +83,18 @@ const AddJobPosting = () => {
 
   const handleRoleTitleChange = (e) => {
     setRoleTitle(e.target.value);
+  };
+
+  const handleSkillChange = (e) => {
+    setSkills(e.target.value);
+  };
+
+  const handleLanguageChange = (e) => {
+    setLanguage(e.target.value);
+  };
+
+  const handleExperienceChange = (e) => {
+    setExperience(e.target.value);
   };
 
   const handleDescriptionChange = (e) => {
@@ -139,6 +155,9 @@ const AddJobPosting = () => {
       job_title: roleTitle,
       job_description: description,
       firm_ids: selectedFirmList,
+      required_skill_set: skills,
+      experience_required: experience,
+      preffered_language: language,
     };
 
     try {
@@ -187,37 +206,40 @@ const AddJobPosting = () => {
   const displayFirmList = () => {
     if (firmList) {
       return (
-        <div className="d-flex">
-          {firmList.map(function (item) {
-            return (
-              <div
-                key={item.firm_id}
-                className="d-block me-4 border border-info rounded p-2"
-              >
-                <div className="form-check mt-1 d-flex align-items-center">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value={item.firm_id}
-                    onChange={() => updateSelectedFirmIds(item.firm_id)}
-                    id={"firm-id-" + item.firm_id}
-                  />
-                  <div
-                    className="firm-logo-sm-custom ms-2"
-                    alt={item.firm_name}
-                    style={{
-                      backgroundImage: `url("${
-                        FIRM_IMAGE_BASE + item.firm_logo
-                      }")`,
-                      backgroundSize: "contain",
-                      backgroundPosition: "center",
-                      backgroundRepeat: "no-repeat",
-                    }}
-                  ></div>
+        <div className="d-block">
+          <InputLebelComponent title="Select firms to be notified of opportunity" />
+          <div className="d-flex mt-2">
+            {firmList.map(function (item) {
+              return (
+                <div
+                  key={item.firm_id}
+                  className="d-block me-4 border border-info rounded p-2"
+                >
+                  <div className="form-check mt-1 d-flex align-items-center">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      value={item.firm_id}
+                      onChange={() => updateSelectedFirmIds(item.firm_id)}
+                      id={"firm-id-" + item.firm_id}
+                    />
+                    <div
+                      className="firm-logo-sm-custom ms-2"
+                      alt={item.firm_name}
+                      style={{
+                        backgroundImage: `url("${
+                          FIRM_IMAGE_BASE + item.firm_logo
+                        }")`,
+                        backgroundSize: "contain",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                      }}
+                    ></div>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       );
     }
@@ -247,8 +269,10 @@ const AddJobPosting = () => {
       <div className="d-block">
         <div className="card-custom">
           <HeaderXSm
-            title={"Add job information"}
-            subText={"Fill up all fields to create a new job"}
+            title={"Create a new job posting"}
+            subText={
+              "Populate information below and select which firms to help find candidates"
+            }
             borderBottom={true}
           />
           <div className="card-body">
@@ -297,7 +321,60 @@ const AddJobPosting = () => {
                     onChange={handleDescriptionChange}
                     value={description}
                     autoComplete="off"
-                    rows={8}
+                    rows={6}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Skills Required (optional)" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="skills"
+                    placeholder="Enter required skill set"
+                    autocomplete="off"
+                    value={skills}
+                    onChange={handleSkillChange}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Experience Required (optional)" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="experience"
+                    placeholder="Enter experience required for this post"
+                    autocomplete="off"
+                    value={experience}
+                    onChange={handleExperienceChange}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Preferred Language (optional)" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="preffered-language"
+                    placeholder="Enter preferred language if any"
+                    autocomplete="off"
+                    value={language}
+                    onChange={handleLanguageChange}
                   />
                 </div>
               </div>

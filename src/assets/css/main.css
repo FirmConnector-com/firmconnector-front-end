@@ -17,10 +17,6 @@ body {
    font-size: 0.911em !important;
 }
 
-.form-control{
-   font-size: 0.911em !important;
-}
-
 html {
    position: relative;
    min-height: 100%;
@@ -211,8 +207,8 @@ a{
 }
 
 .form-control{
-   color: var(--info-dark) !important;
-    border: 0.14rem solid var(--info-dark) !important;
+   color: var(--black);
+   border: 0.14rem solid var(--info-dark) !important;
 }
 
 .input-without-outline{

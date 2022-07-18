@@ -730,6 +730,7 @@ const ResourceEmploymentBlock = (props) => {
                         onChange={handleDescriptionChange}
                         value={description}
                         autoComplete="off"
+                        rows={6}
                       />
                     </div>
                   </div>
@@ -1054,6 +1055,7 @@ const ResourceEmploymentBlock = (props) => {
                         onChange={handleDescriptionChange}
                         value={description}
                         autoComplete="off"
+                        rows={6}
                       />
                     </div>
                   </div>

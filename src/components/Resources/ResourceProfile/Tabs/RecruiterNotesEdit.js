@@ -232,7 +232,7 @@ const NoteEditModal = (props) => {
                       placeholder="Enter note"
                       value={noteText}
                       autoComplete="off"
-                      rows={4}
+                      rows={6}
                       onChange={handleNoteChange}
                     />
                   </div>
