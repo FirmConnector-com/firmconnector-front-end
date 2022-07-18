@@ -167,7 +167,7 @@ html {
    border: none !important;
 }
 
- .bd-lead {
+.bd-lead {
    font-size: calc(1rem + .3vw);
    font-weight: 400;
 }
@@ -634,4 +634,11 @@ a{
 
 .alert{
    margin-bottom: 0 !important;
+}
+
+.desc{
+   line-height: 1.4;
+   font-weight: 300 !important;
+   color: rgb(54, 54, 54);
+   font-size: 1.2rem !important;
 }

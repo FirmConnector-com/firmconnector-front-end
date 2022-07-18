@@ -256,9 +256,9 @@ const AddJobPosting = () => {
   const displayTopBlock = () => {
     return (
       <BlockHeader
-        title={"Create New Job"}
+        title={"Create a new job posting"}
         subText={
-          "Create a job posting and select which firms to participate in finding a candidate"
+          "Populate information below and select which firms to help find candidates"
         }
       />
     );
@@ -269,9 +269,9 @@ const AddJobPosting = () => {
       <div className="d-block">
         <div className="card-custom">
           <HeaderXSm
-            title={"Create a new job posting"}
+            title={"Note:"}
             subText={
-              "Populate information below and select which firms to help find candidates"
+              "Job posting details from this form will be shared with the selected firms below in order to streamline your recruitment process"
             }
             borderBottom={true}
           />

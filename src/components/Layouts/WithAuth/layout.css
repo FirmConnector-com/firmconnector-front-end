@@ -126,11 +126,12 @@
       flex-direction: column;
       min-width: 0;
       word-wrap: break-word;
-      background-color: #fbfbfb;
+      background-color: var(--white);
       background-clip: border-box;
       border: 1px solid rgba(0,0,0,.03);
       border-radius: 0.9rem;
       overflow: hidden;
+      box-shadow: rgb(28 28 28 / 8%) 0px 1.42623px 2.85246px;
    }
 
    .shadow-sm-custom{
