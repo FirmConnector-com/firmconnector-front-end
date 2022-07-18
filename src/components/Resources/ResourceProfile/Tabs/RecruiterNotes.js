@@ -117,7 +117,9 @@ const RecruiterNotes = (props) => {
                         <i className="fw-bold">{item.r_name}</i>
                       </div>
                       <div className="d-flex flex-column align-items-end">
-                        <span className="text-secondary">{item.added_on}</span>
+                        <span className="text-muted-custom">
+                          {item.added_on}
+                        </span>
                       </div>
                     </div>
                     {user_slug === item.r_slug ? (

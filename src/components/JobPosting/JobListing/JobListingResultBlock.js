@@ -32,7 +32,7 @@ const JobListingResultBlock = (props) => {
               </h5>
             </div>
             <div className="d-block my-3">
-              <span className="text-secondary">
+              <span className="text-muted-custom">
                 {displayDiscription(item.job_description)}
               </span>
             </div>

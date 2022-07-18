@@ -528,7 +528,7 @@ const SearchBlock = () => {
       } else {
         return (
           <div className="d-block">
-            <span className="h5 text-secondary fw-bold-custom">
+            <span className="h5 text-muted-custom fw-bold-custom">
               Name Withheld
             </span>
           </div>
@@ -537,7 +537,7 @@ const SearchBlock = () => {
     } else {
       return (
         <div className="d-block">
-          <span className="h5 text-secondary fw-bold-custom">
+          <span className="h5 text-muted-custom fw-bold-custom">
             Name Withheld
           </span>
         </div>

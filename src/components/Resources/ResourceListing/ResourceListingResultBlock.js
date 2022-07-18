@@ -189,7 +189,7 @@ const ResourceListingResultBlock = () => {
                       )}
 
                       <div className="d-block">
-                        <span className="text-secondary">Advertised</span>
+                        <span className="text-muted-custom">Advertised</span>
                       </div>
                     </div>
                     <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
@@ -199,7 +199,7 @@ const ResourceListingResultBlock = () => {
                         </span>
                       </div>
                       <div className="d-block">
-                        <span className="text-secondary">
+                        <span className="text-muted-custom">
                           {" "}
                           {item.city_name}, {item.state_name},{" "}
                           {item.country_name}

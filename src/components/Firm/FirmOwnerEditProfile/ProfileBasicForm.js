@@ -407,38 +407,6 @@ const ProfileBasicForm = (props) => {
                 </div>
               </div>
             </div>
-            {/* <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Job Role" />
-                  <div className="d-block">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="job-role"
-                      placeholder="Enter job role"
-                      onChange={handleJobRoleChange}
-                      value={jobRole}
-                      autoComplete="off"
-                    />
-                  </div>
-                </div>
-              </div> */}
-            {/* <div className="col-12 col-md-12 col-lg-12 col-xlg-12">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Profile Bio" />
-                  <div className="d-block">
-                    <textarea
-                      type="textarea"
-                      className="form-control-custom"
-                      id="job-role"
-                      placeholder="Enter your bio"
-                      onChange={handleBioChange}
-                      value={bio}
-                      autoComplete="off"
-                    />
-                  </div>
-                </div>
-              </div> */}
           </div>
           {displaySubmitButton()}
           {displayStatusMessage()}

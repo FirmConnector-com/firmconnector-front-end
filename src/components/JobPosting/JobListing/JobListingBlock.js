@@ -8,7 +8,7 @@ const JobListingBlock = () => {
         <BlockHeader title={"Job Posting"} />
       </div>
       <div className="row my-3">
-        <div className="text-secondary">
+        <div className="text-muted-custom">
           This section is currently under development
         </div>
       </div>

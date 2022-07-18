@@ -501,6 +501,7 @@ const ProfileBasicForm = (props) => {
                     onChange={handleBioChange}
                     value={bio}
                     autoComplete="off"
+                    rows={6}
                   />
                 </div>
               </div>
