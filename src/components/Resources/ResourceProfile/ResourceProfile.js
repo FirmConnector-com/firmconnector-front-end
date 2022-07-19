@@ -68,7 +68,7 @@ const ResourceProfile = (props) => {
                       size="sm"
                       className="ms-2"
                     >
-                      Client View
+                      Default View
                     </Button>
                   </div>
                   <div className="me-2">
@@ -90,7 +90,7 @@ const ResourceProfile = (props) => {
                         : "/resources/edit-resource/" + resourceSlug
                     }
                   >
-                    <Button variant="primary" size="sm" className="ms-2">
+                    <Button variant="success" size="sm" className="ms-2">
                       Edit Profile
                     </Button>
                   </Link>

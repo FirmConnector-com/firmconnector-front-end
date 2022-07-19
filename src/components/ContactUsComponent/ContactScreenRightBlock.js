@@ -54,9 +54,10 @@ const ContactScreenRightBlock = () => {
             <div className="d-block">
               <textarea
                 type="text"
-                className="form-control-custom"
+                className="form-control"
                 id="message"
                 placeholder="Write something about your query"
+                rows={3}
               />
             </div>
           </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ImageIconSmHolder from "../../Iconcontainer/ImageIconSmHolder";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
+import { Button } from "react-bootstrap";
 
 import envelope from "../../../assets/images/email.svg";
 import mobile from "../../../assets/images/mobile.svg";
@@ -187,14 +188,14 @@ const GeneralInfo = (props) => {
 
         <div>
           <div className="d-flex justify-content-end">
-            <button
-              type="button"
-              className="btn-custom btn-info"
+            <Button
+              variant={"primary"}
+              size="sm"
               onClick={handleData}
               disabled={isQuerySendButton}
             >
               {querySendButtonText}
-            </button>
+            </Button>
           </div>
         </div>
       </div>

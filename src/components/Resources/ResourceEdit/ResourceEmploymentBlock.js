@@ -724,7 +724,7 @@ const ResourceEmploymentBlock = (props) => {
                     <div className="d-block">
                       <textarea
                         type="text"
-                        className="form-control-custom-sm"
+                        className="form-control"
                         id="job-description"
                         placeholder="Enter job description"
                         onChange={handleDescriptionChange}
@@ -1049,7 +1049,7 @@ const ResourceEmploymentBlock = (props) => {
                     <div className="d-block">
                       <textarea
                         type="text"
-                        className="form-control-custom-sm"
+                        className="form-control"
                         id="job-description"
                         placeholder="Enter job description"
                         onChange={handleDescriptionChange}
