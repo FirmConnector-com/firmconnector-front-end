@@ -124,7 +124,7 @@ const SelectOrganizationComponent = () => {
             <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">
               <h5 className="display-6">Gain easy access to specialists</h5>
               <div className="my-4">
-                <span>
+                <span className="lead">
                   Staffing needs can change quickly when a new project lands or
                   a position needs to be filled. Perhaps you're already working
                   on a project, and need to identify a specialist to bounce
@@ -132,14 +132,14 @@ const SelectOrganizationComponent = () => {
                 </span>
               </div>
               <div className="my-4">
-                <span>
+                <span className="lead">
                   FirmConnector allows you to quickly and easily access the
                   right people with the right skills for the job.
                 </span>
               </div>
               <h5 className="display-6">Fast. Easy. And…</h5>
               <div className="my-4">
-                <span>
+                <span className="lead">
                   Best of all, you will ensure you are fully utilizing your own
                   workforce before turning to outside sources.
                 </span>

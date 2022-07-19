@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import RecruiterNotesModal from "./RecruiterNotesAdd";
 import RecruiterNotesEdit from "./RecruiterNotesEdit";
-
-import { AlertInfo } from "../../../Alerts/Alert";
+import Alert from "react-bootstrap/Alert";
 import { useAuthContext } from "../../../../context/AuthContext";
 
 import Swal from "sweetalert2";
 import swalWithBootstrapButtons from "sweetalert2-react-content";
-
 import removeNote from "../../../../apis/removeNote";
 
 const RecruiterNotes = (props) => {
@@ -31,7 +29,7 @@ const RecruiterNotes = (props) => {
 
   const displayAddNoteButton = () => {
     return (
-      <div className="d-flex justify-content-end mb-4">
+      <div className="d-flex justify-content-end my-2">
         <Button variant="primary" onClick={() => handleShow()} size="sm">
           Add Note
         </Button>
@@ -150,7 +148,9 @@ const RecruiterNotes = (props) => {
       );
     } else {
       return (
-        <AlertInfo title={""} message={["No notes exist for this candidate"]} />
+        <Alert key={"info"} variant={"info"}>
+          No notes exist for this candidate
+        </Alert>
       );
     }
   };

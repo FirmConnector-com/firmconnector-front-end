@@ -3,6 +3,8 @@ import About from "./Tabs/About";
 import Education from "./Tabs/Education";
 import Employment from "./Tabs/Employment";
 import RecruiterNotes from "./Tabs/RecruiterNotes";
+import ProposeFor from "./Tabs/ProposeFor";
+
 import { useAuthContext } from "../../../context/AuthContext";
 
 const ProfileInfoTabSection = (props) => {
@@ -15,7 +17,10 @@ const ProfileInfoTabSection = (props) => {
   } = props;
   const [selectedTab, setSelectedTab] = useState("about");
   const { userDetails } = useAuthContext();
+
   const firmType = JSON.parse(userDetails).firm_details?.firm_type;
+  const userRole = JSON.parse(userDetails).user_primary_role;
+  const userFirm = JSON.parse(userDetails).firm_details?.firm_id;
 
   useEffect(() => {}, [selectedTab]);
 
@@ -38,6 +43,8 @@ const ProfileInfoTabSection = (props) => {
           resourceSlug={profileDetails.user_slug}
         />
       );
+    } else if (selectedTab === "proposeFor") {
+      return <ProposeFor resourceSlug={profileDetails.user_slug} />;
     }
   };
 
@@ -91,9 +98,9 @@ const ProfileInfoTabSection = (props) => {
               >
                 <span className="fw-medium-custom">Education</span>
               </div>
-              {firmType === "1" ? (
-                <></>
-              ) : (
+              {firmType === "2" &&
+              userRole === "2" &&
+              profileDetails.firm_id === userFirm ? (
                 <div
                   className={`cursor-pointer my-2 mx-2 ${
                     selectedTab === "recruiterNotes"
@@ -104,7 +111,22 @@ const ProfileInfoTabSection = (props) => {
                 >
                   <span className="fw-medium-custom">Recruiter Notes</span>
                 </div>
-              )}
+              ) : null}
+
+              {firmType === "2" &&
+              userRole === "2" &&
+              profileDetails.firm_id === userFirm ? (
+                <div
+                  className={`cursor-pointer my-2 mx-2 ${
+                    selectedTab === "proposeFor"
+                      ? "profile-tab-selected"
+                      : "profile-tab"
+                  }`}
+                  onClick={() => handleTabChange("proposeFor")}
+                >
+                  <span className="fw-medium-custom">Propose For</span>
+                </div>
+              ) : null}
             </>
           ) : null}
         </div>

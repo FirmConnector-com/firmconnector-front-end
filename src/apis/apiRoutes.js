@@ -64,6 +64,9 @@ const CREATE_NOTE_ROUTE = `${API_BASE}create-note`;
 const GET_NOTE_EDIT_ACCESS_ROUTE = `${API_BASE}get-note-edit-access`;
 const UPDATE_NOTE_ROUTE = `${API_BASE}update-note`;
 const REMOVE_NOTE_ROUTE = `${API_BASE}remove-note`;
+const PROPOSE_FOR_ROUTE = `${API_BASE}get-propose-for`;
+const GET_AVAILABLE_PROPOSE_JOB_ROUTE = `${API_BASE}get-available-propose-job`;
+const ADD_PROPOSE_JOB_ROUTE = `${API_BASE}add-propose-job`;
 
 export {
   LOGIN_ROUTE,
@@ -124,4 +127,7 @@ export {
   GET_NOTE_EDIT_ACCESS_ROUTE,
   UPDATE_NOTE_ROUTE,
   REMOVE_NOTE_ROUTE,
+  PROPOSE_FOR_ROUTE,
+  GET_AVAILABLE_PROPOSE_JOB_ROUTE,
+  ADD_PROPOSE_JOB_ROUTE,
 };

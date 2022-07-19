@@ -597,3 +597,7 @@ a{
    color: rgb(54, 54, 54);
    font-size: 1.2rem !important;
 }
+
+.btn-group-sm>.btn, .btn-sm {
+   padding: 0.15rem 0.5rem 0.2rem 0.5rem !important;
+}
