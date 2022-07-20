@@ -128,8 +128,8 @@
       word-wrap: break-word;
       background-color: var(--white);
       background-clip: border-box;
-      /* border: 1px solid rgba(0,0,0,.03); */
-      border: 1px solid #ecf0f2;
+      -webkit-box-shadow: 0 15px 30px 0 rgb(0 0 0 / 5%);
+      box-shadow: 0 15px 30px 0 rgb(0 0 0 / 5%);
       border-radius: 0.9rem;
       overflow: hidden;
    }
