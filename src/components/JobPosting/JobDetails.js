@@ -74,7 +74,7 @@ const JobDetails = (props) => {
       return (
         <div className="d-block">
           <div className="d-block mb-2">
-            <span className="fs-6 fw-bold">Job Overview:</span>
+            <span className="fs-5 fw-bold">Job Overview:</span>
           </div>
           <div className="d-block">{checkDescriptionlength()}</div>
         </div>
@@ -91,9 +91,7 @@ const JobDetails = (props) => {
       if (jobArray.job_description.length > 500) {
         return (
           <>
-            <span className="text-muted-custom">
-              {jobArray.job_description.substr(0, 499) + "..."}
-            </span>{" "}
+            <span>{jobArray.job_description.substr(0, 499) + "..."}</span>{" "}
             <span
               className="text-info fs-6 cursor-pointer"
               onClick={() => setIsOpen(true)}
@@ -103,9 +101,7 @@ const JobDetails = (props) => {
           </>
         );
       } else {
-        return (
-          <span className="text-muted-custom">{jobArray.job_description}</span>
-        );
+        return <span>{jobArray.job_description}</span>;
       }
     }
   };
@@ -152,7 +148,7 @@ const JobDetails = (props) => {
       return (
         <div className="d-block mt-4">
           <div className="d-block mb-2">
-            <span className="fs-6 fw-bold">Required Skills:</span>
+            <span className="fs-5 fw-bold">Required Skills:</span>
           </div>
           <div className="d-block">
             <span className="text-muted-custom">
@@ -172,7 +168,7 @@ const JobDetails = (props) => {
       return (
         <div className="d-block mt-4">
           <div className="d-block mb-2">
-            <span className="fs-6 fw-bold">Experience Required:</span>
+            <span className="fs-5 fw-bold">Experience Required:</span>
           </div>
           <div className="d-block">
             <span className="text-muted-custom">
@@ -192,7 +188,7 @@ const JobDetails = (props) => {
       return (
         <div className="d-block mt-4">
           <div className="d-block mb-2">
-            <span className="fs-6 fw-bold">Preffered Language:</span>
+            <span className="fs-5 fw-bold">Preffered Language:</span>
           </div>
           <div className="d-block">
             <span className="text-muted-custom">
