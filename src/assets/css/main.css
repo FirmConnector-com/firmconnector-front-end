@@ -9,12 +9,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 body {
-   font-family: 'Inter', sans-serif !important;
+   /* font-family: 'Inter', sans-serif !important; */
    color: var(--black) !important;
    -webkit-font-smoothing: antialiased !important;
    overflow-y:scroll !important;
    letter-spacing: -.006em !important;
-   font-size: 0.911em !important;
+   /* font-size: 0.911em !important; */
    background-color: #f2f5f9 !important;
 }
 
@@ -610,4 +610,8 @@ a{
 .btn-secondary {
    background-color: #6c757d !important;
    border-color: #6c757d !important;
+}
+
+a {
+   color: var(--black) !important;
 }
