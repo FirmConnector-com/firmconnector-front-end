@@ -53,9 +53,17 @@ const EditJobPosting = (props) => {
           await setRoleTitle(data.data.job_details.job_title);
           await setDescription(data.data.job_details.job_description);
 
-          await setSkills(data.data.job_details.required_skill_set);
-          await setExperience(data.data.job_details.experience_required);
-          await setLanguage(data.data.job_details.preffered_language);
+          if (data.data.job_details.required_skill_set !== null) {
+            await setSkills(data.data.job_details.required_skill_set);
+          }
+
+          if (data.data.job_details.experience_required !== null) {
+            await setExperience(data.data.job_details.experience_required);
+          }
+
+          if (data.data.job_details.preffered_language !== null) {
+            await setLanguage(data.data.job_details.preffered_language);
+          }
 
           const firmArray = data.data.job_details.job_firm_access.split(",");
           await setSelectedFirmList(firmArray);
@@ -194,6 +202,9 @@ const EditJobPosting = (props) => {
       job_description: description,
       firm_ids: selectedFirmList,
       job_slug: selectedJobSlug,
+      required_skill_set: skills,
+      experience_required: experience,
+      preffered_language: language,
     };
 
     try {
