@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { FIRM_IMAGE_BASE } from "../../config/env";
 import getJobDetails from "../../apis/getJobDetails";
-import LoadingPageSm from "../CommonComponent/LoadingPageSm";
+import Spinner from "react-bootstrap/Spinner";
 import { Button } from "react-bootstrap";
 import moment from "moment";
 import Modal from "react-bootstrap/Modal";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import ProposedCandidate from "./ProposedCandidate";
+import Requirements from "./Requirements";
+import AIMatching from "./AIMatching";
 
-import { useHistory } from "react-router-dom";
+import { useAuthContext } from "../../context/AuthContext";
 
 const JobDetails = (props) => {
-  const history = useHistory();
+  const { userDetails } = useAuthContext();
+  const user_slug = JSON.parse(userDetails).user_slug;
+
   const { jobSlug } = props;
   const [isJobDetailsLoading, setIsJobDetailsLoading] = useState(true);
   const [jobArray, setJobArray] = useState(true);
@@ -20,7 +24,7 @@ const JobDetails = (props) => {
   const [key, setKey] = useState("candidates");
 
   useEffect(() => {
-    if (jobSlug !== undefined) {
+    if (jobSlug) {
       getJob();
     }
   }, [jobSlug]);
@@ -44,7 +48,9 @@ const JobDetails = (props) => {
     return (
       <>
         {isJobDetailsLoading ? (
-          <LoadingPageSm title={"Loading job details..."} />
+          <div className="justify-content-center align-items-center d-flex">
+            <Spinner animation="grow" role="status" />
+          </div>
         ) : (
           displayJobDetailsBlock()
         )}
@@ -229,7 +235,7 @@ const JobDetails = (props) => {
 
   const displayTabSection = () => {
     return (
-      <div className="card-custom my-4">
+      <div className="card-custom my-4 bg-light">
         <div className="card-body">
           <Tabs
             id="controlled-tab-example"
@@ -238,13 +244,13 @@ const JobDetails = (props) => {
             className="mb-3"
           >
             <Tab eventKey="candidates" title="Candidates">
-              <ProposedCandidate jobSlug={jobSlug} />
+              <ProposedCandidate jobSlug={jobSlug} user_slug={user_slug} />
             </Tab>
             <Tab eventKey="requirements" title="Requirements">
-              <></>
+              <Requirements />
             </Tab>
             <Tab eventKey="aiMatching" title="AI Matching">
-              <></>
+              <AIMatching />
             </Tab>
           </Tabs>
         </div>

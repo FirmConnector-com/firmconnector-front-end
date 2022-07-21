@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { AlertInfo } from "../../../Alerts/Alert";
+import Alert from "react-bootstrap/Alert";
 
 const About = (props) => {
   const { profileDetails } = props;
@@ -22,7 +22,9 @@ const About = (props) => {
       );
     } else {
       return (
-        <AlertInfo title={"Oops"} message={["Profile bio not available!"]} />
+        <Alert key={"info"} variant={"info"}>
+          Profile bio not available!
+        </Alert>
       );
     }
   };

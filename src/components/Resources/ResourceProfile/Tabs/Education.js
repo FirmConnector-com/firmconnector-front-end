@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
+import Alert from "react-bootstrap/Alert";
 
 const Education = (props) => {
   const { educationDetails } = props;
@@ -27,7 +28,9 @@ const Education = (props) => {
       );
     } else {
       return (
-        <span className="text-muted-custom">Education details not added!</span>
+        <Alert key={"info"} variant={"info"}>
+          Education details not available!
+        </Alert>
       );
     }
   };

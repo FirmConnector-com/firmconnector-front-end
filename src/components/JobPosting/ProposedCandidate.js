@@ -6,7 +6,7 @@ import getPrefferedCandidate from "../../apis/getPrefferedCandidate";
 import ProfileImageMd from "../../components/CommonComponent/ProfileImageMd";
 
 const ProposedCandidate = (props) => {
-  const { jobSlug } = props;
+  const { jobSlug, user_slug } = props;
   const [isLoading, setIsLoading] = useState(true);
   const [dataArray, setDataArray] = useState(true);
   const [apiStatusMessage, setApiStatusMessage] = useState(true);
@@ -19,7 +19,7 @@ const ProposedCandidate = (props) => {
   }, [jobSlug]);
 
   const getCandidates = () => {
-    Promise.all([getPrefferedCandidate(jobSlug)])
+    Promise.all([getPrefferedCandidate(jobSlug, user_slug)])
       .then(async ([data]) => {
         if (data?.data?.status === 1) {
           await setIsLoading(false);

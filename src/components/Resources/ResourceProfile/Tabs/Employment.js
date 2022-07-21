@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import EmploymentContent from "../../CommonComponents/EmploymentContent";
 import moment from "moment";
+import Alert from "react-bootstrap/Alert";
 
 const Employment = (props) => {
   const { employmentDetails, displayView } = props;
@@ -28,7 +29,9 @@ const Employment = (props) => {
       );
     } else {
       return (
-        <span className="text-muted-custom">Employment details not added!</span>
+        <Alert key={"info"} variant={"info"}>
+          Employment details not available!
+        </Alert>
       );
     }
   };

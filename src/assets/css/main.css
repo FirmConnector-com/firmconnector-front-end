@@ -612,10 +612,25 @@ a{
    border-color: #6c757d !important;
 }
 
-a {
-   color: var(--black) !important;
-}
-
 span {
    white-space: pre-wrap !important;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+   color: var(--white) !important;
+   background-color: var(--info-dark-light) !important;
+   border: 0 !important;
+}
+
+.nav-tabs .nav-link {
+   border-top-left-radius: 0 !important;
+   border-top-right-radius: 0 !important;
+   margin-right: 0.3rem;
+   background-color: var(--muted-extra-light) !important;
+   color: var(--black);
+   border-radius: 0.3rem !important;
+}
+
+.nav-tabs{
+   border-bottom: 0 !important;
 }
