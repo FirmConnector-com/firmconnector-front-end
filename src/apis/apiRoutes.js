@@ -68,6 +68,8 @@ const PROPOSE_FOR_ROUTE = `${API_BASE}get-propose-for`;
 const GET_AVAILABLE_PROPOSE_JOB_ROUTE = `${API_BASE}get-available-propose-job`;
 const ADD_PROPOSE_JOB_ROUTE = `${API_BASE}add-propose-job`;
 
+const GET_PREFFERED_CANDIDATE_ROUTE = `${API_BASE}get-preffered-candidate`;
+
 export {
   LOGIN_ROUTE,
   SIGNUP_ROUTE,
@@ -130,4 +132,5 @@ export {
   PROPOSE_FOR_ROUTE,
   GET_AVAILABLE_PROPOSE_JOB_ROUTE,
   ADD_PROPOSE_JOB_ROUTE,
+  GET_PREFFERED_CANDIDATE_ROUTE,
 };

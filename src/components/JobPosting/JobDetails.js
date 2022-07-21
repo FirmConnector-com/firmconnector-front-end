@@ -5,6 +5,9 @@ import LoadingPageSm from "../CommonComponent/LoadingPageSm";
 import { Button } from "react-bootstrap";
 import moment from "moment";
 import Modal from "react-bootstrap/Modal";
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
+import ProposedCandidate from "./ProposedCandidate";
 
 import { useHistory } from "react-router-dom";
 
@@ -14,6 +17,7 @@ const JobDetails = (props) => {
   const [isJobDetailsLoading, setIsJobDetailsLoading] = useState(true);
   const [jobArray, setJobArray] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
+  const [key, setKey] = useState("candidates");
 
   useEffect(() => {
     if (jobSlug !== undefined) {
@@ -55,14 +59,22 @@ const JobDetails = (props) => {
           <div className="d-block mb-2">
             <span className="fs-4 fw-bold">{jobArray.job_title}</span>
           </div>
-          <div className="d-dlock">
-            <span className="text-secondary">Posted by</span>{" "}
-            <span className="text-info">{jobArray.creator_name}</span>
-          </div>
-          <div className="d-block">
-            <span className="text-muted-custom">
-              {moment(jobArray.created_on).format("MMMM Do, YYYY")}
-            </span>
+          <div className="row">
+            <div className="col-6">
+              <div className="d-dlock">
+                <span className="text-muted-light-custom">Posted by :</span>{" "}
+                <span className="text-info">{jobArray.creator_name}</span>
+              </div>
+              <div className="d-block">
+                <span className="text-muted-light-custom">Posted on :</span>{" "}
+                <span className="text-secondary">
+                  {moment(jobArray.created_on).format("MMMM Do, YYYY")}
+                </span>
+              </div>
+            </div>
+            <div className="col-6 d-flex justify-content-end align-items-center">
+              {displayFirm(jobArray.firm_logo)}
+            </div>
           </div>
         </div>
       </div>
@@ -74,7 +86,7 @@ const JobDetails = (props) => {
       return (
         <div className="d-block">
           <div className="d-block mb-2">
-            <span className="fs-5 fw-bold">Job Overview:</span>
+            <span className="fs-6 fw-bold">Job Overview:</span>
           </div>
           <div className="d-block">{checkDescriptionlength()}</div>
         </div>
@@ -88,15 +100,17 @@ const JobDetails = (props) => {
       jobArray.job_description !== "" &&
       jobArray.job_description !== undefined
     ) {
-      if (jobArray.job_description.length > 500) {
+      if (jobArray.job_description.length > 200) {
         return (
           <>
-            <span>{jobArray.job_description.substr(0, 499) + "..."}</span>{" "}
+            <span className="text-muted-custom">
+              {jobArray.job_description.substr(0, 199) + "..."}
+            </span>{" "}
             <span
-              className="text-info fs-6 cursor-pointer"
+              className="text-info-custom cursor-pointer fw-bold"
               onClick={() => setIsOpen(true)}
             >
-              read more
+              Read more
             </span>
           </>
         );
@@ -119,7 +133,7 @@ const JobDetails = (props) => {
         <Modal.Header>
           <div className="d-block">
             <div className="d-block">
-              <span className="fs-5 fw-bold-custom">Job Overview</span>
+              <span className="fs-6 fw-bold-custom">Job Overview</span>
             </div>
           </div>
         </Modal.Header>
@@ -146,9 +160,9 @@ const JobDetails = (props) => {
       jobArray.required_skill_set !== null
     ) {
       return (
-        <div className="d-block mt-4">
+        <div className="d-block mt-3">
           <div className="d-block mb-2">
-            <span className="fs-5 fw-bold">Required Skills:</span>
+            <span className="fs-6 fw-bold">Required Skills:</span>
           </div>
           <div className="d-block">
             <span className="text-muted-custom">
@@ -166,9 +180,9 @@ const JobDetails = (props) => {
       jobArray.experience_required !== null
     ) {
       return (
-        <div className="d-block mt-4">
+        <div className="d-block mt-3">
           <div className="d-block mb-2">
-            <span className="fs-5 fw-bold">Experience Required:</span>
+            <span className="fs-6 fw-bold">Experience Required:</span>
           </div>
           <div className="d-block">
             <span className="text-muted-custom">
@@ -186,9 +200,9 @@ const JobDetails = (props) => {
       jobArray.preffered_language !== null
     ) {
       return (
-        <div className="d-block mt-4">
+        <div className="d-block mt-3">
           <div className="d-block mb-2">
-            <span className="fs-5 fw-bold">Preffered Language:</span>
+            <span className="fs-6 fw-bold">Preffered Language:</span>
           </div>
           <div className="d-block">
             <span className="text-muted-custom">
@@ -213,58 +227,40 @@ const JobDetails = (props) => {
     );
   };
 
+  const displayTabSection = () => {
+    return (
+      <div className="card-custom my-4">
+        <div className="card-body">
+          <Tabs
+            id="controlled-tab-example"
+            activeKey={key}
+            onSelect={(k) => setKey(k)}
+            className="mb-3"
+          >
+            <Tab eventKey="candidates" title="Candidates">
+              <ProposedCandidate jobSlug={jobSlug} />
+            </Tab>
+            <Tab eventKey="requirements" title="Requirements">
+              <></>
+            </Tab>
+            <Tab eventKey="aiMatching" title="AI Matching">
+              <></>
+            </Tab>
+          </Tabs>
+        </div>
+      </div>
+    );
+  };
+
   const displayJobDetailsBlock = () => {
     return (
       <>
         {displayHeaderBlock()}
         {displayOverviewBlock()}
         {displayDescriptionModal()}
+        {displayTabSection()}
       </>
     );
-    // return (
-    //   <div className="d-block">
-    //     <div className="d-block border-bottom pb-3">
-    //       <span className="h4">{jobArray.job_title}</span>
-    //     </div>
-    //     <div className="my-3 bg-light p-2 m-1 rounded">
-    //       <div className="row d-flex align-items-center">
-    //         <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
-    //           <div className="d-block">
-    //             <span className="text-dark">Posted By</span>
-    //           </div>
-    //           <div className="d-block">
-    //             <span className="fw-bold">{jobArray.creator_name}</span>
-    //           </div>
-    //         </div>
-    //         <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
-    //           <div className="d-block">
-    //             <span className="text-dark">Posted On</span>
-    //           </div>
-    //           <div className="d-block">
-    //             <span className="fw-bold">
-    //               {moment(jobArray.created_on).format("MM-DD-YYYY")}
-    //             </span>
-    //           </div>
-    //         </div>
-    //         <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
-    //           <div className="d-block">{displayFirm(jobArray.firm_logo)}</div>
-    //         </div>
-    //       </div>
-    //     </div>
-
-    //     <div className="d-block my-4">
-    //       <p className="text-black" style={{ whiteSpace: "pre-line" }}>
-    //         {jobArray.job_description}
-    //       </p>
-    //     </div>
-
-    //     <div className="d-flex justify-content-center mt-5 ">
-    //       <Button variant="success" size="sm" onClick={() => history.goBack()}>
-    //         Back to job listing
-    //       </Button>
-    //     </div>
-    //   </div>
-    // );
   };
 
   const displayFirm = (logo_path) => {
