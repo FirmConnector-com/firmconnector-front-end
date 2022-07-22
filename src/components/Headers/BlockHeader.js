@@ -4,7 +4,7 @@ const HeaderLg = (props) => {
   const { title, subText } = props;
 
   return (
-    <div className="d-block mb-5">
+    <div className="d-block py-4">
       <p className="mb-0 fw-bold display-6">{title}</p>
       <div className="d-block">
         <span className="text-secondary">{subText}</span>

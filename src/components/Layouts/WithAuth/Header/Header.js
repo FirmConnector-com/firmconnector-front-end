@@ -7,20 +7,20 @@ import "./header.css";
 
 const Header = () => {
   const { userDetails } = useAuthContext();
-  const loggedinUserDetails = JSON.parse(userDetails);
+  const user = JSON.parse(userDetails);
 
   return (
-    <div className="header-dashboard pb-2 pt-2">
-      <div className="container d-flex">
-        <div className="col-8 d-flex align-items-center">
-          <div className="logo-top-sm">
-            <img src={Logo} className="img-fluid" alt="Firmconnector" />
+    <div className="container-fluid fixed-top header-dashboard d-flex justify-content-center align-items-center">
+      <div className="container">
+        <div className="row">
+          <div className="col-6">
+            <div className="logo-top-sm">
+              <img src={Logo} className="img-fluid" alt="Firmconnector" />
+            </div>
           </div>
-        </div>
-        <div className="col-4 d-flex justify-content-end align-items-center">
-          <div>
+          <div className="col-6 d-flex justify-content-end align-items-center">
             <ProfileImageSmall
-              imgSrc={loggedinUserDetails.profile_image_path}
+              imgSrc={user.profile_image_path}
               linkUrl={"/profile-settings"}
             />
           </div>

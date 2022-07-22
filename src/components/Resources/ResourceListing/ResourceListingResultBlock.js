@@ -91,7 +91,7 @@ const ResourceListingResultBlock = () => {
             <input
               type="text"
               placeholder="Search for name/location/role"
-              class="form-control text-capitalize"
+              className="form-control text-capitalize"
               onChange={onKeyworkChange}
               value={filterText}
             />

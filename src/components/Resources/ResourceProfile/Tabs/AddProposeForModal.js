@@ -119,7 +119,7 @@ const AddProposeForModal = (props) => {
           <InputLebelComponent title="Select Job" />
           <div className="d-block">
             <select
-              class="form-select"
+              className="form-select"
               aria-label="Select job"
               onChange={handleJobIdChange}
               value={jobId}

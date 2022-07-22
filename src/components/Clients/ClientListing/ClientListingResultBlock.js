@@ -80,7 +80,7 @@ const ClientListingResultBlock = () => {
             <input
               type="email"
               placeholder="Search for email"
-              class="form-control"
+              className="form-control"
               onChange={onKeyworkChange}
               value={filterText}
               autoComplete="off"

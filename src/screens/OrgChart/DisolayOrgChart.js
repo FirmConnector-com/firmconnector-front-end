@@ -78,7 +78,7 @@ const DisolayOrgChart = () => {
       {!isLoading ? (
         <OrganizationChart
           datasource={orgData}
-          chartClass="sekure-org-chart"
+          chartclassName="sekure-org-chart"
           pan={true}
           zoom={true}
           NodeTemplate={renderNode}
