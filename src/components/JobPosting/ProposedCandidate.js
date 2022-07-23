@@ -123,7 +123,7 @@ const ProposedCandidate = (props) => {
                       <div className="d-block">
                         <span className="text-secondary">{item.location}</span>
                       </div>
-                      <div className="d-block">
+                      <div className="d-block mt-2">
                         {displayFirm(item.firm_logo)}
                       </div>
                     </div>
