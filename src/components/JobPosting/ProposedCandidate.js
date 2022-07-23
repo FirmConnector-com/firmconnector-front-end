@@ -8,6 +8,7 @@ import getPrefferedCandidate from "../../apis/getPrefferedCandidate";
 import ProfileImageMd from "../../components/CommonComponent/ProfileImageMd";
 import ProposedCandidateNoteModal from "./ProposedCandidateNoteModal";
 import CandidateNoteAddModal from "./CandidateNoteAddModal";
+import { FIRM_IMAGE_BASE } from "../../config/env";
 
 const ProposedCandidate = (props) => {
   const { jobSlug, user_slug } = props;
@@ -106,9 +107,7 @@ const ProposedCandidate = (props) => {
                           to={`/resources/details/${item.user_slug}`}
                           target="_blank"
                         >
-                          <span className="h6 text-dark">
-                            {item.resource_name}
-                          </span>
+                          <p className="h6 text-dark">{item.resource_name}</p>
                         </Link>
                       </div>
                       <div className="d-block">
@@ -123,6 +122,9 @@ const ProposedCandidate = (props) => {
                       </div>
                       <div className="d-block">
                         <span className="text-secondary">{item.location}</span>
+                      </div>
+                      <div className="d-block">
+                        {displayFirm(item.firm_logo)}
                       </div>
                     </div>
                     <div className="d-flex">
@@ -170,6 +172,20 @@ const ProposedCandidate = (props) => {
           jobId={selectedJobId}
         />
       </>
+    );
+  };
+
+  const displayFirm = (logo_path) => {
+    return (
+      <div
+        className="firm-logo-sm-custom"
+        style={{
+          backgroundImage: `url("${FIRM_IMAGE_BASE + logo_path}")`,
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></div>
     );
   };
 
