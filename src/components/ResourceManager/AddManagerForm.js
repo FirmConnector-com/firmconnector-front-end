@@ -353,53 +353,6 @@ const AddManagerForm = () => {
     );
   };
 
-  // const displayContactBlock = () => {
-  //   return (
-  //     <div className="d-block">
-  //       <HeaderSm
-  //         title={"Add contact informations"}
-  //         subText={"These informations will be used in profile"}
-  //         borderBottom={true}
-  //       />
-
-  //       <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
-  //         <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-  //           <div className="form-input-holder">
-  //             <InputLebelComponent title="Contact Email" />
-  //             <div className="d-block">
-  //               <input
-  //                 type="email"
-  //                 className="form-control"
-  //                 id="contact-email"
-  //                 placeholder="Enter contact email"
-  //                 onChange={handleContactEmailChange}
-  //                 value={contactEmail}
-  //                 autoComplete="off"
-  //               />
-  //             </div>
-  //           </div>
-  //         </div>
-  //         <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-  //           <div className="form-input-holder">
-  //             <InputLebelComponent title="Phone Number" />
-  //             <div className="d-block">
-  //               <input
-  //                 type="text"
-  //                 className="form-control"
-  //                 id="phone-number"
-  //                 placeholder="Enter phone number"
-  //                 onChange={handlePhoneChange}
-  //                 value={phone}
-  //                 autoComplete="off"
-  //               />
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // };
-
   const displaySubmitButton = () => {
     return (
       <div className="form-button-holder justify-content-end mt-4">

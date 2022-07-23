@@ -62,18 +62,24 @@ const JobDetails = (props) => {
     return (
       <div className="card-custom mb-4">
         <div className="card-body">
-          <div className="d-block mb-2">
-            <span className="fs-4 fw-bold">{jobArray.job_title}</span>
+          <div className="d-block mb-3">
+            <h4>{jobArray.job_title}</h4>
+            <div className="d-dlock">
+              <span className="text-secondary">Job ID :</span>{" "}
+              <span className="text-dark fw-bold">{jobArray.job_id}</span>
+            </div>
           </div>
           <div className="row">
             <div className="col-6">
               <div className="d-dlock">
-                <span className="text-muted-light-custom">Posted by :</span>{" "}
-                <span className="text-info">{jobArray.creator_name}</span>
+                <span className="text-secondary">Posted by :</span>{" "}
+                <span className="text-info-custom">
+                  {jobArray.creator_name}
+                </span>
               </div>
               <div className="d-block">
-                <span className="text-muted-light-custom">Posted on :</span>{" "}
-                <span className="text-secondary">
+                <span className="text-secondary">Posted on :</span>{" "}
+                <span className="text-dark">
                   {moment(jobArray.created_on).format("MMMM Do, YYYY")}
                 </span>
               </div>
@@ -208,7 +214,7 @@ const JobDetails = (props) => {
       return (
         <div className="d-block mt-3">
           <div className="d-block mb-2">
-            <span className="fs-6 fw-bold">Preffered Language:</span>
+            <span className="fs-6 fw-bold">Preferred Language:</span>
           </div>
           <div className="d-block">
             <span className="text-muted-custom">

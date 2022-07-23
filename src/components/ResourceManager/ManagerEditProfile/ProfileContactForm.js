@@ -202,7 +202,7 @@ const ProfileContactForm = (props) => {
   return (
     <div className="card-custom">
       <HeaderXSm
-        title={"Contact Informations"}
+        title={"Contact Information"}
         subText={null}
         borderBottom={true}
       />

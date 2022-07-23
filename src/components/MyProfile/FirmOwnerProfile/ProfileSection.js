@@ -56,9 +56,7 @@ const ProfileSection = (props) => {
           </span>
         </div>
         <div className="d-block">
-          <span className="text-info-custom-light-custom">
-            {profileDetails.user_email}
-          </span>
+          <span className="text-info-custom">{profileDetails.user_email}</span>
         </div>
         <div className="d-block">
           <Link to={"edit-firm-owner-profile"}>

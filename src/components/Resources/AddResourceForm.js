@@ -328,7 +328,7 @@ const AddResourceForm = () => {
       <>
         <div className="d-block my-3">
           <strong>Please Note</strong>{" "}
-          <span className="text-info-custom-light-custom">
+          <span className="text-info-custom">
             ***Fill up all fields to create a Candidate account
           </span>
         </div>
@@ -464,7 +464,7 @@ const AddResourceForm = () => {
     return (
       <div className="card-custom mb-2">
         <HeaderXSm
-          title={"Add contact informations"}
+          title={"Add contact information"}
           subText={"These informations will be used in profile"}
           borderBottom={true}
         />

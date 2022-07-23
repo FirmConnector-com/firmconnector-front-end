@@ -69,6 +69,8 @@ const GET_AVAILABLE_PROPOSE_JOB_ROUTE = `${API_BASE}get-available-propose-job`;
 const ADD_PROPOSE_JOB_ROUTE = `${API_BASE}add-propose-job`;
 
 const GET_PREFFERED_CANDIDATE_ROUTE = `${API_BASE}get-preffered-candidate`;
+const GET_CANDIDATE_JOB_NOTE_ROUTE = `${API_BASE}get-candidate-job-note`;
+const CREATE_JOB_NOTE_ROUTE = `${API_BASE}create-job-note`;
 
 export {
   LOGIN_ROUTE,
@@ -133,4 +135,6 @@ export {
   GET_AVAILABLE_PROPOSE_JOB_ROUTE,
   ADD_PROPOSE_JOB_ROUTE,
   GET_PREFFERED_CANDIDATE_ROUTE,
+  GET_CANDIDATE_JOB_NOTE_ROUTE,
+  CREATE_JOB_NOTE_ROUTE,
 };

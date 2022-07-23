@@ -43,11 +43,7 @@ const FirmBlockSm = (props) => {
 
   const displayFirmEmail = () => {
     if (firmDetails.firm_email === "" && firmDetails.firm_email !== null) {
-      return (
-        <span className="text-info-custom-light-custom">
-          {firmDetails.firm_email}
-        </span>
-      );
+      return <span className="text-info-custom">{firmDetails.firm_email}</span>;
     } else {
       return <span className="text-danger-custom">No email added</span>;
     }

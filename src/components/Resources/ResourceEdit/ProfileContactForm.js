@@ -181,7 +181,7 @@ const ProfileContactForm = (props) => {
 
     if (userAddressProvienceId === "0") {
       isInvalid = 1;
-      errMessage.push("Select your provience");
+      errMessage.push("Select your province");
     }
 
     if (userAddressCityId === "0") {
@@ -311,7 +311,7 @@ const ProfileContactForm = (props) => {
   return (
     <div className="card-custom">
       <HeaderXSm
-        title={"Contact Informations"}
+        title={"Contact Information"}
         subText={null}
         borderBottom={true}
       />
@@ -406,7 +406,7 @@ const ProfileContactForm = (props) => {
             </div>
             <div className="col-12 col-md-4 col-lg-4 col-xlg-4">
               <div className="form-input-holder">
-                <InputLebelComponent title="Select Provience/State" />
+                <InputLebelComponent title="Select Province/State" />
                 <div className="d-block">
                   <select
                     className="form-control"
@@ -414,7 +414,7 @@ const ProfileContactForm = (props) => {
                     onChange={handleProvienceChange}
                     value={userAddressProvienceId}
                   >
-                    <option value="">Select provience</option>
+                    <option value="">Select province</option>
                     {stateList ? (
                       <>
                         {stateList.map(function (item) {

@@ -318,7 +318,7 @@ const EditJobPosting = (props) => {
         <div className="d-block">
           <p>
             <strong>Please Note</strong>{" "}
-            <span className="text-info-custom-light-custom">
+            <span className="text-info-custom">
               ***Fill up all fields to create a new job
             </span>
           </p>

@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
-
+import { Link } from "react-router-dom";
+import { FiFileText, FiFilePlus } from "react-icons/fi";
+import Button from "react-bootstrap/Button";
 import getPrefferedCandidate from "../../apis/getPrefferedCandidate";
 import ProfileImageMd from "../../components/CommonComponent/ProfileImageMd";
+import ProposedCandidateNoteModal from "./ProposedCandidateNoteModal";
+import CandidateNoteAddModal from "./CandidateNoteAddModal";
 
 const ProposedCandidate = (props) => {
   const { jobSlug, user_slug } = props;
@@ -11,12 +15,38 @@ const ProposedCandidate = (props) => {
   const [dataArray, setDataArray] = useState(true);
   const [apiStatusMessage, setApiStatusMessage] = useState(true);
   const [hasData, setHasData] = useState(false);
+  const [openNoteViewModal, setOpenNoteViewModal] = useState(false);
+  const [openNoteAddModal, setOpenNoteAddModal] = useState(false);
+  const [selectedCandidateName, setSelectedCandidateName] = useState(false);
+  const [selectedCandidateSlug, setSelectedCandidateSlug] = useState(false);
+  const [selectedJobId, setSelectedJobId] = useState(false);
 
   useEffect(() => {
     if (jobSlug) {
       getCandidates();
     }
   }, [jobSlug]);
+
+  const openViewNoteModal = async (rSlug, job) => {
+    await setSelectedCandidateSlug(rSlug);
+    await setSelectedJobId(job);
+    await setOpenNoteViewModal(true);
+  };
+
+  const openAddNoteModal = async (name, rSlug, job) => {
+    await setSelectedCandidateSlug(rSlug);
+    await setSelectedCandidateName(name);
+    await setSelectedJobId(job);
+    await setOpenNoteAddModal(true);
+  };
+
+  const handleNoteViewClose = () => {
+    setOpenNoteViewModal(false);
+  };
+
+  const handleNoteAddClose = () => {
+    setOpenNoteAddModal(false);
+  };
 
   const getCandidates = () => {
     Promise.all([getPrefferedCandidate(jobSlug, user_slug)])
@@ -70,16 +100,55 @@ const ProposedCandidate = (props) => {
                     {displayProfilePicture(item.profile_image_path)}
                   </div>
                   <div className="d-block">
-                    <div className="d-block">
-                      <span className="fs-6 fw-bold">{item.resource_name}</span>
+                    <div className="d-block mb-4">
+                      <div className="d-block">
+                        <Link
+                          to={`/resources/details/${item.user_slug}`}
+                          target="_blank"
+                        >
+                          <span className="h6 text-dark">
+                            {item.resource_name}
+                          </span>
+                        </Link>
+                      </div>
+                      <div className="d-block">
+                        <Link
+                          to={`/resources/details/${item.user_slug}`}
+                          target="_blank"
+                        >
+                          <span className="text-info-custom fw-medium-custom">
+                            {item.user_profile_role}
+                          </span>
+                        </Link>
+                      </div>
+                      <div className="d-block">
+                        <span className="text-secondary">{item.location}</span>
+                      </div>
                     </div>
-                    <div className="d-block">
-                      <span className="text-info-custom">
-                        {item.user_profile_role}
-                      </span>
-                    </div>
-                    <div className="d-block mt-2">
-                      <span className="text-secondary">{item.location}</span>
+                    <div className="d-flex">
+                      <Button
+                        variant="success"
+                        size="sm"
+                        onClick={() =>
+                          openAddNoteModal(
+                            item.resource_name,
+                            item.user_slug,
+                            item.job_id
+                          )
+                        }
+                        className="me-2"
+                      >
+                        <FiFilePlus /> Add Notes
+                      </Button>
+                      <Button
+                        variant="primary"
+                        size="sm"
+                        onClick={() =>
+                          openViewNoteModal(item.user_slug, item.job_id)
+                        }
+                      >
+                        <FiFileText /> View Notes
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -87,6 +156,19 @@ const ProposedCandidate = (props) => {
             </div>
           );
         })}
+        <ProposedCandidateNoteModal
+          resourceSlug={selectedCandidateSlug}
+          open={openNoteViewModal}
+          handleClose={handleNoteViewClose}
+          jobId={selectedJobId}
+        />
+        <CandidateNoteAddModal
+          resourceSlug={selectedCandidateSlug}
+          open={openNoteAddModal}
+          handleClose={handleNoteAddClose}
+          candidateName={selectedCandidateName}
+          jobId={selectedJobId}
+        />
       </>
     );
   };
