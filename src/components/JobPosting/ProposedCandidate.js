@@ -9,8 +9,15 @@ import ProfileImageMd from "../../components/CommonComponent/ProfileImageMd";
 import ProposedCandidateNoteModal from "./ProposedCandidateNoteModal";
 import CandidateNoteAddModal from "./CandidateNoteAddModal";
 import { FIRM_IMAGE_BASE } from "../../config/env";
+import { useAuthContext } from "../../context/AuthContext";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+import updateCandidateStatusForJob from "../../apis/updateCandidateStatusForJob";
 
 const ProposedCandidate = (props) => {
+  const { userDetails } = useAuthContext();
+  const currentUser = JSON.parse(userDetails);
+
   const { jobSlug, user_slug } = props;
   const [isLoading, setIsLoading] = useState(true);
   const [dataArray, setDataArray] = useState(true);
@@ -21,6 +28,8 @@ const ProposedCandidate = (props) => {
   const [selectedCandidateName, setSelectedCandidateName] = useState(false);
   const [selectedCandidateSlug, setSelectedCandidateSlug] = useState(false);
   const [selectedJobId, setSelectedJobId] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [selectedId, setSelectedId] = useState(false);
 
   useEffect(() => {
     if (jobSlug) {
@@ -89,19 +98,60 @@ const ProposedCandidate = (props) => {
     }
   };
 
+  const updateCandidateJobStatus = async (id, status) => {
+    await setSelectedId(id);
+    setIsUpdating(true);
+
+    let formData = {
+      user_slug: currentUser.user_slug,
+      id: id,
+      status: status,
+    };
+
+    try {
+      updateCandidateStatusForJob(formData).then(async (data) => {
+        if (data?.data) {
+          if (data.data.status === 1) {
+            setDataArray((td) =>
+              td.map((item, key) => {
+                if (item.auto_id === id) {
+                  let newArray = item;
+
+                  newArray.candidate_status = data.data.candidate_status;
+                  newArray.candidate_propose_status = data.data.status_title;
+
+                  return { ...item, newArray };
+                }
+
+                return item;
+              })
+            );
+            setIsUpdating(false);
+          } else {
+            setIsUpdating(false);
+          }
+        } else {
+          setIsUpdating(false);
+        }
+      });
+    } catch (error) {
+      setIsUpdating(false);
+    }
+  };
+
   const displayCandidateItems = () => {
     return (
       <>
-        {dataArray.map(function (item, index) {
+        {dataArray.map(function (item) {
           return (
-            <div className="card-custom mb-2" key={item.user_slug}>
+            <div className="card-custom mb-2" key={item.auto_id}>
               <div className="card-body">
                 <div className="d-flex">
                   <div className="d-block me-4">
                     {displayProfilePicture(item.profile_image_path)}
                   </div>
                   <div className="d-block">
-                    <div className="d-block mb-4">
+                    <div className="d-block mb-3">
                       <div className="d-block">
                         <Link
                           to={`/resources/details/${item.user_slug}`}
@@ -128,8 +178,56 @@ const ProposedCandidate = (props) => {
                       </div>
                     </div>
                     <div className="d-flex">
+                      {item.resource_firm ===
+                      currentUser.firm_details.firm_id ? (
+                        <OverlayTrigger
+                          placement="bottom"
+                          overlay={
+                            <Tooltip id="button-tooltip-2">
+                              Click to change status
+                            </Tooltip>
+                          }
+                        >
+                          <Button
+                            variant={
+                              item.candidate_status === "1"
+                                ? "danger"
+                                : item.candidate_status === "2"
+                                ? "warning"
+                                : item.candidate_status === "3"
+                                ? "success"
+                                : null
+                            }
+                            size="sm"
+                            className="me-2 rounded-lg"
+                            onClick={() =>
+                              updateCandidateJobStatus(
+                                item.auto_id,
+                                item.candidate_status
+                              )
+                            }
+                            disabled={isUpdating && selectedId === item.auto_id}
+                          >
+                            {isUpdating && selectedId === item.auto_id ? (
+                              <>
+                                <Spinner
+                                  as="span"
+                                  animation="border"
+                                  size="sm"
+                                  role="status"
+                                  aria-hidden="true"
+                                />
+                                &nbsp;
+                              </>
+                            ) : null}
+
+                            {item.candidate_propose_status}
+                          </Button>
+                        </OverlayTrigger>
+                      ) : null}
+
                       <Button
-                        variant="success"
+                        variant="outline-success"
                         size="sm"
                         onClick={() =>
                           openAddNoteModal(
@@ -143,7 +241,7 @@ const ProposedCandidate = (props) => {
                         <FiFilePlus /> Add Notes
                       </Button>
                       <Button
-                        variant="primary"
+                        variant="outline-primary"
                         size="sm"
                         onClick={() =>
                           openViewNoteModal(item.user_slug, item.job_id)

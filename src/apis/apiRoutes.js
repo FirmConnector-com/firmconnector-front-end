@@ -71,6 +71,7 @@ const ADD_PROPOSE_JOB_ROUTE = `${API_BASE}add-propose-job`;
 const GET_PREFFERED_CANDIDATE_ROUTE = `${API_BASE}get-preffered-candidate`;
 const GET_CANDIDATE_JOB_NOTE_ROUTE = `${API_BASE}get-candidate-job-note`;
 const CREATE_JOB_NOTE_ROUTE = `${API_BASE}create-job-note`;
+const UPDATE_CANDIDATE_STATUS_FOR_JOB_ROUTE = `${API_BASE}update-candidate-status-for-job`;
 
 export {
   LOGIN_ROUTE,
@@ -137,4 +138,5 @@ export {
   GET_PREFFERED_CANDIDATE_ROUTE,
   GET_CANDIDATE_JOB_NOTE_ROUTE,
   CREATE_JOB_NOTE_ROUTE,
+  UPDATE_CANDIDATE_STATUS_FOR_JOB_ROUTE,
 };

@@ -38,6 +38,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-tabs": "^5.1.0",
+    "react-toastr": "^3.0.0",
     "react-tooltip": "^4.2.21",
     "react-use-window-scroll": "^1.0.14",
     "sweetalert2": "^11.1.7",

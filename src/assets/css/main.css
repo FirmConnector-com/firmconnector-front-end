@@ -477,8 +477,8 @@ a{
 }
 
 .btn {
-   font-weight: 400 !important;
-   font-size: 1em !important;
+   font-weight: 500 !important;
+   /* font-size: 1em !important; */
 }
 
 .search-location-auto-complete-block{
@@ -637,4 +637,8 @@ span {
 
 .nav-link{
    padding: 0.5rem 1rem 0.2rem 1rem !important;
+}
+
+.rounded-lg{
+   border-radius: 1.25rem !important;
 }
