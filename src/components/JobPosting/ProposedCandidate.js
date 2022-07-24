@@ -10,8 +10,6 @@ import ProposedCandidateNoteModal from "./ProposedCandidateNoteModal";
 import CandidateNoteAddModal from "./CandidateNoteAddModal";
 import { FIRM_IMAGE_BASE } from "../../config/env";
 import { useAuthContext } from "../../context/AuthContext";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
 import updateCandidateStatusForJob from "../../apis/updateCandidateStatusForJob";
 
 const ProposedCandidate = (props) => {
@@ -180,50 +178,41 @@ const ProposedCandidate = (props) => {
                     <div className="d-flex">
                       {item.resource_firm ===
                       currentUser.firm_details.firm_id ? (
-                        <OverlayTrigger
-                          placement="bottom"
-                          overlay={
-                            <Tooltip id="button-tooltip-2">
-                              Click to change status
-                            </Tooltip>
+                        <Button
+                          variant={
+                            item.candidate_status === "1"
+                              ? "danger"
+                              : item.candidate_status === "2"
+                              ? "warning"
+                              : item.candidate_status === "3"
+                              ? "success"
+                              : null
                           }
+                          size="sm"
+                          className="me-2 rounded-lg"
+                          onClick={() =>
+                            updateCandidateJobStatus(
+                              item.auto_id,
+                              item.candidate_status
+                            )
+                          }
+                          disabled={isUpdating && selectedId === item.auto_id}
                         >
-                          <Button
-                            variant={
-                              item.candidate_status === "1"
-                                ? "danger"
-                                : item.candidate_status === "2"
-                                ? "warning"
-                                : item.candidate_status === "3"
-                                ? "success"
-                                : null
-                            }
-                            size="sm"
-                            className="me-2 rounded-lg"
-                            onClick={() =>
-                              updateCandidateJobStatus(
-                                item.auto_id,
-                                item.candidate_status
-                              )
-                            }
-                            disabled={isUpdating && selectedId === item.auto_id}
-                          >
-                            {isUpdating && selectedId === item.auto_id ? (
-                              <>
-                                <Spinner
-                                  as="span"
-                                  animation="border"
-                                  size="sm"
-                                  role="status"
-                                  aria-hidden="true"
-                                />
-                                &nbsp;
-                              </>
-                            ) : null}
+                          {isUpdating && selectedId === item.auto_id ? (
+                            <>
+                              <Spinner
+                                as="span"
+                                animation="border"
+                                size="sm"
+                                role="status"
+                                aria-hidden="true"
+                              />
+                              &nbsp;
+                            </>
+                          ) : null}
 
-                            {item.candidate_propose_status}
-                          </Button>
-                        </OverlayTrigger>
+                          {item.candidate_propose_status}
+                        </Button>
                       ) : null}
 
                       <Button
