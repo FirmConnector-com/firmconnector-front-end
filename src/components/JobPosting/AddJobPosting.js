@@ -26,6 +26,10 @@ const AddJobPosting = () => {
   const [skills, setSkills] = useState("");
   const [experience, setExperience] = useState("");
   const [language, setLanguage] = useState("");
+  const [jobType, setJobType] = useState(1);
+  const [contractLength, setContractLength] = useState("");
+  const [compensation, setCompensation] = useState("");
+  const [locationRequirement, setLocationRequirement] = useState("");
 
   const [buttonText, setButtonText] = useState("Create Job");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
@@ -90,8 +94,12 @@ const AddJobPosting = () => {
     setSkills(e.target.value);
   };
 
-  const handleLanguageChange = (e) => {
-    setLanguage(e.target.value);
+  const handleContractLengthChange = (e) => {
+    setContractLength(e.target.value);
+  };
+
+  const handleCompensationChange = (e) => {
+    setCompensation(e.target.value);
   };
 
   const handleExperienceChange = (e) => {
@@ -100,6 +108,14 @@ const AddJobPosting = () => {
 
   const handleDescriptionChange = (e) => {
     setDescription(e.target.value);
+  };
+
+  const handleLocationRequirementChange = (e) => {
+    setLocationRequirement(e.target.value);
+  };
+
+  const handleChangeJobType = (type) => {
+    setJobType(type);
   };
 
   const displayMainContent = () => {
@@ -147,6 +163,10 @@ const AddJobPosting = () => {
     }
   };
 
+  useEffect(() => {
+    setContractLength("");
+  }, [jobType]);
+
   const submitForm = () => {
     let errMessage = [];
     let succMessage = [];
@@ -159,6 +179,10 @@ const AddJobPosting = () => {
       required_skill_set: skills,
       experience_required: experience,
       preffered_language: language,
+      job_type: jobType,
+      contract_length: contractLength,
+      compensation: compensation,
+      location_requirement: locationRequirement,
     };
 
     try {
@@ -387,16 +411,75 @@ const AddJobPosting = () => {
           <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
             <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
               <div className="form-input-holder">
-                <InputLebelComponent title="Preferred Language (optional)" />
+                <InputLebelComponent title="Select Job Type" />
+                <div className="d-flex">
+                  <Button
+                    variant={jobType === 1 ? "primary" : "outline-secondary"}
+                    onClick={() => handleChangeJobType(1)}
+                    size="sm"
+                    className="me-2 rounded-lg"
+                  >
+                    Permanent
+                  </Button>
+                  <Button
+                    variant={jobType === 2 ? "primary" : "outline-secondary"}
+                    onClick={() => handleChangeJobType(2)}
+                    className="rounded-lg"
+                  >
+                    Contract
+                  </Button>
+                </div>
+              </div>
+            </div>
+            {jobType === 2 ? (
+              <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+                <div className="form-input-holder">
+                  <InputLebelComponent title="Contract Length (optional)" />
+                  <div className="d-block">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="preffered-language"
+                      placeholder="Enter contract length"
+                      autocomplete="off"
+                      value={contractLength}
+                      onChange={handleContractLengthChange}
+                    />
+                  </div>
+                </div>
+              </div>
+            ) : null}
+          </div>
+
+          <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Compensation (optional)" />
                 <div className="d-block">
                   <input
                     type="text"
                     className="form-control"
-                    id="preffered-language"
-                    placeholder="Enter preferred language if any"
+                    id="compensation"
+                    placeholder="Enter compensation"
                     autocomplete="off"
-                    value={language}
-                    onChange={handleLanguageChange}
+                    value={compensation}
+                    onChange={handleCompensationChange}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Location Requirement (optional)" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="location_requirement"
+                    placeholder="Enter location requirement"
+                    autocomplete="off"
+                    value={locationRequirement}
+                    onChange={handleLocationRequirementChange}
                   />
                 </div>
               </div>

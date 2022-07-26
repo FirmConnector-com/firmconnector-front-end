@@ -30,6 +30,10 @@ const EditJobPosting = (props) => {
   const [skills, setSkills] = useState("");
   const [experience, setExperience] = useState("");
   const [language, setLanguage] = useState("");
+  const [jobType, setJobType] = useState("1");
+  const [contractLength, setContractLength] = useState("");
+  const [compensation, setCompensation] = useState("");
+  const [locationRequirement, setLocationRequirement] = useState("");
 
   const [buttonText, setButtonText] = useState("Save Changes");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
@@ -63,6 +67,24 @@ const EditJobPosting = (props) => {
 
           if (data.data.job_details.preffered_language !== null) {
             await setLanguage(data.data.job_details.preffered_language);
+          }
+
+          if (data.data.job_details.job_type !== null) {
+            await setJobType(data.data.job_details.job_type);
+          }
+
+          if (data.data.job_details.contract_length !== null) {
+            await setContractLength(data.data.job_details.contract_length);
+          }
+
+          if (data.data.job_details.compensation !== null) {
+            await setCompensation(data.data.job_details.compensation);
+          }
+
+          if (data.data.job_details.location_requirement !== null) {
+            await setLocationRequirement(
+              data.data.job_details.location_requirement
+            );
           }
 
           const firmArray = data.data.job_details.job_firm_access.split(",");
@@ -135,8 +157,12 @@ const EditJobPosting = (props) => {
     setSkills(e.target.value);
   };
 
-  const handleLanguageChange = (e) => {
-    setLanguage(e.target.value);
+  const handleLocationRequirementChange = (e) => {
+    setLocationRequirement(e.target.value);
+  };
+
+  const handleChangeJobType = (type) => {
+    setJobType(type);
   };
 
   const handleExperienceChange = (e) => {
@@ -145,6 +171,14 @@ const EditJobPosting = (props) => {
 
   const handleDescriptionChange = (e) => {
     setDescription(e.target.value);
+  };
+
+  const handleContractLengthChange = (e) => {
+    setContractLength(e.target.value);
+  };
+
+  const handleCompensationChange = (e) => {
+    setCompensation(e.target.value);
   };
 
   const displayMainContent = () => {
@@ -192,6 +226,10 @@ const EditJobPosting = (props) => {
     }
   };
 
+  useEffect(() => {
+    setContractLength("");
+  }, [jobType]);
+
   const submitForm = () => {
     let errMessage = [];
     let succMessage = [];
@@ -205,6 +243,10 @@ const EditJobPosting = (props) => {
       required_skill_set: skills,
       experience_required: experience,
       preffered_language: language,
+      job_type: jobType,
+      contract_length: contractLength,
+      compensation: compensation,
+      location_requirement: locationRequirement,
     };
 
     try {
@@ -421,16 +463,75 @@ const EditJobPosting = (props) => {
         <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
           <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
             <div className="form-input-holder">
-              <InputLebelComponent title="Preferred Language (optional)" />
+              <InputLebelComponent title="Select Job Type" />
+              <div className="d-flex">
+                <Button
+                  variant={jobType === "1" ? "primary" : "outline-secondary"}
+                  onClick={() => handleChangeJobType("1")}
+                  size="sm"
+                  className="me-2 rounded-lg"
+                >
+                  Permanent
+                </Button>
+                <Button
+                  variant={jobType === "2" ? "primary" : "outline-secondary"}
+                  onClick={() => handleChangeJobType("2")}
+                  className="rounded-lg"
+                >
+                  Contract
+                </Button>
+              </div>
+            </div>
+          </div>
+          {jobType === "2" ? (
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Contract Length (optional)" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="preffered-language"
+                    placeholder="Enter contract length"
+                    autocomplete="off"
+                    value={contractLength}
+                    onChange={handleContractLengthChange}
+                  />
+                </div>
+              </div>
+            </div>
+          ) : null}
+        </div>
+
+        <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
+          <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+            <div className="form-input-holder">
+              <InputLebelComponent title="Compensation (optional)" />
               <div className="d-block">
                 <input
                   type="text"
                   className="form-control"
-                  id="preffered-language"
-                  placeholder="Enter preferred language if any"
+                  id="compensation"
+                  placeholder="Enter compensation"
                   autocomplete="off"
-                  value={language}
-                  onChange={handleLanguageChange}
+                  value={compensation}
+                  onChange={handleCompensationChange}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+            <div className="form-input-holder">
+              <InputLebelComponent title="Location Requirement (optional)" />
+              <div className="d-block">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="location_requirement"
+                  placeholder="Enter location requirement"
+                  autocomplete="off"
+                  value={locationRequirement}
+                  onChange={handleLocationRequirementChange}
                 />
               </div>
             </div>

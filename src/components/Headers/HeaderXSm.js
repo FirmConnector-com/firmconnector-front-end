@@ -13,7 +13,7 @@ const HeaderXSm = (props) => {
         <span className="h5 fw-bold">{title}</span>
       </div>
       <div className="d-block">
-        <span className="text-muted-custom">{subText}</span>
+        <span className="text-dark">{subText}</span>
       </div>
     </div>
   );

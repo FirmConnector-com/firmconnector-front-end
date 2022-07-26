@@ -14,6 +14,10 @@ const updateJob = (data) => {
   postData.append("required_skill_set", data.required_skill_set);
   postData.append("experience_required", data.experience_required);
   postData.append("preffered_language", data.preffered_language);
+  postData.append("job_type", data.job_type);
+  postData.append("contract_length", data.contract_length);
+  postData.append("compensation", data.compensation);
+  postData.append("location_requirement", data.location_requirement);
 
   return axios
     .post(UPDATE_JOB_ROUTE, postData)

@@ -206,19 +206,66 @@ const JobDetails = (props) => {
     }
   };
 
-  const displayLanguage = () => {
+  const displayJobType = () => {
+    return (
+      <div className="d-block mt-3">
+        <div className="d-block mb-2">
+          <span className="fs-6 fw-bold">Job Type:</span>
+        </div>
+        <div className="d-block">
+          <Button variant="warning rounded-lg" size={"sm"}>
+            {jobArray.job_type === "1" ? "Permanent" : "Contarct"}
+          </Button>
+        </div>
+      </div>
+    );
+  };
+
+  const displayContractLength = () => {
+    if (jobArray.contract_length !== "" && jobArray.contract_length !== null) {
+      return (
+        <div className="d-block mt-3">
+          <div className="d-block mb-2">
+            <span className="fs-6 fw-bold">Contarct Length:</span>
+          </div>
+          <div className="d-block">
+            <span className="text-muted-custom">
+              {jobArray.contract_length}
+            </span>
+          </div>
+        </div>
+      );
+    }
+  };
+
+  const displayCompensation = () => {
+    if (jobArray.contract_length !== "" && jobArray.contract_length !== null) {
+      return (
+        <div className="d-block mt-3">
+          <div className="d-block mb-2">
+            <span className="fs-6 fw-bold">Compensation:</span>
+          </div>
+          <div className="d-block">
+            <span className="text-muted-custom">{jobArray.compensation}</span>
+          </div>
+        </div>
+      );
+    }
+  };
+
+  const displayLocationRequirement = () => {
     if (
-      jobArray.preffered_language !== "" &&
-      jobArray.preffered_language !== null
+      jobArray.location_requirement !== "" &&
+      jobArray.location_requirement !== null
     ) {
       return (
         <div className="d-block mt-3">
           <div className="d-block mb-2">
-            <span className="fs-6 fw-bold">Preferred Language:</span>
+            <span className="fs-6 fw-bold">Location Requirement:</span>
           </div>
           <div className="d-block">
             <span className="text-muted-custom">
-              {jobArray.preffered_language}
+              {jobArray.location_requirement}
             </span>
           </div>
         </div>
@@ -233,7 +280,10 @@ const JobDetails = (props) => {
           {displayDiscription()}
           {displaySkills()}
           {displayExperience()}
-          {displayLanguage()}
+          {displayJobType()}
+          {displayContractLength()}
+          {displayCompensation()}
+          {displayLocationRequirement()}
         </div>
       </div>
     );
