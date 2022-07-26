@@ -63,7 +63,7 @@ const JobDetails = (props) => {
       <div className="card-custom mb-4">
         <div className="card-body">
           <div className="d-block mb-3">
-            <h4>{jobArray.job_title}</h4>
+            <h5 className="text-info-custom">{jobArray.job_title}</h5>
             <div className="d-dlock">
               <span className="text-secondary">Job ID :</span>{" "}
               <span className="text-dark fw-bold">{jobArray.job_id}</span>
