@@ -83,9 +83,19 @@ const LatestJobListingBlock = () => {
         />
       </div>
       <div className="d-flex justify-content-end my-3">
-        <Link to="/job/my-jobs">
+        <Link to="/job/latest-jobs">
           <Button variant="primary" size="sm">
+            Latest Jobs
+          </Button>
+        </Link>
+        <Link to="/job/my-jobs">
+          <Button variant="outline-secondary" size="sm" className="mx-2">
             My Posted Jobs
+          </Button>
+        </Link>
+        <Link to="/create-job">
+          <Button variant="outline-secondary" size="sm">
+            Create Job
           </Button>
         </Link>
       </div>

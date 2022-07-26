@@ -4,6 +4,7 @@ import InputLebelComponent from "../InputLebel/InputLebelComponent";
 import { Button } from "react-bootstrap";
 import { AlertDanger, AlertInfo, AlertSuccess } from "../Alerts/Alert";
 import HeaderXSm from "../Headers/HeaderXSm";
+import { Link } from "react-router-dom";
 
 //import API
 import createJob from "../../apis/createJob";
@@ -255,12 +256,33 @@ const AddJobPosting = () => {
 
   const displayTopBlock = () => {
     return (
-      <BlockHeader
-        title={"Create a new job posting"}
-        subText={
-          "Populate information below and select which firms to help find candidates"
-        }
-      />
+      <>
+        <div className="d-block">
+          <BlockHeader
+            title={"Create a new job posting"}
+            subText={
+              "Populate information below and select which firms to help find candidates"
+            }
+          />
+        </div>
+        <div className="d-flex justify-content-end my-3">
+          <Link to="/job/latest-jobs">
+            <Button variant="outline-secondary" size="sm">
+              Latest Jobs
+            </Button>
+          </Link>
+          <Link to="/job/my-jobs">
+            <Button variant="outline-secondary" size="sm" className="mx-2">
+              My Posted Jobs
+            </Button>
+          </Link>
+          <Link to="/create-job">
+            <Button variant="primary" size="sm">
+              Create Job
+            </Button>
+          </Link>
+        </div>
+      </>
     );
   };
 

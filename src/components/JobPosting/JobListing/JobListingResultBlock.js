@@ -27,16 +27,16 @@ const JobListingResultBlock = (props) => {
             <div className="d-block">
               <h5>
                 <Link to={`/job/details/${item.job_slug}`}>
-                  <span className="text-dark">{item.job_title}</span>
+                  <span className="text-info-custom">{item.job_title}</span>
                 </Link>
               </h5>
             </div>
             <div className="d-block my-3">
-              <span className="text-muted-custom">
+              <span className="text-dark">
                 {displayDiscription(item.job_description)}
               </span>
             </div>
-            <div className="row d-flex align-items-center">
+            <div className="row d-flex align-items-center rounded py-2 bg-light m-0">
               <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-2 mb-lg-0 mb-xl-0 mb-xxl-0">
                 <div className="d-block">
                   <span className="text-dark">Posted By</span>
@@ -60,7 +60,7 @@ const JobListingResultBlock = (props) => {
               </div>
             </div>
           </div>
-          <div className="d-flex justify-content-end border-top p-3">
+          <div className="d-flex justify-content-end p-3">
             <Link to={`/job/details/${item.job_slug}`}>
               <Button variant="warning" size="sm">
                 View Job
