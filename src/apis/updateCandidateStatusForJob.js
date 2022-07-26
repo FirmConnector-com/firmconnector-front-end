@@ -9,6 +9,7 @@ const updateCandidateStatusForJob = (data) => {
   postData.append("user_slug", data.user_slug);
   postData.append("id", data.id);
   postData.append("status", data.status);
+  postData.append("note", data.note);
 
   return axios
     .post(UPDATE_CANDIDATE_STATUS_FOR_JOB_ROUTE, postData)

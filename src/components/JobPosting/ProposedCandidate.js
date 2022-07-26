@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
 import { Link } from "react-router-dom";
-import { FiFileText, FiFilePlus } from "react-icons/fi";
+import { FiFileText, FiChevronDown } from "react-icons/fi";
 import Button from "react-bootstrap/Button";
 import getPrefferedCandidate from "../../apis/getPrefferedCandidate";
 import ProfileImageMd from "../../components/CommonComponent/ProfileImageMd";
 import ProposedCandidateNoteModal from "./ProposedCandidateNoteModal";
-import CandidateNoteAddModal from "./CandidateNoteAddModal";
+import StatusUpdateModal from "./StatusUpdateModal";
+
 import { FIRM_IMAGE_BASE } from "../../config/env";
 import { useAuthContext } from "../../context/AuthContext";
-import updateCandidateStatusForJob from "../../apis/updateCandidateStatusForJob";
 
 const ProposedCandidate = (props) => {
   const { userDetails } = useAuthContext();
@@ -22,12 +22,11 @@ const ProposedCandidate = (props) => {
   const [apiStatusMessage, setApiStatusMessage] = useState(true);
   const [hasData, setHasData] = useState(false);
   const [openNoteViewModal, setOpenNoteViewModal] = useState(false);
-  const [openNoteAddModal, setOpenNoteAddModal] = useState(false);
-  const [selectedCandidateName, setSelectedCandidateName] = useState(false);
   const [selectedCandidateSlug, setSelectedCandidateSlug] = useState(false);
   const [selectedJobId, setSelectedJobId] = useState(false);
-  const [isUpdating, setIsUpdating] = useState(false);
-  const [selectedId, setSelectedId] = useState(false);
+  const [isStatusChangeModalOpen, setIsStatusChangeModalOpen] = useState(false);
+  const [selectedAutoId, setSelectedAutoId] = useState(false);
+  const [selectedStatusId, setSelectedStatusId] = useState(false);
 
   useEffect(() => {
     if (jobSlug) {
@@ -41,19 +40,12 @@ const ProposedCandidate = (props) => {
     await setOpenNoteViewModal(true);
   };
 
-  const openAddNoteModal = async (name, rSlug, job) => {
-    await setSelectedCandidateSlug(rSlug);
-    await setSelectedCandidateName(name);
-    await setSelectedJobId(job);
-    await setOpenNoteAddModal(true);
-  };
-
   const handleNoteViewClose = () => {
     setOpenNoteViewModal(false);
   };
 
-  const handleNoteAddClose = () => {
-    setOpenNoteAddModal(false);
+  const handleStatusModalClose = () => {
+    setIsStatusChangeModalOpen(false);
   };
 
   const getCandidates = () => {
@@ -96,45 +88,27 @@ const ProposedCandidate = (props) => {
     }
   };
 
-  const updateCandidateJobStatus = async (id, status) => {
-    await setSelectedId(id);
-    setIsUpdating(true);
+  const openStatusChangeModal = (id, status) => {
+    setIsStatusChangeModalOpen(true);
+    setSelectedAutoId(id);
+    setSelectedStatusId(status);
+  };
 
-    let formData = {
-      user_slug: currentUser.user_slug,
-      id: id,
-      status: status,
-    };
+  const onNewStatusChange = (id, candidate_status, status_title) => {
+    setDataArray((td) =>
+      td.map((item, key) => {
+        if (item.auto_id === id) {
+          let newArray = item;
 
-    try {
-      updateCandidateStatusForJob(formData).then(async (data) => {
-        if (data?.data) {
-          if (data.data.status === 1) {
-            setDataArray((td) =>
-              td.map((item, key) => {
-                if (item.auto_id === id) {
-                  let newArray = item;
+          newArray.candidate_status = candidate_status;
+          newArray.candidate_propose_status = status_title;
 
-                  newArray.candidate_status = data.data.candidate_status;
-                  newArray.candidate_propose_status = data.data.status_title;
-
-                  return { ...item, newArray };
-                }
-
-                return item;
-              })
-            );
-            setIsUpdating(false);
-          } else {
-            setIsUpdating(false);
-          }
-        } else {
-          setIsUpdating(false);
+          return { ...item, newArray };
         }
-      });
-    } catch (error) {
-      setIsUpdating(false);
-    }
+
+        return item;
+      })
+    );
   };
 
   const displayCandidateItems = () => {
@@ -191,52 +165,27 @@ const ProposedCandidate = (props) => {
                           size="sm"
                           className="me-2 rounded-lg"
                           onClick={() =>
-                            updateCandidateJobStatus(
+                            openStatusChangeModal(
                               item.auto_id,
                               item.candidate_status
                             )
                           }
-                          disabled={isUpdating && selectedId === item.auto_id}
                         >
-                          {isUpdating && selectedId === item.auto_id ? (
-                            <>
-                              <Spinner
-                                as="span"
-                                animation="border"
-                                size="sm"
-                                role="status"
-                                aria-hidden="true"
-                              />
-                              &nbsp;
-                            </>
-                          ) : null}
-
-                          {item.candidate_propose_status}
+                          {item.candidate_propose_status}&nbsp;{" "}
+                          <FiChevronDown className="fw-bold fs-5" />
                         </Button>
                       ) : null}
 
                       <Button
-                        variant="outline-success"
+                        variant="primary"
                         size="sm"
-                        onClick={() =>
-                          openAddNoteModal(
-                            item.resource_name,
-                            item.user_slug,
-                            item.job_id
-                          )
-                        }
-                        className="me-2"
-                      >
-                        <FiFilePlus /> Add Notes
-                      </Button>
-                      <Button
-                        variant="outline-primary"
-                        size="sm"
+                        className="rounded-lg"
                         onClick={() =>
                           openViewNoteModal(item.user_slug, item.job_id)
                         }
                       >
-                        <FiFileText /> View Notes
+                        Candidate Notes &nbsp;{" "}
+                        <FiFileText className="fw-bold fs-6" />
                       </Button>
                     </div>
                   </div>
@@ -251,12 +200,13 @@ const ProposedCandidate = (props) => {
           handleClose={handleNoteViewClose}
           jobId={selectedJobId}
         />
-        <CandidateNoteAddModal
-          resourceSlug={selectedCandidateSlug}
-          open={openNoteAddModal}
-          handleClose={handleNoteAddClose}
-          candidateName={selectedCandidateName}
-          jobId={selectedJobId}
+        <StatusUpdateModal
+          userSlug={currentUser.user_slug}
+          open={isStatusChangeModalOpen}
+          handleClose={handleStatusModalClose}
+          autoId={selectedAutoId}
+          selectedStatusId={selectedStatusId}
+          onNewStatusChange={onNewStatusChange}
         />
       </>
     );

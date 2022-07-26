@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
-import { Button } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
+import CandidateNoteAdd from "./CandidateNoteAdd";
 import ProfileImageSmall from "../../components/CommonComponent/ProfileImageSmall";
-
 import getCandidateJobNotes from "../../apis/getCandidateJobNotes";
+import { FIRM_IMAGE_BASE } from "../../config/env";
 
 const ProposedCandidateNoteModal = (props) => {
   const { resourceSlug, jobId, open, handleClose } = props;
@@ -14,6 +14,15 @@ const ProposedCandidateNoteModal = (props) => {
   const [hasData, setHasData] = useState(false);
   const [apiStatusMessage, setApiStatusMessage] = useState(false);
   const [Data, setData] = useState(false);
+  const [newAdd, setNewAdd] = useState(false);
+
+  const listEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    listEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(scrollToBottom, [newAdd]);
 
   useEffect(() => {
     if (open) {
@@ -52,6 +61,11 @@ const ProposedCandidateNoteModal = (props) => {
     }
   };
 
+  const updateNoteList = async (itemArray) => {
+    await setData((oldArray) => [itemArray, ...oldArray]);
+    await setNewAdd(itemArray);
+  };
+
   const handleModalClose = () => {
     handleClose();
   };
@@ -82,7 +96,7 @@ const ProposedCandidateNoteModal = (props) => {
 
   const displayItems = () => {
     return (
-      <div className="d-block">
+      <div className="d-block" ref={listEndRef}>
         <>
           {Data.map(function (item, index) {
             return (
@@ -93,16 +107,23 @@ const ProposedCandidateNoteModal = (props) => {
                       <ProfileImageSmall imgSrc={item.profile_image_path} />
                     </div>
                     <div className="d-block">
-                      <div className="d-block mb-3">
-                        <div className="d-block">
-                          <span className="text-dark h6">
-                            {item.created_by}
-                          </span>
+                      <div className="row mb-3">
+                        <div className="col-12 col-lg-8 col-xl-8 col-xxl-8">
+                          <div className="d-block mb-3">
+                            <div className="d-block">
+                              <span className="text-dark h6">
+                                {item.created_by}
+                              </span>
+                            </div>
+                            <div className="d-block">
+                              <span className="text-muted-custom">
+                                on {item.added_on}
+                              </span>
+                            </div>
+                          </div>
                         </div>
-                        <div className="d-block">
-                          <span className="text-muted-custom">
-                            on {item.added_on}
-                          </span>
+                        <div className="col-12 col-lg-4 col-xl-4 col-xxl-4">
+                          {displayFirm(item.firm_logo)}
                         </div>
                       </div>
                       <div className="d-block p-2 bg-light align-self-start rounded">
@@ -119,15 +140,29 @@ const ProposedCandidateNoteModal = (props) => {
     );
   };
 
+  const displayFirm = (logo_path) => {
+    return (
+      <div
+        className="firm-logo-sm-custom"
+        style={{
+          backgroundImage: `url("${FIRM_IMAGE_BASE + logo_path}")`,
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></div>
+    );
+  };
+
   return (
     <Modal
       show={showModal}
       onHide={() => handleModalClose()}
-      scrollable={true}
       backdrop="static"
-      size="md"
+      size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      scrollable={true}
     >
       <Modal.Header>
         <div className="d-block">
@@ -139,9 +174,12 @@ const ProposedCandidateNoteModal = (props) => {
       <Modal.Body className="bg-light">{displayNotes()}</Modal.Body>
 
       <Modal.Footer>
-        <Button variant="dark" size={"sm"} onClick={() => handleClose()}>
-          Close
-        </Button>
+        <CandidateNoteAdd
+          resourceSlug={resourceSlug}
+          jobId={jobId}
+          handleClose={handleClose}
+          updateNoteList={updateNoteList}
+        />
       </Modal.Footer>
     </Modal>
   );

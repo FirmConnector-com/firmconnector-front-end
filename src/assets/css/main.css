@@ -477,8 +477,10 @@ a{
 }
 
 .btn {
-   font-weight: 500 !important;
-   /* font-size: 1em !important; */
+   display: flex !important;
+   justify-content: center!important;
+   align-items: center!important;
+   font-size: .923rem !important;
 }
 
 .search-location-auto-complete-block{
