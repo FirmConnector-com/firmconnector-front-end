@@ -22,7 +22,9 @@ const LatestJobListingResultBlock = (props) => {
             <div className="d-block">
               <h5>
                 <Link to={`/job/details/${item.job_slug}`}>
-                  <span className="text-info-custom h5">{item.job_title}</span>
+                  <span className="text-info-custom h5">
+                    {item.job_id} :: {item.job_title}
+                  </span>
                 </Link>
               </h5>
             </div>
