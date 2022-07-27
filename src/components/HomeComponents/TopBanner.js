@@ -1,7 +1,6 @@
 import React from "react";
 
 import banner_image from "../../assets/images/banner_left.svg";
-import ButtonLg from "../Buttons/ButtonLg";
 import "./home.css";
 
 const TopBannerComponent = () => {

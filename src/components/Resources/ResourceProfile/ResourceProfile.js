@@ -54,49 +54,44 @@ const ResourceProfile = (props) => {
       return <LoadingPageSm title={"Loading resource details..."} />;
     } else {
       return (
-        <div>
-          <div className="col-12 mb-4">
-            <div className="d-flex">
-              {rmId === user_slug ? (
-                <>
-                  <div className="me-2">
-                    <Button
-                      onClick={() => changeView("default")}
-                      variant={
-                        displayView === "default" ? "primary" : "secondary"
-                      }
-                      size="sm"
-                      className="ms-2"
-                    >
-                      Default View
-                    </Button>
-                  </div>
-                  <div className="me-2">
-                    <Button
-                      onClick={() => changeView("client")}
-                      variant={
-                        displayView === "client" ? "primary" : "secondary"
-                      }
-                      size="sm"
-                      className="ms-2"
-                    >
-                      Client View
-                    </Button>
-                  </div>
-                  <Link
-                    to={
-                      firmType === "1"
-                        ? "/my-team/edit-resource/" + resourceSlug
-                        : "/resources/edit-resource/" + resourceSlug
+        <>
+          <div className="d-flex mb-4">
+            {rmId === user_slug ? (
+              <>
+                <div className="me-2">
+                  <Button
+                    onClick={() => changeView("default")}
+                    variant={
+                      displayView === "default" ? "primary" : "secondary"
                     }
+                    size="sm"
                   >
-                    <Button variant="success" size="sm" className="ms-2">
-                      Edit Profile
-                    </Button>
-                  </Link>
-                </>
-              ) : null}
-            </div>
+                    Default View
+                  </Button>
+                </div>
+                <div className="me-2">
+                  <Button
+                    onClick={() => changeView("client")}
+                    variant={displayView === "client" ? "primary" : "secondary"}
+                    size="sm"
+                    className="ms-2"
+                  >
+                    Client View
+                  </Button>
+                </div>
+                <Link
+                  to={
+                    firmType === "1"
+                      ? "/my-team/edit-resource/" + resourceSlug
+                      : "/resources/edit-resource/" + resourceSlug
+                  }
+                >
+                  <Button variant="success" size="sm" className="ms-2">
+                    Edit Profile
+                  </Button>
+                </Link>
+              </>
+            ) : null}
           </div>
           <ResourceProfileTopSection
             displayView={displayView}
@@ -106,7 +101,7 @@ const ResourceProfile = (props) => {
             displayView={displayView}
             resourceDetails={resourceDetails}
           />
-        </div>
+        </>
       );
     }
   };

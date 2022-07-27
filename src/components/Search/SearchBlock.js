@@ -772,7 +772,7 @@ const SearchBlock = () => {
   };
 
   return (
-    <div className="container">
+    <div className="d-block">
       <BlockHeader
         title={"Search"}
         subText={"Search for resources/ skills/ location/ roles"}

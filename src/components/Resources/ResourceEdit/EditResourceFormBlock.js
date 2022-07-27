@@ -25,7 +25,7 @@ const EditResourceFormBlock = (props) => {
           }
           target="_blank"
         >
-          <Button variant="light" size="sm" className="ms-2">
+          <Button variant="light" size="sm">
             See Public Profile
           </Button>
         </Link>
