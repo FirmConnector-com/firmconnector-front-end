@@ -29,11 +29,11 @@ const EditJobPosting = (props) => {
   const [selectedJobSlug, setSelectedJobSlug] = useState("");
   const [skills, setSkills] = useState("");
   const [experience, setExperience] = useState("");
-  const [language, setLanguage] = useState("");
   const [jobType, setJobType] = useState("1");
   const [contractLength, setContractLength] = useState("");
   const [compensation, setCompensation] = useState("");
   const [locationRequirement, setLocationRequirement] = useState("");
+  const [other, setOther] = useState("");
 
   const [buttonText, setButtonText] = useState("Save Changes");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
@@ -65,10 +65,6 @@ const EditJobPosting = (props) => {
             await setExperience(data.data.job_details.experience_required);
           }
 
-          if (data.data.job_details.preffered_language !== null) {
-            await setLanguage(data.data.job_details.preffered_language);
-          }
-
           if (data.data.job_details.job_type !== null) {
             await setJobType(data.data.job_details.job_type);
           }
@@ -85,6 +81,10 @@ const EditJobPosting = (props) => {
             await setLocationRequirement(
               data.data.job_details.location_requirement
             );
+          }
+
+          if (data.data.job_details.other !== null) {
+            await setOther(data.data.job_details.other);
           }
 
           const firmArray = data.data.job_details.job_firm_access.split(",");
@@ -177,6 +177,10 @@ const EditJobPosting = (props) => {
     setContractLength(e.target.value);
   };
 
+  const handleOtherChange = (e) => {
+    setOther(e.target.value);
+  };
+
   const handleCompensationChange = (e) => {
     setCompensation(e.target.value);
   };
@@ -242,11 +246,11 @@ const EditJobPosting = (props) => {
       job_slug: selectedJobSlug,
       required_skill_set: skills,
       experience_required: experience,
-      preffered_language: language,
       job_type: jobType,
       contract_length: contractLength,
       compensation: compensation,
       location_requirement: locationRequirement,
+      other: other,
     };
 
     try {
@@ -491,7 +495,7 @@ const EditJobPosting = (props) => {
                   <input
                     type="text"
                     className="form-control"
-                    id="preffered-language"
+                    id="contract"
                     placeholder="Enter contract length"
                     autocomplete="off"
                     value={contractLength}
@@ -532,6 +536,24 @@ const EditJobPosting = (props) => {
                   autocomplete="off"
                   value={locationRequirement}
                   onChange={handleLocationRequirementChange}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
+          <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+            <div className="form-input-holder">
+              <InputLebelComponent title="Other (optional)" />
+              <div className="d-block">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="other"
+                  placeholder="Enter other requirements"
+                  autocomplete="off"
+                  value={other}
+                  onChange={handleOtherChange}
                 />
               </div>
             </div>

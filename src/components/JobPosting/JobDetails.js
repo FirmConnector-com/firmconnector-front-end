@@ -63,7 +63,9 @@ const JobDetails = (props) => {
       <div className="card-custom mb-4">
         <div className="card-body">
           <div className="d-block mb-3">
-            <h5 className="text-info-custom">{jobArray.job_title}</h5>
+            <span className="text-info-custom fs-4 fw-bold">
+              {jobArray.job_title}
+            </span>
             <div className="d-dlock">
               <span className="text-secondary">Job ID :</span>{" "}
               <span className="text-dark fw-bold">{jobArray.job_id}</span>
@@ -98,7 +100,7 @@ const JobDetails = (props) => {
       return (
         <div className="d-block">
           <div className="d-block mb-2">
-            <span className="fs-6 fw-bold">Job Overview:</span>
+            <span className="fs-5 fw-bold">Job Overview:</span>
           </div>
           <div className="d-block">{checkDescriptionlength()}</div>
         </div>
@@ -115,11 +117,9 @@ const JobDetails = (props) => {
       if (jobArray.job_description.length > 200) {
         return (
           <>
-            <span className="text-muted-custom">
-              {jobArray.job_description.substr(0, 199) + "..."}
-            </span>{" "}
+            <span>{jobArray.job_description.substr(0, 199) + "..."}</span>{" "}
             <span
-              className="text-info-custom cursor-pointer fw-bold"
+              className="text-info-custom cursor-pointer fw-medium-custom"
               onClick={() => setIsOpen(true)}
             >
               Read more
@@ -145,7 +145,7 @@ const JobDetails = (props) => {
         <Modal.Header>
           <div className="d-block">
             <div className="d-block">
-              <span className="fs-6 fw-bold-custom">Job Overview</span>
+              <span className="fs-5 fw-bold-custom">Job Overview</span>
             </div>
           </div>
         </Modal.Header>
@@ -174,12 +174,10 @@ const JobDetails = (props) => {
       return (
         <div className="d-block mt-3">
           <div className="d-block mb-2">
-            <span className="fs-6 fw-bold">Required Skills:</span>
+            <span className="fs-5 fw-bold">Required Skills:</span>
           </div>
           <div className="d-block">
-            <span className="text-muted-custom">
-              {jobArray.required_skill_set}
-            </span>
+            <span className="text-dark">{jobArray.required_skill_set}</span>
           </div>
         </div>
       );
@@ -194,12 +192,10 @@ const JobDetails = (props) => {
       return (
         <div className="d-block mt-3">
           <div className="d-block mb-2">
-            <span className="fs-6 fw-bold">Experience Required:</span>
+            <span className="fs-5 fw-bold">Experience Required:</span>
           </div>
           <div className="d-block">
-            <span className="text-muted-custom">
-              {jobArray.experience_required}
-            </span>
+            <span className="text-dark">{jobArray.experience_required}</span>
           </div>
         </div>
       );
@@ -210,7 +206,7 @@ const JobDetails = (props) => {
     return (
       <div className="d-block mt-3">
         <div className="d-block mb-2">
-          <span className="fs-6 fw-bold">Job Type:</span>
+          <span className="fs-5 fw-bold">Job Type:</span>
         </div>
         <div className="d-block">
           <Button variant="warning rounded-lg" size={"sm"}>
@@ -226,12 +222,10 @@ const JobDetails = (props) => {
       return (
         <div className="d-block mt-3">
           <div className="d-block mb-2">
-            <span className="fs-6 fw-bold">Contarct Length:</span>
+            <span className="fs-5 fw-bold">Contarct Length:</span>
           </div>
           <div className="d-block">
-            <span className="text-muted-custom">
-              {jobArray.contract_length}
-            </span>
+            <span className="text-dark">{jobArray.contract_length}</span>
           </div>
         </div>
       );
@@ -243,10 +237,10 @@ const JobDetails = (props) => {
       return (
         <div className="d-block mt-3">
           <div className="d-block mb-2">
-            <span className="fs-6 fw-bold">Compensation:</span>
+            <span className="fs-5 fw-bold">Compensation:</span>
           </div>
           <div className="d-block">
-            <span className="text-muted-custom">{jobArray.compensation}</span>
+            <span className="text-dark">{jobArray.compensation}</span>
           </div>
         </div>
       );
@@ -261,12 +255,25 @@ const JobDetails = (props) => {
       return (
         <div className="d-block mt-3">
           <div className="d-block mb-2">
-            <span className="fs-6 fw-bold">Location Requirement:</span>
+            <span className="fs-5 fw-bold">Location Requirement:</span>
           </div>
           <div className="d-block">
-            <span className="text-muted-custom">
-              {jobArray.location_requirement}
-            </span>
+            <span className="text-dark">{jobArray.location_requirement}</span>
+          </div>
+        </div>
+      );
+    }
+  };
+
+  const displayOtherRequirement = () => {
+    if (jobArray.other !== "" && jobArray.other !== null) {
+      return (
+        <div className="d-block mt-3">
+          <div className="d-block mb-2">
+            <span className="fs-5 fw-bold">Other Requirement:</span>
+          </div>
+          <div className="d-block">
+            <span className="text-dark">{jobArray.other}</span>
           </div>
         </div>
       );
@@ -284,6 +291,7 @@ const JobDetails = (props) => {
           {displayContractLength()}
           {displayCompensation()}
           {displayLocationRequirement()}
+          {displayOtherRequirement()}
         </div>
       </div>
     );

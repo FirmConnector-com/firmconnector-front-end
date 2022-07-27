@@ -25,7 +25,7 @@ const AddJobPosting = () => {
 
   const [skills, setSkills] = useState("");
   const [experience, setExperience] = useState("");
-  const [language, setLanguage] = useState("");
+  const [other, setOther] = useState("");
   const [jobType, setJobType] = useState(1);
   const [contractLength, setContractLength] = useState("");
   const [compensation, setCompensation] = useState("");
@@ -114,6 +114,10 @@ const AddJobPosting = () => {
     setLocationRequirement(e.target.value);
   };
 
+  const handleOtherChange = (e) => {
+    setOther(e.target.value);
+  };
+
   const handleChangeJobType = (type) => {
     setJobType(type);
   };
@@ -178,11 +182,11 @@ const AddJobPosting = () => {
       firm_ids: selectedFirmList,
       required_skill_set: skills,
       experience_required: experience,
-      preffered_language: language,
       job_type: jobType,
       contract_length: contractLength,
       compensation: compensation,
       location_requirement: locationRequirement,
+      other: other,
     };
 
     try {
@@ -439,7 +443,7 @@ const AddJobPosting = () => {
                     <input
                       type="text"
                       className="form-control"
-                      id="preffered-language"
+                      id="contract"
                       placeholder="Enter contract length"
                       autocomplete="off"
                       value={contractLength}
@@ -480,6 +484,24 @@ const AddJobPosting = () => {
                     autocomplete="off"
                     value={locationRequirement}
                     onChange={handleLocationRequirementChange}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
+            <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+              <div className="form-input-holder">
+                <InputLebelComponent title="Other (optional)" />
+                <div className="d-block">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="other"
+                    placeholder="Enter other requirements"
+                    autocomplete="off"
+                    value={other}
+                    onChange={handleOtherChange}
                   />
                 </div>
               </div>
