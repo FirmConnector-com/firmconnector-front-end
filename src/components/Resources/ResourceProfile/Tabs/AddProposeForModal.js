@@ -7,6 +7,7 @@ import { useAuthContext } from "../../../../context/AuthContext";
 import InputLebelComponent from "../../../InputLebel/InputLebelComponent";
 import getAvailableProposeJob from "../../../../apis/getAvailableProposeJob";
 import addProposeJob from "../../../../apis/addProposeJob";
+import Dropdown from "react-bootstrap/Dropdown";
 
 const AddProposeForModal = (props) => {
   const { resourceSlug, open, handleClose } = props;
@@ -84,8 +85,8 @@ const AddProposeForModal = (props) => {
     handleClose();
   };
 
-  const handleJobIdChange = (e) => {
-    setJobId(e.target.value);
+  const selectJob = (id) => {
+    setJobId(id);
   };
 
   const displayAvailableJobList = () => {
@@ -116,26 +117,52 @@ const AddProposeForModal = (props) => {
     return (
       <div className="d-block">
         <div className="form-input-holder">
-          <InputLebelComponent title="Select Job" />
-          <div className="d-block">
-            <select
-              class="form-select"
-              aria-label="Select job"
-              onChange={handleJobIdChange}
-              value={jobId}
-            >
-              <option value="0">Select any job</option>
-              {jobData.map(function (item, index) {
-                return (
-                  <option value={item.job_id} key={index}>
-                    {item.job_title} - by {item.creator_name}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
+          <p className="text-info-custom">
+            Click on any job down below to propose
+          </p>
+          {displayStatusMessage()}
+          {jobData.map(function (item, index) {
+            return (
+              <div
+                className="d-block my-2"
+                key={index}
+                onClick={() => selectJob(item.job_id)}
+              >
+                <div
+                  className={`card-custom cursor-pointer ${
+                    item.job_id === jobId ? "bg-primary" : ""
+                  }`}
+                >
+                  <div className="card-body">
+                    <div className="d-block">
+                      <span className="fw-bold">
+                        {item.job_id} :: {item.job_title}
+                      </span>
+                    </div>
+                    <div className="d-block my-2">
+                      <span className="text-dark">Posted by: </span>
+                      <span
+                        className={`${
+                          item.job_id === jobId
+                            ? "text-white"
+                            : "text-info-custom"
+                        }`}
+                      >
+                        {item.creator_name}
+                      </span>
+
+                      {item.firm_name !== "" ? (
+                        <span className="text-dark"> ({item.firm_name})</span>
+                      ) : (
+                        <span className="text-dark"> ({item.user_email})</span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
-        {displayStatusMessage()}
       </div>
     );
   };
@@ -241,7 +268,6 @@ const AddProposeForModal = (props) => {
       backdrop="static"
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
-      centered
     >
       <Modal.Header>
         <div className="d-block">
