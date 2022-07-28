@@ -15,7 +15,7 @@ body {
    overflow-y:scroll !important;
    letter-spacing: -.006em !important;
    font-size: 0.923em  !important;
-   background-color: #f2f5f9 !important;
+   /* background-color: #f2f5f9 !important; */
    min-height: 100% !important;
 }
 
@@ -208,9 +208,10 @@ a{
     border: 0.14rem solid var(--info-dark) !important;
 }
 
-.form-control{
+.form-control,.form-select{
    color: var(--black);
-   border: 0.14rem solid var(--info-dark) !important;
+   /* border: 0.14rem solid var(--info-dark) !important; */
+   padding: 0.675rem 0.75rem !important;
 }
 
 .input-without-outline{
