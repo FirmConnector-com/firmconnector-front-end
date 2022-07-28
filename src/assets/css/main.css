@@ -566,7 +566,7 @@ a{
 
 .offcanvas-start{
    width: 18rem !important;
-   background-color: var(--info-dark) !important;
+   background-color: var(--white) !important;
 }
 
 .btn{
