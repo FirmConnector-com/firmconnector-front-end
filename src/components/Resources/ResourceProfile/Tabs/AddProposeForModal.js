@@ -4,13 +4,11 @@ import Alert from "react-bootstrap/Alert";
 import { Button } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import { useAuthContext } from "../../../../context/AuthContext";
-import InputLebelComponent from "../../../InputLebel/InputLebelComponent";
 import getAvailableProposeJob from "../../../../apis/getAvailableProposeJob";
 import addProposeJob from "../../../../apis/addProposeJob";
-import Dropdown from "react-bootstrap/Dropdown";
 
 const AddProposeForModal = (props) => {
-  const { resourceSlug, open, handleClose } = props;
+  const { resourceSlug, open, handleClose, onNewProposeChange } = props;
   const { userDetails } = useAuthContext();
   const userSlug = JSON.parse(userDetails).user_slug;
 
@@ -24,7 +22,6 @@ const AddProposeForModal = (props) => {
   const [hasSubmitMessage, setHasSubmitMessage] = useState(false);
   const [submitMessage, setSubmitMessage] = useState(false);
   const [submitError, setSubmitError] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [buttonText, setButtonText] = useState("Save changes");
 
@@ -40,7 +37,6 @@ const AddProposeForModal = (props) => {
       setSubmitMessage(false);
       setHasSubmitMessage(false);
       setSubmitError(false);
-      setSubmitSuccess(false);
       getAvailableJob();
     } else {
       setIsJobLoading(true);
@@ -53,7 +49,6 @@ const AddProposeForModal = (props) => {
       setSubmitMessage(false);
       setHasSubmitMessage(false);
       setSubmitError(false);
-      setSubmitSuccess(false);
     }
   }, [open]);
 
@@ -188,7 +183,6 @@ const AddProposeForModal = (props) => {
     setButtonText("Processing, please wait...");
     setHasSubmitMessage(false);
     setSubmitError(false);
-    setSubmitSuccess(false);
 
     if (jobId > 0) {
       submitForm();
@@ -198,7 +192,6 @@ const AddProposeForModal = (props) => {
       setButtonText("Save changes");
       setHasSubmitMessage(true);
       setSubmitError(true);
-      setSubmitSuccess(false);
       setSubmitMessage("Please select a job from the list.");
     }
   };
@@ -217,12 +210,13 @@ const AddProposeForModal = (props) => {
             setIsProcessing(false);
             setButtonText("Save changes");
             setHasSubmitMessage(true);
-            setSubmitSuccess(true);
             setSubmitMessage(data.data.message);
 
-            setTimeout(() => {
-              window.location.reload(false);
-            }, 1000);
+            if (data.data.propose) {
+              await onNewProposeChange(data.data.propose);
+            }
+
+            handleClose();
           } else {
             setIsButtonDisabled(false);
             setIsProcessing(false);
@@ -237,7 +231,6 @@ const AddProposeForModal = (props) => {
           setButtonText("Save changes");
           setHasSubmitMessage(true);
           setSubmitError(true);
-          setSubmitSuccess(false);
           setSubmitMessage(
             "We are unable to process your request. Please try again later."
           );
@@ -249,7 +242,6 @@ const AddProposeForModal = (props) => {
       setButtonText("Save changes");
       setHasSubmitMessage(true);
       setSubmitError(true);
-      setSubmitSuccess(false);
       setSubmitMessage(
         "We are unable to process your request. Please try again later."
       );

@@ -106,10 +106,10 @@ const ProposedCandidateNoteModal = (props) => {
                     <div className="d-block me-2">
                       <ProfileImageSmall imgSrc={item.profile_image_path} />
                     </div>
-                    <div className="d-block">
-                      <div className="row mb-3">
+                    <div className="w-100">
+                      <div className="row mb-1">
                         <div className="col-12 col-lg-8 col-xl-8 col-xxl-8">
-                          <div className="d-block mb-3">
+                          <div className="d-block mb-1">
                             <div className="d-block">
                               <span className="text-dark h6">
                                 {item.created_by}
@@ -122,12 +122,12 @@ const ProposedCandidateNoteModal = (props) => {
                             </div>
                           </div>
                         </div>
-                        <div className="col-12 col-lg-4 col-xl-4 col-xxl-4">
+                        <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 d-flex justify-content-end">
                           {displayFirm(item.firm_logo)}
                         </div>
                       </div>
-                      <div className="d-block p-2 bg-light align-self-start rounded">
-                        <span>{item.note}</span>
+                      <div className="d-block mt-1">
+                        <span className="text-dark">{item.note}</span>
                       </div>
                     </div>
                   </div>
@@ -161,7 +161,6 @@ const ProposedCandidateNoteModal = (props) => {
       backdrop="static"
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
-      centered
       scrollable={true}
     >
       <Modal.Header>
